@@ -9,7 +9,8 @@
     </author>
   <content src="index.html"/>
   <access origin="*"/>
-  <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="25" />
+  <preference name="android-minSdkVersion" value="10" />
+  <preference name="android-targetSdkVersion" value="25"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
