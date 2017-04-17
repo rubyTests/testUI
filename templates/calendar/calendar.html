@@ -1,0 +1,129 @@
+<ion-view>
+	<ion-header-bar class="bar-assertive-900 bar bar-header" align-title="left">
+				<div class="" ng-click="goback();">
+					<i class="ion ion-arrow-left-c back-icon " ></i>
+			    </div>
+			    <h1 class="title titlecls">{{viewTitle}}</h1>
+			    <div class="buttons buttons-right header-item">
+				   	<span class="right-buttons">
+						<button ng-click="today()" ng-disabled="isToday()" class="buttonhr" disabled="disabled">Today</button>&nbsp;&nbsp;
+						<button ng-click="changeMode('month')" class="buttonhr">M</button>&nbsp;&nbsp;
+						<button ng-click="changeMode('week')" class="buttonhr">W</button>&nbsp;&nbsp;
+						<button ng-click="changeMode('day')" class="buttonhr">D</button>
+						<!-- <button ng-click="loadEvents()" class="button">Load Events</button> -->
+					</span>
+			    </div>
+		</ion-header-bar>
+	
+	<style>
+		.bar .title + .buttons.buttons-right.header-item {
+		    right: 9px;
+		    top: 0;
+		}
+		.table-bordered, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+            border: 1px solid #f4f4f4;
+            border-top-width: 0;
+            margin-top: 2px;
+		}
+		.dayview-allday-content-table td, .weekview-allday-content-table td {
+		    border-left: 1px solid #f4f4f4;
+		    border-right: 1px solid #f4f4f4;
+		}
+		.dayview-allday-table, .weekview-allday-table {
+		    border-bottom: 1px solid #f4f4f4;
+		}
+		.dayview-allday-content-table, .weekview-allday-content-table {
+		    height: 22px;
+		    min-height: 71px;
+		}
+		.event-detail-container {
+		    border-top: 1px solid #a9a9a9;
+		    margin-top: 262px;
+		}
+		ion-slide {
+		    background-color: #fff;
+		}
+		.item.item-divider {
+		    height: 42px;
+		}
+	   .buttonhr {
+		  background:none;
+		  border:none;
+		  color:#FFF;
+		  font-family:Verdana, Geneva, sans-serif;
+		  cursor:pointer;
+		}
+		h1{
+			color:#fff;
+		}
+		.ion.ion-arrow-left-c.back-icon{
+			padding-top: 11px;
+			padding-left: 15px;
+			font-size: 22px;
+		}
+		h1.titlecls {
+		    font-size: 15px !important;
+		}
+		.buttonhr.disabled, .buttonhr[disabled] {
+		    cursor: default !important;
+		    opacity: 0.4;
+		    pointer-events: none;
+		}
+		.bar-footer {
+		    border-bottom-width: 0;
+		    border-top-width: 0;
+		}
+		.cardhead h2{
+			color: black!important;
+		}
+		.item-divider {
+		    background-color: #ffffff!important;
+		}
+		.monthview-selected {
+		    background-color: rgb(53,151,218)!important;
+		    color: #fff;
+		}
+		.fontcs{
+			font-weight: 200;
+			font-size: 17px;
+			padding-top: 11px;
+		}
+		.item{
+            border-color: #ddd;
+            border-bottom-width: 1px;
+        }
+		.item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+		    min-height: 65px !important;
+		    height: 65px !important;
+		}
+		.item.item-avatar {
+			 min-height: 65px !important;
+		}
+		.event-detail-container.backgrnd.scroll-content.ionic-scroll{
+			border-top-width: 0;
+		}
+		.listclass {
+		    margin-bottom: 0 !important;
+		    border-bottom: 1px solid #f4f4f4;
+		}
+		/*.list{
+			border-bottom: 1px solid #f4f4f4;
+		}*/
+    </style>
+    <ion-content scroll="false" class="main-content" ng-init="init()">
+		<calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
+		  range-changed="reloadSource(startTime, endTime)"
+		  event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)"
+		  time-selected="onTimeSelected(selectedTime, events, disabled)" step="30">
+	    </calendar>
+		<ion-list >
+			<div class="">
+			    <a  menu-close ui-sref="AddEvent">
+					<button class="button button-fab button-assertive-900 icon ion-plus" style="float:right;margin-right: 0px;margin-right: 15px;margin-top: -70px;">
+					</button>
+				</a>
+			</div>
+		</ion-list>	  
+    </ion-content>
+    
+</ion-view>

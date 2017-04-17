@@ -1,0 +1,45 @@
+[
+     { 
+        "id":1,
+        "b_name":"Batch 1",
+        "b_number":"1",
+        "img":"img/stripes-blue-white.svg",
+        "timing":"6.30 AM - 8.30 AM"
+
+    },
+     { 
+        "id":1,
+        "b_name":"Batch 2",
+        "b_number":"2",
+        "img":"img/imageslns.png",
+        "timing":"9.45 AM - 3.45 PM"
+    },
+     { 
+        "id":1,
+        "b_name":"Batch 3",
+        "b_number":"3",
+        "img":"img/lines-green-white.svg",
+        "timing":"9.30 AM - 4.30 PM"
+    },
+     { 
+        "id":1,
+        "b_name":"Batch 4",
+        "b_number":"4",
+        "img":"img/yellow-lines-strip-1.svg",
+        "timing":"10.00 AM - 5.30 AM"
+    },
+    { 
+        "id":1,
+        "b_name":"Batch 5",
+        "b_number":"5",
+        "img":"img/green-w1.svg",
+        "timing":"9.30 AM - 5.00 AM"
+    },
+    { 
+        "id":1,
+        "b_name":"Batch 6",
+        "b_number":"6",
+        "img":"img/indexlns.png",
+        "timing":"9.00 AM - 4.00 AM"
+    }
+]

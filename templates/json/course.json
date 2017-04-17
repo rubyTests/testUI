@@ -1,0 +1,56 @@
+[   
+    { 
+        "id":1,
+        "c_name":"Android Application",
+        "img":"img/textK.png",
+        "duration":"1-6 Weeks Training"
+    },
+     { 
+        "id":1,
+        "c_name":"Computer Science",
+        "img":"img/textK.png",
+        "duration":"1-2 Years Training"
+    },
+     { 
+        "id":1,
+        "c_name":"System Architecture",
+        "img":"img/F9A096.jpg",
+        "duration":"1-8 Months Training"
+    },
+     { 
+        "id":1,
+        "c_name":"Networking Application",
+        "img":"img/vio.jpg",
+        "duration":"1-6 Months Training"
+    },
+     { 
+        "id":1,
+        "c_name":"Electronic Communication",
+        "img":"img/CEA785.jpg",
+        "duration":"1-9 Weeks Training"
+    },
+    { 
+        "id":1,
+        "c_name":"Computer Application",
+        "img":"img/imagescr.jpg",
+        "duration":"1-3 Months Training"
+    },
+    { 
+        "id":1,
+        "c_name":"Big Data",
+        "img":"img/imagesgrn.jpg",
+        "duration":"1-5 Months Training"
+    },
+    { 
+        "id":1,
+        "c_name":"Software Engineering",
+        "img":"img/imagescr.jpg",
+        "duration":"1-7 Weeks Training"
+    },
+    { 
+        "id":1,
+        "c_name":"Web Technology",
+        "img":"img/imagesgrn.jpg",
+        "duration":"1-3 Months Training"
+    }
+]

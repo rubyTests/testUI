@@ -1,0 +1,94 @@
+<ion-view>
+     <ion-header-bar side="secondary" class="bar-assertive-900" align-title="left">
+       <div ng-click="goback();" class="IconDiv">
+            <i class="ion ion-arrow-left-c back-icon " ></i>
+        </div>
+        <h1 class="title head">Batches</h1>
+            <div class="buttons buttons-right">
+                <a class="icon ion-ios-search-strong" ng-click="showFilterBar()">
+                </a>
+            </div>
+  </ion-header-bar>
+    <style>
+        .bar .title.head {
+            margin: 0 39px;
+        }
+        .ion.ion-arrow-left-c.back-icon{
+            padding-top: 11px;
+            padding-left: 15px;
+            font-size: 22px;
+        }
+
+         .clearcls{
+            margin-left: 15px !important;
+        }
+        .icon.ion-ios-search-strong.placeholder-icon{
+            padding: 10px;
+        }
+        .icon.ion-ios-search-strong {
+            font-size: 21px;
+            padding: 12px 13px 0 0;
+        }
+        .filter-bar .filter-bar-wrapper .item-input-inset .item-input-wrapper .filter-bar-clear::before {
+            color: #444;
+            font-size: 18px;
+        }
+        .filter-bar .filter-bar-wrapper .item-input-inset .icon.placeholder-icon::before {
+            color: #aaaaaa;
+            font-size: 16px;
+            padding-top: 7px;
+        }
+        .hrBatchcls{
+            margin: 9px 0 0 !important;
+            padding-left: 20px;
+        }
+
+        h1{
+            color: #FFF;
+        }
+        .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+            min-height: 64px;
+        }
+        .ion.ion-arrow-left-c.back-icon{
+            padding-top: 11px;
+            padding-left: 15px;
+        }
+        .item{
+            border-color: #f4f4f4;
+        }
+        ion-item {
+            height: 66px;
+            border-top-width: 1px solid #f4f4f4;
+        }
+        .filter-bar-cancel.button-icon.icon{
+            margin-left:15px !important;
+        }
+        .item .item-content.activated, .item .item-content.active, .item-complex.activated .item-content, .item-complex.active .item-content, .item.activated, .item.active {
+            background-color: #ddd;
+        }
+      
+    </style>
+    <ion-content direction="y" scrollbar-y="false">
+      <!-- 
+        <label class="item item-radio" ng-repeat="batche in batches | filter:data.filterText" ng-click="selectbatch(course)" menu-close ui-sref="StudentAttendanceMarking">
+            <input type="radio" name="group">
+            <div  class="item item-avatar">
+                <img style="top: 10px!important;" src="{{batche.img}}">
+                <h2 class="hrcls">{{batche.b_name}}</h2>
+            </div>
+            <i class="radio-icon ion-checkmark"></i>
+        </label> -->
+        <ion-item class="item item-radio" ng-repeat="batch in batches | filter:data.filterText" ng-click="selectbatch(course)"  ui-sref="StudentAttendanceMarking">
+                <div style="float:left;padding-right: 10px;">
+                    <ionic-letter-avatar data="{{batch.b_number}}" shape="round"></ionic-letter-avatar>
+                </div>
+                <div>
+                    <h2 class="hrBatchcls">{{batch.b_name}}</h2>
+                    <!-- <p>Timing: {{batch.timing}}</p> -->
+                </div>
+           </ion-item>
+        <div ng-if="batches !== undefined && !batches.length" class="no-results">
+          <p>No Results</p>
+        </div>
+    </ion-content>
+</ion-view>

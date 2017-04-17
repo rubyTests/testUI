@@ -1,0 +1,70 @@
+<ion-view>
+     <ion-header-bar side="secondary" class="bar-stable">
+       <div ng-click="goback();" class="IconDiv">
+            <i class="ion ion-arrow-left-c headerICons" ></i>
+        </div>
+        <h1 class="title">Courses</h1>
+            <button class="button button-icon ion ion-android-send button pull-right" ></button>
+            <button class="button button-icon icon ion-ios-search-strong " ng-click="showFilterBar()">
+            </button>
+  </ion-header-bar>
+    <style>
+        .item-icon-left {
+            padding-left: 59px;
+        }
+        
+                .bar .button.button-icon .icon::before, .bar .button.button-icon::before, .bar .button.button-icon.icon-left::before, .bar .button.button-icon.icon-right::before, .bar button.button-icon .icon::before, .bar button.button-icon::before, .bar button.button-icon.icon-left::before, .bar button.button-icon.icon-right::before {
+           /* color: #AAAAAA;*/
+            font-size: 21px;
+            line-height: 38px;
+            vertical-align: top;
+        }
+        .bar-stable .button.button-clear {
+            color: #fff;
+            font-size: 14px;
+
+        }
+        .button.button-icon.ion.ion-android-send.button.pull-right{
+            margin-right: 35px !important;
+            top:3px !important;
+            color: #fff;
+        }
+        .ion-ios-search-strong{
+            color: #fff !important;
+            top: 3px !important;
+        }
+      
+        .filter-bar .filter-bar-wrapper .item-input-inset .item-input-wrapper .filter-bar-clear::before {
+            color: #444;
+            font-size: 18px;
+            margin-left: -15px!important;
+            padding-top: 1px;
+        }
+        .hrcls{
+             font-size: 16px;
+            font-weight: normal;
+            margin: 9px 40px 1px !important;
+        }
+      
+    </style>
+   <ion-content direction="y" scrollbar-y="false">
+    <ion-list>
+        <ion-radio ng-repeat="item in items | filter:data.filterText" class="item item-avatar" ng-click="setOption(item)" ui-sref="test">
+                <img style="top: 16px!important;" src="img/icons/School Filled-150.png">
+                <h2 class="hrcls" ="">{{item.c_name}}</h2>
+                <p></p>
+           
+        </ion-radio>
+     
+    </ion-list>
+
+    <div ng-if="items !== undefined && !items.length" class="no-results">
+      <p>No Results</p>
+    </div>
+
+  </ion-content>
+   
+
+            
+    
+</ion-view>

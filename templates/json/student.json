@@ -1,0 +1,39 @@
+[
+    {"id":1,
+        "name":"Faizer",
+        "roll_no":"002",
+        "img":"img/index1.jpg",
+        "availability":false
+    },
+    {"id":2,
+        "name":"Arun",
+        "roll_no":"003",
+        "img":"img/indexas.jpg",
+        "availability":false
+    },
+    {   "id":3,
+        "name":"Chandru",
+        "roll_no":"004",
+        "img":"img/imagesvj.jpg",
+        "availability":false
+    },
+    {   "id":4,
+        "name":"Ahamed",
+        "roll_no":"005",
+        "img":"img/imageskr.jpg",
+        "availability":false
+    },
+    {   "id":5,
+        "name":"Vijay",
+        "roll_no":"006",
+        "img":"img/imagesens.jpg",
+        "availability":false
+    },
+    {   "id":6,
+        "name":"Ganesh",
+        "roll_no":"007",
+        "img":"img/images.jpg",
+        "availability":false
+    }
+    
+]

@@ -1,0 +1,275 @@
+<!-- <link href="css/checkbox.css" rel="stylesheet"> -->
+<ion-view>
+	<style>
+	    .icon.ion-ios-search-strong.placeholder-icon{
+	    	padding: 10px;
+	    }
+	    .ion.ion-android-send{
+	    	padding: 12px 23px 0 0;
+	    }
+		.icon.ion-ios-search-strong {
+		    font-size: 21px;
+		    padding: 12px 13px 0 0;
+		}
+		.filter-bar .filter-bar-wrapper .item-input-inset .item-input-wrapper .filter-bar-clear::before {
+		    color: #444;
+		    font-size: 18px;
+		    margin-left: 15px!important;
+		    padding-top: 1px;
+		}
+		.avtrclss{
+			background-color: #fff;
+            border: medium none !important;
+		}
+		.popup-head {
+			padding: 0px;
+			border-bottom: none;
+		}
+		.popup-body {
+		    overflow: auto;
+		    padding: 24px;
+		}
+		.linecls{
+			 border-bottom: 1px solid #DDDDDD;
+			border-width: 1px;
+		    margin-left: 11px;
+		    width: 88%;
+		    padding-top: 5px;
+		}
+		.bordercls{
+			border-width: 0!important;
+		}
+		textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+	
+		    font-size: 14px;
+		    height: 41px;
+		    opacity: 1;
+		    padding-left: 4px;
+		    padding-top: 4px;
+		    vertical-align: middle;
+		}
+		.popup-container .popup {
+		    background-color: #FFFFFF;
+		    border-radius: 0;
+		    display: flex;
+		    flex-direction: column;
+		   /*	height: 216px;*/
+		    max-height: 95%;
+		    max-width: 100%;
+		    width: 273px;
+		}
+		.button{
+		    font-size: 14px;
+		   
+		}
+		.listcls{
+			 padding-top: 26px!important;
+		}
+		.list {
+		    margin-bottom: 20px;
+		    padding-bottom: 9px;
+		    padding-left: 0;
+		    padding-top: 0;
+		    position: relative;
+		}
+		.popup-buttons .button {
+		    -moz-box-flex: 1;
+		    border-radius: 2px;
+		    display: block;
+		    flex: 1 1 0;
+		    line-height: 22px;
+		    margin-right: 128px;
+		    min-height: 40px;
+		    min-width: 75px;
+		}
+		.button {
+		    font-size: 14px;
+		    padding-left: 9px;
+		    padding-right: 14px;
+		    text-transform: none;
+		}
+		.button.ng-binding.button-default {
+		    margin-left: 33px;
+		}
+		.button.ng-binding.button-positive {
+			    margin-left: -93px;
+			    margin-right: 45px;
+			}
+		.item-checkbox .checkbox {
+		    left:none !important;
+		    margin-top: -21px;
+		    position: absolute;
+		    right: 8px;
+		    top: 50%;
+		}
+  
+		.checkbox{
+			left:none !important;
+		}
+
+		.clss .clsty{
+		    height: 19px;
+		    padding-left: 42px;
+		}
+		select {
+		    background-color: #fff;
+		    border: medium none;
+		    margin-left: 11px;
+		    width: 88%;
+		    padding-top: 9px;
+		}
+		input::-moz-placeholder {
+			color:black;
+			opacity: 1;
+		}
+		.button {
+    		border-radius: 2px;
+    	}
+	  
+		.activeClass{
+			background-color: #d9d9d9;
+	    	border-color: #ccc;
+		}
+        .hrcls{
+            margin: 3px 0 0 !important;
+        }
+        h1{
+            color: #FFF;
+        }
+      /*  .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+            min-height: 64px;
+            border-top-width: 1px solid #f4f4f4;
+        }*/
+        .item-avatar .item-content {
+		    border-radius: 50%;
+		    box-shadow: none !important;
+		    left: 15px;
+		    max-height: 40px;
+		    max-width: 145px;
+		}
+        .item.item-avatar {
+		    box-shadow: none !important;
+		    min-height: 66px !important;
+		    padding-left: 55px !important;
+		}
+        .ion.ion-arrow-left-c.back-icon{
+            padding-top: 13px;
+            padding-left: 15px;
+        }
+        .item{
+            border-color: #f4f4f4;
+        }
+        ion-item {
+            border-top-width: 1px solid #f4f4f4;
+        }
+		.filter-bar-cancel.button-icon.icon{
+			margin-left:15px !important;
+		}
+		/*.filter-bar-clear.button-icon.icon{
+			padding-left:30px !important;
+		}*/
+		.ion.ion-arrow-left-c.back-icon{
+			padding-top: 11px;
+			padding-left: 15px;
+			font-size: 22px;
+		}
+		.bar .title.head {
+        	margin: 0 39px;
+        }
+        .slide-in-up.ng-enter-active, .slide-in-up > .ng-enter-active {
+		    opacity: 0.89;
+		    transform: translate3d(0px, 0px, 0px);
+		}
+		.item .item-content.activated, .item .item-content.active, .item-complex.activated .item-content, .item-complex.active .item-content, .item.activated, .item.active {
+            background-color: #ddd;
+        }
+
+
+	</style>
+     <ion-header-bar side="secondary" class="bar-assertive-900" align-title="left">
+       <div ng-click="goback();" class="IconDiv">
+		    <i class="ion ion-arrow-left-c back-icon " ></i>
+		</div>
+		<h1 class="title head">Students</h1>
+	   	 	<!-- <button class="buttonhr button-icon ion ion-android-send button pull-right"></button>
+	        <button class="buttonhr button-icon icon ion-ios-search-strong " ng-click="showFilterBar()">
+	        </button> -->
+	        <div class="buttons buttons-right">
+	        	<a class="ion ion-android-send" ng-click="openModal(modalClasses)"></a>
+                <a class="icon ion-ios-search-strong" ng-click="showFilterBar()" >
+                </a>
+            </div>
+  </ion-header-bar>
+   <ion-content direction="y" scrollbar-y="false">
+		<label ng-repeat="student in students | filter:data.filterText" class="item item-avatar clss item-checkbox" ng-class="{activeClass :student.availability}" style="height: 19px !important; padding-left: 54px;" ng-click="putAttdnc(student)" >
+			<div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle" ng-if="student.availability">
+				<i class="ion-checkmark"></i>
+			</div>
+			<div class="item-content disable-pointer-events" style=" height: 19px !important; padding-left: 33px;">
+	        	<img style="top: 16px!important;" src="{{student.img}}">
+			    <h2 class="hrcls">{{student.name}}</h2>
+			    <p>Roll No:{{student.roll_no}}</p>
+	        </div>
+	    </label>
+    <div ng-if="students !== undefined && !students.length" class="no-results">
+      <p>No Results</p>
+    </div>
+
+</ion-content>
+           <!--  <script id="image-modal.html" type="text/ng-template">
+              	<div class="modal image-modal transparent" ng-click="closeModal()">
+                    <ion-pane class="transparent">
+                   	
+						<section class = "home-container">
+						    <div class="row row-center" >
+						        <div class="col text-center" >
+						            <! <img alt="Logo" height="100" src="img/logo.png" > -->
+						          <!--   <img ng-src="{{img}}" class="fullscreen-image"/>
+						            <p style="font-size: 18px;margin-top: 30px;">{{status}}</p>
+						        </div>
+						    </div>
+						</section>
+                  	</ion-pane>
+              	</div>
+            </script> -->
+            <!-- <table style="width: 100%;">
+							
+							  <tr>
+							     <td style="text-align: center; vertical-align: middle;">
+							        <img ng-src="{{status}}" class="fullscreen-image"/ >
+							        <p style="font-size: 20px;">Saved Successfully</p>
+							          
+							     </td>
+							  </tr>
+						</table> -->
+            <script id="my-modal.html" type="text/ng-template">
+			  <ion-modal-view style="opacity: 0.91 !important; bottom: 0;left: 0;min-height: 0;overflow: visible;right: 0;top: 0;width: 100%;">
+			    <div class="ion-modal-content-custom">
+			      <ion-content class="padding " >
+			      		<table style="width: 100%;">
+							
+							  <tr>
+							     <td style="text-align: center; vertical-align: middle;padding-top: 220px;">
+							        <img  alt="Logo" src="img/checkicon.png" height=45 width=45>
+							        <p><b style="font-size: 18px;">SUCCESS</b><br>
+							        	<span>Student attendance marked successfully</span>
+							        </p>
+							        
+							          
+							     </td>
+							  </tr>
+						</table>
+			      
+							<!-- <img  alt="Logo" src="img/Checkmark-26.png" >
+			        		<p style="font-size: 18px;margin-top: 10px;">Saved Successfully</p> -->
+						
+			      <!-- 	<img style="margin-top: 160px;margin-left: 136px;" alt="Logo" src="img/Checkmark-26.png" >
+			        <p style="font-size: 18px;margin-top: 10px;margin-left: 73px;">Saved Successfully</p> -->
+			      </ion-content>
+			    </div>
+			  </ion-modal-view>
+			</script>
+
+		    
+	
+</ion-view>

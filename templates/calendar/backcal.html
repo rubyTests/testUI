@@ -1,0 +1,151 @@
+<ion-view>
+	<!-- <head>
+		<link rel="stylesheet" href="lib/ionic-calendar/dist/css/calendar.css"/>
+		<link rel="stylesheet" href="lib/ionic-calendar/dist/css/calendar.min.css"/>
+		
+	</head> -->
+	<ion-header-bar class="bar-assertive-900 bar bar-header" align-title="left">
+				<div class="" ng-click="goback();">
+					<i class="ion ion-arrow-left-c back-icon " ></i>
+			    </div>
+			    <h1 class="title titlecls">{{viewTitle}}</h1>
+			    <div class="buttons buttons-right header-item">
+				   	<span class="right-buttons">
+						<button ng-click="today()" ng-disabled="isToday()" class="buttonhr" disabled="disabled">Today</button>
+						<button ng-click="changeMode('month')" class="buttonhr">M</button>
+						<button ng-click="changeMode('week')" class="buttonhr">W</button>
+						<button ng-click="changeMode('day')" class="buttonhr">D</button>
+						<!-- <button ng-click="loadEvents()" class="button">Load Events</button> -->
+					</span>
+			    </div>
+		</ion-header-bar>
+	
+	<style>
+		/*.home-head2 {
+		    margin-top: 4px;
+		    padding-left: 7px;
+		}*/
+
+		.item-avatar.testCss{
+			min-height: 47px !important;
+			padding-left: 66px;
+		}
+		.item.item-divider {
+		    height: 42px;
+		}
+	   .buttonhr {
+		  background:none;
+		  border:none;
+		  color:#FFF;
+		  font-family:Verdana, Geneva, sans-serif;
+		  cursor:pointer;
+		}
+		hr {
+		    color: #008000 !important;
+		    background-color:#008000 !important;
+		    border-top-width: 0;
+		    border-left-width: 0;
+            border-right-width: 0;
+		}
+		h1{
+			color:#fff;
+
+		}
+		.ion.ion-arrow-left-c.back-icon{
+			padding-top: 13px;
+			padding-left: 15px;
+		}
+
+		h1.titlecls {
+		    font-size: 15px !important;
+		}
+		/*.title{
+			right:0 !important;
+		}*/
+		.buttonhr.disabled, .buttonhr[disabled] {
+		    cursor: default !important;
+		    opacity: 0.4;
+		    pointer-events: none;
+		}
+		.bar-footer {
+		    border-bottom-width: 0;
+		    border-top-width: 0;
+		}
+		.bar-stable .button {
+		    background-color: rgb(222,1,36);
+		    border-color: rgb(222,1,36);
+		    color: white;
+		}
+		.testCss{
+			margin-top: -21px !important;
+		}
+		.event-detail-container {
+		    border-top: 1px solid #a9a9a9;
+		    margin-top: 261px;
+		}
+		.cardhead h2{
+			color: black!important;
+		}
+		.item-divider {
+		    background-color: #ffffff!important;
+		}
+		.backgrnd{
+			background-color: rgb(221,221,221);
+		}
+		
+		.bodyhgt {
+		    height: 78px !important;
+		    padding: 8px !important;
+		    background-color: #ffffff!important;
+		}
+		.contnt {
+		    margin-bottom: -14px!important;
+		    margin-top: 16px!important;
+		}
+		.item-avatar.testCss > img {
+		    top: 11px !important;
+		}
+		.monthview-selected {
+		    background-color: rgb(53,151,218)!important;
+		    color: #fff;
+		}
+		.imgclr{
+			width:45px;
+			float: center;
+		}
+		.fontcs{
+			font-weight: 200;
+			font-size: 17px;
+			padding-top: 11px;
+		}
+    </style>
+    <ion-content scroll="false" class="main-content" ng-init="init()">
+		<calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
+		  range-changed="reloadSource(startTime, endTime)"
+		  event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)"
+		  time-selected="onTimeSelected(selectedTime, events, disabled)" step="30">
+	    </calendar>
+		<ion-list >
+			<div class="">
+			    <a  menu-close ui-sref="AddEvent">
+					<!-- <img src="img/Plus .png" style="float:right;margin-right: 0px;margin-right: 7px;margin-top: -66px;width: 50px;"> -->
+					<button class="button button-fab button-assertive-900 icon ion-plus" style="float:right;margin-right: 0px;margin-right: 15px;margin-top: -70px;">
+					</button>
+				</a>
+			</div>
+		</ion-list>	  
+    </ion-content>
+    
+</ion-view>
+
+ <!-- <div class="bar bar-footer" style=" height: 63px; border: solid white 0px 0px 0px 0px !important;padding: 0px 0px 0px 0px !important;">
+	  <div class="title"  style="border: solid white 0px !important;">
+	    <a  menu-close ui-sref="AddEvent">
+		<img src="img/Add_Filled-100.png" style="width: 46px;float:right;margin-right: 13px;">
+		</a>
+	  </div>
+	</div> -->
+
+<!-- <div ui-calendar="uiConfig.calendar" ng-model="eventSources"> -->
+
+

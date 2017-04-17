@@ -1,0 +1,61 @@
+<ion-view>
+    <ion-header-bar class="bar-assertive">
+	    <div ng-click="goback();" class="IconDiv">
+		    <i class="ion ion-arrow-left-c back-icon headerICons" style="margin-top: 3px;margin-left: 4px;"></i>
+		</div>
+		<h1 class="title">Attendance Percentage</h1>
+		  
+    </ion-header-bar>
+    <style>
+		
+		#c3_chart_donut{
+			text-align: center!important;
+			max-height: 239px!important;
+			border-bottom: 1px solid rgb(204, 204, 204);
+		}
+    </style>
+    <ion-content scroll="false">
+
+   		<div id="c3_chart_donut" class="c3chart" ></div>
+
+   			<ion-scroll delegate-handle="small" overflow-scroll="true" style="height: 60%;">
+			  	<div class="list">
+				    <div class="item item-avatar">
+				      <img src="img/obsentclr.png">
+				      <h2>12-03-2017</h2>
+				      <p>sick</p>
+				    </div>
+				     <div class="item item-avatar">
+				      <img src="img/obsentclr.png">
+				      <h2>30-04-2017</h2>
+				      <p>Paper Presentation Events</p>
+				    </div>
+				    <div class="item item-avatar">
+				      <img src="img/obsentclr.png">
+				      <h2>04-03-2017</h2>
+				      <p>Apply for driving licence</p>
+				    </div>
+				     <div class="item item-avatar">
+				      <img src="img/obsentclr.png">
+				      <h2>30-03-2017</h2>
+				      <p>Family function</p>
+				    </div>
+				     <div class="item item-avatar">
+				      <img src="img/obsentclr.png">
+				      <h2>12-03-2017</h2>
+				      <p>sick</p>
+				    </div>
+				</div>
+			 </ion-scroll>
+    </ion-content>
+   <!--  <div class="bar bar-footer1" style="padding: 0px ! important; border-top-width: 0px!important;">
+    	<div class="title">
+			    <a  menu-close ui-sref="AddEventEdit">
+					<img src="img/Edit.png" style="float:right;margin-top:-20px;width: 50px;">
+				</a>
+		</div>
+    </div>
+ -->
+		    
+	
+</ion-view>
