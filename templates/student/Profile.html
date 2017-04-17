@@ -1,0 +1,94 @@
+<ion-header-bar class="headerborder" >
+  <div class="IconDiv" ng-click="goHome();">
+    <i class="ion ion-arrow-left-c back-icon headerICons"></i>
+  </div>
+  <div>
+    <h4 class="headertitle">Profile</h4>
+  </div>
+</ion-header-bar>
+<ion-content>
+  <style type="text/css">
+    /*About css start*/
+
+      .profileClass{
+          min-height: 106px;
+          padding-left: 102px;
+          padding-top: 25px;
+      }
+      .profileimgClass > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
+          border-radius: 50%;
+          height: 100%;
+          left: 16px;
+          max-height: 67px;
+          max-width: 67px;
+          position: absolute;
+          top: 18px;
+          width: 100%;
+        }
+        .profileName{font-size: 23px !important}
+        .prfileDetails{font-size: 16px  !important}
+        .icon-size{font-size: 40px !important}
+
+      /*About css end*/
+
+      /*Parent and Gurdian details Css Start*/
+      .cardpadHeader{padding-bottom: 47px;}
+      .cardpadFooter{padding-bottom: 10px;}
+      .tabs .tab-item .icon.Father {
+          background-repeat: no-repeat;
+          background-position: 50%;
+          height: 30px;
+          background-image: url("img/icons/male.png");
+          background-size:contain;
+          margin-bottom: 1px
+        }
+      .tabs .tab-item .icon.Mother {
+          background-image: url("img/icons/Female.png");
+          background-repeat: no-repeat;
+          background-position: 50%;
+          height: 30px;
+          background-size:contain;
+          margin-bottom: 1px
+      }
+      .tabs .tab-item .icon.Gurdian {
+          background-image: url("img/icons/Parent Guardian-100 (1).png");
+          background-repeat: no-repeat;
+          background-position: 50%;
+          height: 30px;
+          background-size:contain;
+          margin-bottom: 1px
+      }    
+      /*Parent and Gurdian details Css End*/
+
+      /*Additiona Details Css start*/
+      .tabs-positive > .tabs, .tabs.tabs-positive {
+          background-color: #32373B !important;
+          background-image: linear-gradient(0deg, #0c63ee, #0c63ee 50%, transparent 50%);
+          border-color: #32373B !important;
+          color: white !important;
+        }
+      .Socialons{
+        text-align: center;
+        }
+      /*Additiona Details Css End*/
+    ion-tabs.tabs-color-active-white .tab-item.tab-item-active, ion-tabs.tabs-color-active-white .tab-item.active,ion-tabs.tabs-color-active-white .tab-item.activated {
+    color: white !important;
+    border-color: red !important;
+    }
+    </style>
+</ion-content>
+<ion-view class="pageBackground"> 
+  <ion-tabs class="tabs-striped tabs-top has-tabs-top" delegate-handle="myhandle" >
+    <ion-tab title="ABOUT" ui-sref="Profile.about">
+      <ion-nav-view name="about"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="PARENTS" ui-sref="Profile.Parents">
+      <ion-nav-view name="parents-details"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="ADDITIONAL" ui-sref="Profile.AdditionalDetails">
+     <ion-nav-view name="additiDetails"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>
+
+

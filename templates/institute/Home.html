@@ -1,0 +1,107 @@
+<ion-view class="main-bg-color">
+  <div class="bar bar-header bar-assertive-900 HeaderBar">
+    <div class="h1 title title-center light">Home</div>
+    <div class="buttons buttons-right">
+      <span class="right-buttons">
+        <button class="button button-icon button-clear button-icon ion-log-in" ui-sref="login">
+        </button>
+      </span>
+    </div>
+  </div>
+  <ion-content class="has-header" customDrag>
+    <style type="text/css">
+      @media screen and (min-width: 320px) and (max-width:360px) {
+        .inst-BgImg{
+          background-image: url('img/login.jpg'); margin-top: 44px;
+          background-size: 100% 200px;
+          background-repeat: none; 
+        }
+      }
+      @media screen and (min-width: 600px) and (max-width:1900px) {
+        .inst-BgImg{
+          background-image: url('img/login.jpg'); margin-top: 44px;
+          background-size: 100% 300px; 
+          background-repeat: none;
+        }
+      }
+      .inst-Name{
+        margin-bottom: 60px;
+      }
+      .inst-SocialIcons{
+        margin-bottom: 0px;
+      }
+      .inst-BtniconRt{
+        padding:0px !important;
+      }
+      .inst-GoogleBtn{
+        padding: 0px;
+        margin-left:  -7px !important;
+      }
+      .inst-FbBtn{
+        padding: 0px;
+        margin-right: -7px !important;
+      }
+      .inst-Btnicon{
+        padding: 0px !important;
+        margin-right: -18px !important;
+      }
+      .SocailIcons{
+        width : 27px;
+        height: 27px;  
+      }
+      /*pane custom height css*/
+      @media screen and (min-width: 320px) and (max-width:360px) {
+        .inst-CustomContentHeight{
+          margin-top: 200px;
+          height: 735px;
+        }
+      }
+      @media screen and (min-width: 600px) and (max-width:1900px) {
+        .inst-CustomContentHeight {
+          height: 750px;
+          margin-top: 300px;
+        }
+      }
+      /*.inst-CustomContentHeight{
+        height: 740px ;
+      }*/
+      /*ionic tab class css*/
+      .tabs{
+        margin-top: -44px;
+        border-bottom: 1px solid #444444 !important;
+      }
+      .HeaderBar {
+        box-shadow:none;
+        width: 100%;
+      }
+    </style>
+    <div class="hero inst-BgImg">
+      <!-- Institute Name -->
+      <div class="content inst-Name">
+        <h3><a class="light">RubyCampus</a></h3>
+        <h4>Arts & Science College</h4>
+        <a href="https://www.facebook.com/rubycampussoftware" class="button button-medium button-clear flat  text-white waves-effect waves-button waves-light inst-FbBtn"><img src="img/icons/facebook.ico" class="SocailIcons" ></a>
+        <a href="https://plus.google.com/106635197608643880834" class="button button-medium button-clear flat  text-white waves-effect waves-button waves-light inst-GoogleBtn"><img src="img/icons/google.ico" class="SocailIcons"></a>
+      </div>
+      <!-- socail media icons -->
+      <div class="content inst-SocialIcons">
+        <a href="tel: 800.617.4729" class="button button-large button-clear button-light flat  icon  ion-ios-telephone pull-right text-white waves-effect waves-button waves-light inst-BtniconRt"></a>
+        <a href="mailto:rubycampus@gmail.com" class="button button-large button-clear button-light flat icon ion-email  pull-right text-white waves-effect waves-button waves-light inst-Btnicon"></a>
+      </div>
+    </div>
+    <!-- ionic Tabs -->
+    <ion-pane class="inst-CustomContentHeight" scroll="true">    
+      <ion-tabs class="tabs-dark tabs-top tabs-icon-bottom">
+        <ion-tab title="About" icon-on="ion-home" icon-off="ion-home" ui-sref="institute.about">
+          <ion-nav-view name="about"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="Academics" icon-on="ion-university" icon-off="ion-university" ui-sref="institute.about1">
+          <ion-nav-view name="about1"></ion-nav-view>
+        </ion-tab>
+        <ion-tab title="Contact" icon-on="ion-location" icon-off="ion-location" ui-sref="institute.about2">
+          <ion-nav-view name="about2"></ion-nav-view>
+        </ion-tab>
+      </ion-tabs>
+    </ion-pane>
+  </ion-content>
+</ion-view>

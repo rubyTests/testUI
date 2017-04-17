@@ -1,0 +1,33 @@
+<ion-view view-title="Dashboard" style="background-color: white">
+  <!-- <ion-content> -->
+    <style type="text/css">
+      .bar {
+        box-shadow: none !important;
+        font-size: 1.3em;
+        width: 100%;
+      }
+      .firstSilde{
+        margin-left: 10px;
+      }
+      .secondSilde{
+        margin-left: 10px;
+      }
+      .thirdSilde{
+        margin-left: 10px;
+      }
+    </style>
+  <!-- </ion-content> -->
+  <ion-content scroll="false" overflow-scroll='true' custom-drag>
+    <ion-slide-box slide-tabs-scrollable="false" show-pager="false" ion-slide-tabs on-slide-changed="slideChanged(index)" active-slide="activeSlide">
+      <ion-slide ion-slide-tab-label="<i class='icon ion-home'></i>" edge-drag-threshold="true" on-drag-left="enableSlide()" on-drag-right="RightenableSlide()">
+        <div ng-include="'templates/student/Home.html'"></div>
+      </ion-slide>
+      <ion-slide ion-slide-tab-label="<i class='icon ion-android-notifications'></i>" edge-drag-threshold="true" on-drag-left="enableSlide()" on-drag-right="enableSlide()">
+        <div ng-include="'templates/student/Notification.html'"></div>
+      </ion-slide>
+      <ion-slide ion-slide-tab-label="<i class='icon ion-email'></i>" on-drag-right="enableSlide()" on-drag-left="RightenableSlide()">
+        <div ng-include="'templates/student/Message.html'"></div>
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

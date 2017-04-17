@@ -30,7 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
     action_label: 'Close',
     template_gallery: 'gallery.html',
     template_slider: 'slider.html',
-    toggle: false,
+    toggle: true,
     row_size: 3,
     fixed_row_size: true
   });
