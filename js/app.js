@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'ionMdInput' ,'ngCordova','ion-gallery'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'ionMdInput' ,'ngCordova','ion-gallery','ui.rCalendar','jett.ionic.filter.bar','ionic-letter-avatar','ion-datetime-picker','srfSocialSharing'])
 
 .run(function($ionicPlatform) {
 	$ionicPlatform.ready(function() {
@@ -102,6 +102,55 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
         controller: 'CampusCtrl'
       }
     }
+  })
+	/// Added by gnbanamani
+  .state('Calendar',{
+	    url:'/Calendar',
+	    templateUrl: "templates/calendar/calendar.html",
+	    controller: 'CalendarDemoCtrl'
+	  })
+   .state('AddEvent',{
+    url:'/AddEvent',
+    templateUrl: "templates/calendar/addEvent.html",
+    controller: 'DatepickerCtrl'
+  })
+  .state('ViewEvents',{
+    url:'/ViewEvents',
+    templateUrl: "templates/calendar/viewEvents.html",
+    controller: 'LinkShareController as linkShareCtrl'
+  })
+  .state('AddEventEdit',{
+    url:'/AddEventEdit',
+    templateUrl: "templates/calendar/addEventEdit.html",
+    controller: 'DatepickerCtrl'
+  })
+  .state('studAttndPerctgView',{
+    url:'/studAttndPerctgView',
+    templateUrl: "templates/attendance/studAttndPerctgView.html",
+    controller: 'StdAttndCtrl'
+  })
+  .state('empAttndPertgView',{
+    url:'/empAttndPertgView',
+    templateUrl: "templates/attendance/empAttndPertgView.html",
+    controller: 'EmpAttndCtrl'
+  })
+  .state('StudentAttendanceMarking',{
+    cache:false,
+    url:'/StudentAttendanceMarking',
+    templateUrl: "templates/attendance/studAttndcMarking.html",
+    controller: 'MainController'
+  })
+  .state('selectCourseView',{
+    cache:false,
+    url:'/selectCourseView',
+    templateUrl: "templates/attendance/selectCourse.html",
+    controller: 'selectCourseCtrl'
+  })
+  .state('selectBatchView',{
+    url:'/selectBatchView',
+    cache:false,
+    templateUrl: "templates/attendance/selectBatch.html",
+    controller: 'selectBatchCtrl'
   })
 
   // .state('app.Profile',{
