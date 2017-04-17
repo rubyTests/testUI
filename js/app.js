@@ -68,6 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 			}
 		}
 	})
+
 	.state('institute.about1',{
 		url :'/about1',
 		views:{
@@ -77,6 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 			}
 		}
 	})
+
 	.state('institute.about2',{
 		url :'/about2',
 		views:{
@@ -87,6 +89,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 		}
 	})
 	
+	.state('instGallery',{
+		url:'/gallery',
+		templateUrl:'templates/institute/gallery.html',
+		controller:'InstituteCtrl'
+	})
 	.state('app.Dashboard', {
     url: '/Dashboard',
     views: {
