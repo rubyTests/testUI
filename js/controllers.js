@@ -4,87 +4,28 @@
 angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $ionicPopover, $timeout) {
-    // Form data for the login modal
-    $scope.loginData = {};
-    $scope.isExpanded = false;
-    $scope.hasHeaderFabLeft = false;
-    $scope.hasHeaderFabRight = false;
+  var template =  '<ion-popover-view>' +
+                  '   <ion-header-bar>' +
+                  '       <h1 class="title">My Popover Title</h1>' +
+                  '   </ion-header-bar>' +
+                  '   <ion-content class="padding">' +
+                  '       My Popover Contents' +
+                  '   </ion-content>' +
+                  '</ion-popover-view>';
+  $scope.popover = $ionicPopover.fromTemplate(template, {
+      scope: $scope
+  });
 
-    var navIcons = document.getElementsByClassName('ion-navicon');
-    for (var i = 0; i < navIcons.length; i++) {
-        navIcons.addEventListener('click', function() {
-            this.classList.toggle('active');
-        });
+  //custom prevent effect while scroll
+  
+  $scope.onDrag=function(){
+    var data=document.querySelector('.ink-ripple');
+    console.log(data === null);
+    if (data!==null) {
+      data.className="ink-ripple:not"
+      console.log(data,"data");
     }
-
-    ////////////////////////////////////////
-    // Layout Methods
-    ////////////////////////////////////////
-
-    $scope.hideNavBar = function() {
-        document.getElementsByTagName('ion-nav-bar')[0].style.display = 'none';
-    };
-
-    $scope.showNavBar = function() {
-        document.getElementsByTagName('ion-nav-bar')[0].style.display = 'block';
-    };
-
-    $scope.noHeader = function() {
-        var content = document.getElementsByTagName('ion-content');
-        for (var i = 0; i < content.length; i++) {
-            if (content[i].classList.contains('has-header')) {
-                content[i].classList.toggle('has-header');
-            }
-        }
-    };
-
-    $scope.setExpanded = function(bool) {
-        $scope.isExpanded = bool;
-    };
-
-    $scope.setHeaderFab = function(location) {
-        var hasHeaderFabLeft = false;
-        var hasHeaderFabRight = false;
-
-        switch (location) {
-            case 'left':
-                hasHeaderFabLeft = true;
-                break;
-            case 'right':
-                hasHeaderFabRight = true;
-                break;
-        }
-
-        $scope.hasHeaderFabLeft = hasHeaderFabLeft;
-        $scope.hasHeaderFabRight = hasHeaderFabRight;
-    };
-
-    $scope.hasHeader = function() {
-        var content = document.getElementsByTagName('ion-content');
-        for (var i = 0; i < content.length; i++) {
-            if (!content[i].classList.contains('has-header')) {
-                content[i].classList.toggle('has-header');
-            }
-        }
-
-    };
-
-    $scope.hideHeader = function() {
-        $scope.hideNavBar();
-        $scope.noHeader();
-    };
-
-    $scope.showHeader = function() {
-        $scope.showNavBar();
-        $scope.hasHeader();
-    };
-
-    $scope.clearFabs = function() {
-        var fabs = document.getElementsByClassName('button-fab');
-        if (fabs.length && fabs.length > 1) {
-            fabs[0].remove();
-        }
-    };
+  }
 })
 
 .controller('LoginCtrl', function($scope, $timeout, $stateParams, ionicMaterialInk) {
@@ -95,84 +36,76 @@ angular.module('starter.controllers', [])
     ionicMaterialInk.displayEffect();
 })
 
-.controller('FriendsCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
-    // Set Header
-    $scope.$parent.showHeader();
-    $scope.$parent.clearFabs();
-    $scope.$parent.setHeaderFab('left');
-
-    // Delay expansion
-    $timeout(function() {
-        $scope.isExpanded = true;
-        $scope.$parent.setExpanded(true);
-    }, 300);
-
-    // Set Motion
-    ionicMaterialMotion.fadeSlideInRight();
-
-    // Set Ink
+.controller('InstituteCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout){
+  $timeout(function(){
     ionicMaterialInk.displayEffect();
-})
+    ionicMaterialMotion.ripple();
+  });
+  $scope.items = [
+  {
+    src:'http://www.wired.com/images_blogs/rawfile/2013/11/offset_WaterHouseMarineImages_62652-2-660x440.jpg',
+    sub: 'This is a <b>subtitle</b>'
+  },
+  {
+    src:'http://www.gettyimages.co.uk/CMS/StaticContent/1391099215267_hero2.jpg',
+    sub: '' /* Not showed */
+  },
+  {
+    src:'http://www.hdwallpapersimages.com/wp-content/uploads/2014/01/Winter-Tiger-Wild-Cat-Images.jpg',
+    thumb:'http://www.gettyimages.co.uk/CMS/StaticContent/1391099215267_hero2.jpg'
+  }
+]
+}])
 
-.controller('ProfileCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
-    // Set Header
-    $scope.$parent.showHeader();
-    $scope.$parent.clearFabs();
-    $scope.isExpanded = false;
-    $scope.$parent.setExpanded(false);
-    $scope.$parent.setHeaderFab(false);
-
-    // Set Motion
-    $timeout(function() {
-        ionicMaterialMotion.slideUp({
-            selector: '.slide-up'
-        });
-    }, 300);
-
-    $timeout(function() {
-        ionicMaterialMotion.fadeSlideInRight({
-            startVelocity: 3000
-        });
-    }, 700);
-
-    // Set Ink
+.controller('CampusCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicTabsDelegate', 
+  '$ionicSlideBoxDelegate','$ionicSideMenuDelegate','$ionicScrollDelegate', function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$ionicTabsDelegate,$ionicSlideBoxDelegate,$ionicSideMenuDelegate,$ionicScrollDelegate) {
+  $timeout(function(){
     ionicMaterialInk.displayEffect();
-})
+    ionicMaterialMotion.ripple();
+  });
+  $scope.bgClass='';
+  $scope.activeSlide=0;
+  $scope.slideChanged=function(index){
+    if(index==0){
+      var data=document.querySelector('.slider');
+      data.className="slider firstSilde";
+      $scope.bgClass="BgSilde1";
+    }
+    else if(index==1){
+      var data=document.querySelector('.slider');
+      data.className="slider secondSilde";
+      $scope.bgClass="BgSilde2";
+    }else if(index==2){
+      var data=document.querySelector('.slider');
+      data.className="slider thirdSilde";
+      $scope.bgClass="BgSilde2";
+    }
+  }
+  $scope.slideChanged($scope.activeSlide);
+  $scope.enableSlide = function() {   
+    $ionicSlideBoxDelegate.enableSlide(true);
+  }
+  $scope.toggleScroll=true;
+  $scope.RightenableSlide = function() {   
+    $ionicSlideBoxDelegate.enableSlide(false);
+    $scope.toggleScroll=false;
+  }  
 
-.controller('ActivityCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
-    $scope.$parent.showHeader();
-    $scope.$parent.clearFabs();
-    $scope.isExpanded = true;
-    $scope.$parent.setExpanded(true);
-    $scope.$parent.setHeaderFab('right');
 
-    $timeout(function() {
-        ionicMaterialMotion.fadeSlideIn({
-            selector: '.animate-fade-slide-in .item'
-        });
-    }, 200);
+}])
 
-    // Activate ink for controller
-    ionicMaterialInk.displayEffect();
-})
+// directive for prevent effect while scroll
 
-.controller('GalleryCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
-    $scope.$parent.showHeader();
-    $scope.$parent.clearFabs();
-    $scope.isExpanded = true;
-    $scope.$parent.setExpanded(true);
-    $scope.$parent.setHeaderFab(false);
-
-    // Activate ink for controller
-    ionicMaterialInk.displayEffect();
-
-    ionicMaterialMotion.pushDown({
-        selector: '.push-down'
+.directive('customDrag',function(){
+  return function($scope,element,attribute) {
+    element.bind('drag',function(){
+    var data=document.querySelector('.ink-ripple');
+      console.log(data === null);
+      if (data!==null) {
+        data.className="ink-ripple:not"
+        console.log(data,"data");
+      }
     });
-    ionicMaterialMotion.fadeSlideInRight({
-        selector: '.animate-fade-slide-in .item'
-    });
-
+  }
 })
-
 ;

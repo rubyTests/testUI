@@ -1824,7 +1824,7 @@
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out; }
 
-.ink-ripple {
+.ink-ripple{
   position: absolute;
   border-radius: 50%;
   width: 100px;
@@ -1846,7 +1846,8 @@
   -ms-transform: scale(0);
   -o-transform: scale(0);
   transform: scale(0);
-  pointer-events: none; }
+  pointer-events: none; 
+}
 
 .ink-notransition {
   -webkit-transition: none !important;
@@ -1968,7 +1969,8 @@
 *[class$="-100"] > .ink-ripple,
 .list .ink-ripple,
 .ink-dark .ink-ripple {
-  background-color: rgba(0, 0, 0, 0.2); }
+  background-color: rgba(0, 0, 0, 0.1); 
+}
 
 .tab-item {
   position: relative;
