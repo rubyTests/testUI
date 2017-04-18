@@ -1,13 +1,28 @@
-  <ion-view view-title="Home" class="pageBackground">
-      <ion-tabs class="tabs-positive tabs-icon-top tabs-color-active-white" delegate-handle="myhandle"  on-swipe-right="goAbout()" on-swipe-left="goAdditional()">
-        <ion-tab icon="Father" title="Father" ui-sref="Profile.Parents.FatherDetails">
-         <ion-nav-view name="Father-Details"></ion-nav-view>
-        </ion-tab>
-        <ion-tab title="Mother" icon="Mother" ui-sref="Profile.Parents.MotherDetails">
-         <ion-nav-view name="Mother-Details"></ion-nav-view>
-        </ion-tab>
-        <ion-tab title="Guardian" icon="Gurdian" ui-sref="Profile.Parents.GaurdianDetails">
-         <ion-nav-view name="Gaurdian-Details"></ion-nav-view>
-        </ion-tab>
-      </ion-tabs>
-  </ion-view>
+<ion-view view-title="Home" class="ViewBackground">
+  <ion-content>
+<!--     <div class="tabs-dark tabs-bottom tabs-icon-top tabs-color-dark">
+      <div style="position: static;" class="tabs">
+        <a data-ink-opacity=".35" data-ink-color="#ef473a" class="tab-item active">
+            <i class="icon ion-home"></i> Test
+        </a>
+        <a data-ink-opacity=".35" data-ink-color="#ef473a" class="tab-item">
+            <i class="icon ion-star"></i> Favorites
+        </a>
+        <a data-ink-opacity=".35" data-ink-color="#ef473a" class="tab-item">
+            <i class="icon ion-gear-a"></i> Settings
+        </a>
+      </div>
+    </div> -->
+  </ion-content>
+  <ion-tabs class="tabs-bottom tabs-icon-top tabs-color-assertive" delegate-handle="myhandle" on-swipe-right="goAbout()" on-swipe-left="goAdditional()">
+    <ion-tab icon="ion-home" title="Father" ui-sref="Profile.Parents.FatherDetails">
+     <ion-nav-view name="Father-Details"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Mother" icon="ion-home" ui-sref="Profile.Parents.MotherDetails">
+     <ion-nav-view name="Mother-Details"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="Guardian" icon="ion-home" ui-sref="Profile.Parents.GaurdianDetails">
+     <ion-nav-view name="Gaurdian-Details"></ion-nav-view>
+    </ion-tab>
+  </ion-tabs>
+</ion-view>
