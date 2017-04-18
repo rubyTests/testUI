@@ -1,0 +1,35 @@
+<ion-view>
+  <div class="header-bar bar bar-assertive-900">
+  	<div class="buttons buttons-left">
+  		<span class="left-buttons">
+  			<button class="button button-icon button-clear ion-android-arrow-back" ng-click="WindowBack()"></button>
+  		</span>
+  	</div>
+    <div class="h1 title light">Gallery</div>
+  </div>
+  <ion-content class="has-header">
+  	<style type="text/css">
+/*  		.bar-black{
+  			background-color: black;
+  			color: white;
+  		}*/
+  		.SilderBgColor{
+  			background-color: rgba(0 , 0, 0 ,0.1) !important;
+  		}
+  		.CustomModalWindow{
+  			bottom: 0%;
+		    left: 0%;
+		    min-height: 240px;
+		    overflow: visible;
+		    right: 0%;
+		    top: 0%;
+		    width: 100%;
+  		}
+  		.bar{
+  			box-shadow: none;
+  		}
+  	</style>
+    <ion-gallery ion-gallery-items="items"></ion-gallery>
+  </ion-content>
+    <button id="fab-profile" class="button button-fab button-fab-bottom-right button-assertive-900" ng-click="Upload()"><i class="icon ion-camera"></i></button>
+</ion-view>

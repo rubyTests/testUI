@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view >
     <!-- <ion-content overflow-scroll=false scroll='false'> -->
   <ion-content scroll='false' style="background-color: #DFDFDF">
     <style type="text/css">
@@ -50,19 +50,14 @@
     <div class="list card">
       <div class="item item-avatar">
         <img src="img/icons/Aboutus.svg" style="box-shadow: none;">
-        <h2 class="inst-Title">ABOUT US</h2>
+        <h2 class="inst-Title">About Us</h2>
       </div>
       <div class="inst-ContentImg">
         <p class="p-text">
           Ruby Campus was established with the aim of providing quality higher education  on par with international standards. It persistently seeks and adopts innovative
         </p>
       </div>
-      <div class="">
-        <button class="button button-small icon-right flat  icon ion-ios-arrow-forward pull-right text-white"> More</button>
-      </div>
-      <!-- <div class="item item-divider">
-        <button ui-sref="app.Profile.About" class="button Cardlink button-clear button-dark">More <i class="ion-ios-arrow-forward"></i> </button>
-      </div> -->
+      <button class="button button-small button-clear button-dark icon-right flat  icon ion-ios-arrow-forward pull-right text-white btnStyle"> More</button>
     </div>
     <div class="list card">
       <div class="item DividerBorder">
@@ -71,27 +66,63 @@
       <table class="tab" style="width:100%">
         <tbody>
           <tr>
-            <td class="QuickMenuTD-Top Table-TD tab-item">
+            <td class="QuickMenuTD-Top tab-item">
               <center><img src="img/icons/Coures.svg" width="40px" height="38px" 
               style="box-shadow: none;">
-              <p>Coures</p>
+              <p style="color: #444444;font-size: 14px">Coures</p>
               </center>
             </td>
-            <td class="QuickMenuTD-Top Table-TD tab-item">
+            <td class="QuickMenuTD-Top tab-item">
               <center><img src='img/icons/Admission.svg' width="35px" height="35px" 
               style="box-shadow: none;">
-              <p>Admission</p>
               </center>
+              <p style="color: #444444;font-size: 14px">Admission</p>
             </td>
-            <td class="QuickMenuTD-Top Table-TD tab-item">
+            <td class="QuickMenuTD-Top  tab-item">
               <center><img src='img/icons/Career.svg' width="40px" height="40px" 
               style="box-shadow: none;">
-              <p>Career</p>
               </center>
+              <p style="color: #444444;font-size: 14px">Career</p>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/icons/event.svg" style="box-shadow: none;">
+        <h2 class="inst-Title">News & Events</h2>
+      </div>
+      <div class="inst-ContentImg">
+        <div class="p-text">
+          Events are currently being scheduled and will be posted shortly.
+        </div>
+      </div>
+      <button class="button button-small button-clear button-dark icon-right flat  icon ion-ios-arrow-forward pull-right text-white btnStyle"> More</button>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/icons/Gallery.svg" style="box-shadow: none;">
+        <h2 class="inst-Title">Gallery</h2>
+      </div>
+      <div class="inst-ContentImg">
+        <div class="row" ui-sref="instGallery">
+          <div class="col col-25">
+            <img src="img/Gallery/1.jpg" class="GalleryImg">
+          </div>
+          <div class="col col-25">
+            <img src="img/Gallery/2.jpg" class="GalleryImg">
+          </div>
+          <div class="col col-25">
+            <img src="img/Gallery/3.jpg" class="GalleryImg">
+          </div>
+          <div class="col col-25">
+            <img src="img/Gallery/4.jpg" class="GalleryImg">
+          </div>
+        </div>
+        <!-- <ion-gallery ion-gallery-items="items"></ion-gallery> -->
+      </div>
+      <button class="button button-small button-clear button-dark icon-right flat  icon ion-ios-arrow-forward pull-right text-white btnStyle" ui-sref="instGallery"> More</button>
     </div>
   </ion-content>
 </ion-view>

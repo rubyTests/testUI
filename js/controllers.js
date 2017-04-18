@@ -36,25 +36,87 @@ angular.module('starter.controllers', [])
     ionicMaterialInk.displayEffect();
 })
 
-.controller('InstituteCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout){
+.controller('InstituteCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicLoading','$cordovaCamera','$cordovaDialogs',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$ionicLoading,$cordovaCamera,$cordovaDialogs){
   $timeout(function(){
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.ripple();
   });
   $scope.items = [
   {
-    src:'http://www.wired.com/images_blogs/rawfile/2013/11/offset_WaterHouseMarineImages_62652-2-660x440.jpg',
+    src:'img/Gallery/1.jpg',
     sub: 'This is a <b>subtitle</b>'
   },
   {
-    src:'http://www.gettyimages.co.uk/CMS/StaticContent/1391099215267_hero2.jpg',
+    src:'img/Gallery/2.jpg',
     sub: '' /* Not showed */
   },
   {
-    src:'http://www.hdwallpapersimages.com/wp-content/uploads/2014/01/Winter-Tiger-Wild-Cat-Images.jpg',
-    thumb:'http://www.gettyimages.co.uk/CMS/StaticContent/1391099215267_hero2.jpg'
+    src:'img/Gallery/3.jpg',
+    sub: '' /* Not showed */
+  },
+  {
+    src:'img/Gallery/4.jpg',
+    sub: '' /* Not showed */
+  },
+  {
+    src:'img/Gallery/5.png',
+    // thumb:'http://www.gettyimages.co.uk/CMS/StaticContent/1391099215267_hero2.jpg'
   }
-]
+  ];
+  $scope.WindowBack=function(){
+    window.location.href="../www/index.html#/institute/about";
+  }
+  $scope.loading = function() {
+    $ionicLoading.show({
+      template: '<div class="loader"><svg class="circular"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
+    });
+  };
+  /*File Upload via camera and gallery*/
+  $scope.Upload=function(){
+    $cordovaDialogs.confirm('Choose your option', 'Upload Receipt', ['Camera','Gallery'])
+    .then(function(Selectoption) {
+      if(Selectoption==1){
+      /*Camera upload*/
+        var options = {
+          quality: 100,
+          destinationType: Camera.DestinationType.DATA_URL,
+          sourceType: Camera.PictureSourceType.CAMERA,
+          allowEdit: true,
+          // encodingType: Camera.EncodingType.JPEG,
+          targetWidth: 100,
+          targetHeight: 100,
+          popoverOptions: CameraPopoverOptions,
+          saveToPhotoAlbum: false,
+          correctOrientation:true
+        };
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+          var image = document.getElementById('myImage');
+          image.src = "data:image/jpeg;base64," + imageData;
+        }, function(err) {
+          // error
+        });
+      }else if(Selectoption==2){
+        var options = {
+          quality: 100,
+          destinationType: Camera.DestinationType.DATA_URL,
+          sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+          allowEdit: true,
+          // encodingType: Camera.EncodingType.JPEG,
+          targetWidth: 1024,
+          targetHeight: 1024,
+          popoverOptions: CameraPopoverOptions,
+          saveToPhotoAlbum: false,
+          correctOrientation:true
+        };
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+          var image = document.getElementById('myImage');
+          image.src = "data:image/jpeg;base64," + imageData;
+        }, function(err) {
+          // error
+        });
+      }
+    });
+  }
 }])
 
 .controller('CampusCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicTabsDelegate', 
@@ -90,8 +152,6 @@ angular.module('starter.controllers', [])
     $ionicSlideBoxDelegate.enableSlide(false);
     $scope.toggleScroll=false;
   }  
-
-
 }])
 
 // directive for prevent effect while scroll

@@ -26,13 +26,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 
 	//$ionicConfigProvider.scrolling.jsScrolling(false);
 	/* for image gallery*/
-	ionGalleryConfigProvider.setGalleryConfig({
-    action_label: 'Close',
-    template_gallery: 'gallery.html',
-    template_slider: 'slider.html',
-    toggle: true,
-    row_size: 3,
-    fixed_row_size: true
+		ionGalleryConfigProvider.setGalleryConfig({
+      action_label: 'Close',
+      toggle: false,
+      row_size: 3,
+      fixed_row_size: true
   });
 	
 	// Turn off back button text
@@ -63,27 +61,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 		url :'/about',
 		views:{
 			'about':{
-				templateUrl:'templates/test.html',
+				templateUrl:'templates/institute/About.html',
 				controller :'InstituteCtrl'
 			}
 		}
 	})
 
-	.state('institute.about1',{
-		url :'/about1',
+	.state('institute.academic',{
+		url :'/academic',
 		views:{
-			'about1':{
-				templateUrl:'templates/test2.html',
+			'academic':{
+				templateUrl:'templates/institute/Academic.html',
 				controller :'InstituteCtrl'
 			}
 		}
 	})
 
-	.state('institute.about2',{
-		url :'/about2',
+	.state('institute.contact',{
+		url :'/contact',
 		views:{
-			'about2':{
-				templateUrl:'templates/test1.html',
+			'contact':{
+				templateUrl:'templates/institute/Contact.html',
 				controller :'InstituteCtrl'
 			}
 		}
@@ -91,7 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 	
 	.state('instGallery',{
 		url:'/gallery',
-		templateUrl:'templates/institute/gallery.html',
+		templateUrl:'templates/institute/instgallery.html',
 		controller:'InstituteCtrl'
 	})
 	.state('app.Dashboard', {

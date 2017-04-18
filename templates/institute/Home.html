@@ -10,7 +10,7 @@
   </div>
   <ion-content class="has-header" customDrag>
     <style type="text/css">
-      @media screen and (min-width: 320px) and (max-width:360px) {
+      @media screen and (min-width: 320px) and (max-width:599px) {
         .inst-BgImg{
           background-image: url('img/login.jpg'); margin-top: 44px;
           background-size: 100% 200px;
@@ -35,25 +35,34 @@
       }
       .inst-GoogleBtn{
         padding: 0px;
-        margin-left:  -7px !important;
+        /*margin-left:  -7px !important;*/
       }
       .inst-FbBtn{
         padding: 0px;
-        margin-right: -7px !important;
+        /*margin-right: -7px !important;*/
       }
       .inst-Btnicon{
         padding: 0px !important;
         margin-right: -18px !important;
       }
       .SocailIcons{
-        width : 27px;
-        height: 27px;  
+        width : 35px;
+        height: 35px;  
+      }
+      .scroll-bar {
+        display: none;
       }
       /*pane custom height css*/
-      @media screen and (min-width: 320px) and (max-width:360px) {
+      @media screen and (min-width: 320px) and (max-width:350px) {
         .inst-CustomContentHeight{
           margin-top: 200px;
           height: 735px;
+        }
+      }
+      @media screen and (min-width: 351px) and (max-width:599px) {
+        .inst-CustomContentHeight{
+          margin-top: 200px;
+          height: 743px;
         }
       }
       @media screen and (min-width: 600px) and (max-width:1900px) {
@@ -80,26 +89,26 @@
       <div class="content inst-Name">
         <h3><a class="light">RubyCampus</a></h3>
         <h4>Arts & Science College</h4>
-        <a href="https://www.facebook.com/rubycampussoftware" class="button button-medium button-clear flat  text-white waves-effect waves-button waves-light inst-FbBtn"><img src="img/icons/facebook.ico" class="SocailIcons" ></a>
-        <a href="https://plus.google.com/106635197608643880834" class="button button-medium button-clear flat  text-white waves-effect waves-button waves-light inst-GoogleBtn"><img src="img/icons/google.ico" class="SocailIcons"></a>
+        <a href="https://www.facebook.com/rubycampussoftware" class="button button-medium button-clear flat  text-white waves-effect waves-button waves-light inst-FbBtn" ng-click="loading()"><img src="img/icons/facebook.ico" class="SocailIcons" ></a>
+        <a href="https://plus.google.com/106635197608643880834" ng-click="loading()" class="button button-medium button-clear flat  text-white waves-effect waves-button waves-light inst-GoogleBtn"><img src="img/icons/google.ico" class="SocailIcons"></a>
       </div>
       <!-- socail media icons -->
-      <div class="content inst-SocialIcons">
-        <a href="tel: 800.617.4729" class="button button-large button-clear button-light flat  icon  ion-ios-telephone pull-right text-white waves-effect waves-button waves-light inst-BtniconRt"></a>
+      <!-- <div class="content inst-SocialIcons">
+        <a href="tel: 987.654.3210" class="button button-large button-clear button-light flat  icon  ion-ios-telephone pull-right text-white waves-effect waves-button waves-light inst-BtniconRt"></a>
         <a href="mailto:rubycampus@gmail.com" class="button button-large button-clear button-light flat icon ion-email  pull-right text-white waves-effect waves-button waves-light inst-Btnicon"></a>
       </div>
-    </div>
+    </div> -->
     <!-- ionic Tabs -->
     <ion-pane class="inst-CustomContentHeight" scroll="true">    
       <ion-tabs class="tabs-dark tabs-top tabs-icon-bottom">
         <ion-tab title="About" icon-on="ion-home" icon-off="ion-home" ui-sref="institute.about">
           <ion-nav-view name="about"></ion-nav-view>
         </ion-tab>
-        <ion-tab title="Academics" icon-on="ion-university" icon-off="ion-university" ui-sref="institute.about1">
-          <ion-nav-view name="about1"></ion-nav-view>
+        <ion-tab title="Academics" icon-on="ion-university" icon-off="ion-university" ui-sref="institute.academic">
+          <ion-nav-view name="academic"></ion-nav-view>
         </ion-tab>
-        <ion-tab title="Contact" icon-on="ion-location" icon-off="ion-location" ui-sref="institute.about2">
-          <ion-nav-view name="about2"></ion-nav-view>
+        <ion-tab title="Contact" icon-on="ion-location" icon-off="ion-location" ui-sref="institute.contact">
+          <ion-nav-view name="contact"></ion-nav-view>
         </ion-tab>
       </ion-tabs>
     </ion-pane>
