@@ -1,0 +1,44 @@
+<ion-view class="">
+  <div class="bar header-bar bar-assertive-900">
+    <div class="buttons-left">
+      <span class="left-buttons">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="HistoryBack()"></button>
+      </span>    
+    </div>
+    <div class="h1 title light title-center">Application</div>
+  </div>
+  <ion-content class="has-header">
+    <style type="text/css">
+      .form-Card{
+        margin-left : 18px;
+        margin-right: 18px;
+        box-shadow: none;
+      }
+      .item-floating-label{
+        padding-left: 0px !important;
+      }
+      .labeltest{
+        border: none !important;
+      }
+      input.floatinput {
+        border-bottom: 1px solid #dfdfdf !important;
+      }
+      .input-label{
+        color:#1e88e5;
+        font-size: 14px;
+      }
+      input.floatinput:focus {
+        border-bottom: 2px solid #1e88e5 !important;
+      }
+    </style>
+    <div class="list card form-Card">
+      <br>
+      <div class="item item-input item-floating-label labeltest" style="margin-top:-10px" >
+        <span class="input-label">Enter Your OTP</span>
+        <input class="floatinput" type="text" placeholder="Enter Your OTP">
+      </div>
+      <br><br>
+      <button class="button button-block button-small button-assertive-900 ink loginBtn" data-ink-opacity=".2" data-ink-color="#ffffff"><i class="ion-android-lock"></i> &nbsp;Verify</button>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,114 @@
+<ion-view class="">
+  <div class="bar header-bar bar-assertive-900">
+    <div class="buttons-left">
+      <span class="left-buttons">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="HistoryBack()"></button>
+      </span>    
+    </div>
+    <div class="h1 title light title-center">Register</div>
+  </div>
+  <ion-content class="has-header">
+    <style type="text/css">
+      .form-Card{
+        margin-left : 18px;
+        margin-right: 18px;
+        box-shadow: none;
+      }
+      .instituteLogo{
+        width: 85px;height: 85px;margin:auto;display: block;box-shadow: none !important;
+      }
+      /*input fileds css*/
+      .item-floating-label{
+        padding-left: 0px !important;
+      }
+      .labeltest{
+        border: none !important;
+      }
+      input.floatinput {
+        border-bottom: 1px solid #dfdfdf !important;
+      }
+      .input-label{
+        color:#1e88e5;
+        font-size: 14px;
+      }
+      input.floatinput:focus {
+        border-bottom: 2px solid #1e88e5 !important;
+      }
+      .passwordicons{
+        right: 0px!important; margin-top: 11px !important;font-size: 25px !important;
+      }
+      .icon-color{
+        color: #1e88e5;
+      }
+      .Socailbutton{
+        height: 40px;
+      }
+      .loginBtn{
+        height: 40px;
+      }
+      .buttonAlign{
+        margin-right: 18px;
+      }
+      .button-calm{
+        background-color: #3B5998 !important;
+      }
+      .button-assertive{
+        background-color: #DB4437 !important;
+      }
+      .button{
+        box-shadow: none;
+        text-transform: capitalize;
+      }
+      .button-bar{
+        box-shadow: none;
+      }
+      .button.button-positive.button-outline {
+        background: transparent none repeat scroll 0 0 !important;
+        border-color: #dfdfdf;
+        color: #387ef5 !important;
+      }
+      .errorMsg{
+        color: red !important;
+      }
+      .regOption{
+        text-align: center;color: #666;font-size: 11px;
+      }
+    </style>
+    <div class="list card form-Card">
+      <div class="item" style="text-align: center;">
+        <img align="center" class="instituteLogo" src="http://images.clipartpanda.com/modern-american-history-collage-Austin_College_Logo.png">
+      </div>
+      <form name="registerForm" novalidate ng-submit="registerForm.$valid">
+        <div class="item item-input item-floating-label labeltest">
+          <span class="input-label">Email/Phone</span>
+          <input class="floatinput" name="EmailorPhone" ng-model="EmailorPhone" ng-pattern="/^(?:\d{10}|\w+@\w+\.\w{2,4}|\w+@\w+\.\w{2,3}.\w{2,3})$/" type="text" placeholder="Email/Phone" required="">
+          <div class="errorMsg" ng-show="submitted==true && registerForm.$invalid">
+          <p ng-show="submitted==true && registerForm.EmailorPhone.$error" class="errorMsg">
+            Please enter valid email or phone number
+          </p>
+          </div>
+        </div>
+        <div class="item item-input FloatLabel item-floating-label labeltest item-icon-right" >
+          <span class="input-label ">Password</span>
+          <input class="floatinput" type="Password" placeholder="Password" ng-click="checktext()">
+        </div>
+        <div class="item item-input FloatLabel item-floating-label labeltest item-icon-right" >
+          <span class="input-label ">Confirm Password</span>
+          <input class="floatinput" type="Password" placeholder="Confirm Password">
+        </div>
+        <br>
+        <button type="submit" ui-sref="VerifyOTP" ng-click="submitted = true" class="button button-block button-small button-assertive-900 ink loginBtn" data-ink-opacity=".2" data-ink-color="#ffffff"><i class="ion-person-add"></i> &nbsp;Regsiter</button>
+      </form>
+      <br>
+      <p class="regOption">Or Regsiter Using</p>
+      <br>
+      <div class="button-bar">
+        <button class="button button-small button-border button-calm Socailbutton buttonAlign ink" data-ink-opacity=".2" data-ink-color="#ffffff">
+        <i class="ion-social-facebook"></i> &nbsp;Facebook</button>
+        <button class="button button-small button-border button-assertive Socailbutton ink" data-ink-opacity=".2" data-ink-color="#ffffff">
+        <i class="ion-social-google"></i> &nbsp;Google</button>
+      </div>
+      <br>
+    </div>
+  </ion-content>
+</ion-view>
