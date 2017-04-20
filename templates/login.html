@@ -17,9 +17,8 @@
           <button class="button button-small button-outline button-positive light-bg icon-left ion-social-facebook waves-effect waves-button waves-light">Facebook</button>
       </div>
   </div> -->
-  <ion-view view-title="Login" align-title="left">
+  <!-- <ion-view view-title="Login" align-title="left">
   <ion-content style="background: url(img/login.jpg) center; background-size: cover;">
-  <!-- <ion-content style="background: url(https://image.freepik.com/free-photo/open-notebook-with-color-pencils_1101-28.jpg) center; background-size: cover;"> -->
     <style>
       h1 {
         color: #fff;
@@ -54,18 +53,6 @@
         position: fixed;
         bottom: 0;
       }
-/*      .input-label{
-        color: black !important;
-      }
-      input{
-        background-color: transparent!important;
-        bottom: 0;
-        color: #fff;
-        letter-spacing: 0rem !important;
-        padding: 20px 10px;
-        position: relative;
-        z-index: 1;
-      }*/
     </style>
     <div class="hero no-header flat">
       <div class="content">
@@ -78,13 +65,113 @@
       <ion-md-input placeholder="Password" highlight-color="balanced" type="password"></ion-md-input>
     </div>
     <div class="padding">
-      <!-- <button ui-sref="app.Dashboard" class="button button-full button-assertive ink">Login</button> -->
       <button ui-sref="app.Dashboard" class="button button-full button-assertive ink">Login</button>
     </div>
     <div class="button-bar social-login">
       <button class="button button-small button-border icon-left ion-social-google button-assertive-900">Google+</button>
       <button class="button button-small button-border icon-left ion-social-twitter button-calm-900">Twitter</button>
       <button class="button button-small button-border icon-left ion-social-facebook button-positive-900">Facebook</button>
+    </div>
+  </ion-content>
+</ion-view> -->
+
+<ion-view class="">
+  <div class="bar header-bar bar-assertive-900">
+    <div class="buttons-left">
+      <span class="left-buttons">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="HistoryBack()"></button>
+      </span>    
+    </div>
+    <div class="h1 title light title-center">Login</div>
+  </div>
+  <ion-content class="has-header">
+    <style type="text/css">
+      .form-Card{
+        margin-left : 18px;
+        margin-right: 18px;
+        box-shadow: none;
+      }
+      .item-floating-label{
+        padding-left: 0px !important;
+      }
+      .labeltest{
+        border: none !important;
+      }
+      input.floatinput {
+        border-bottom: 1px solid #dfdfdf !important;
+      }
+      .input-label{
+        color:#1e88e5;
+        font-size: 14px;
+      }
+      input.floatinput:focus {
+        border-bottom: 2px solid #1e88e5 !important;
+      }
+      .passwordicons{
+        right: 0px!important; margin-top: 11px !important;font-size: 25px !important;
+      }
+      .icon-color{
+        color: #1e88e5;
+      }
+      .instituteLogo{
+        width: 85px;height: 85px;margin:auto;display: block;box-shadow: none !important;
+      }
+      .Socailbutton{
+        height: 40px;
+      }
+      .loginBtn{
+        height: 40px;
+      }
+      .buttonAlign{
+        margin-right: 18px;
+      }
+      .button-calm{
+        background-color: #3B5998 !important;
+      }
+      .button-assertive{
+        background-color: #DB4437 !important;
+      }
+      .button{
+        box-shadow: none;
+        text-transform: capitalize;
+      }
+      .button-bar{
+        box-shadow: none;
+      }
+      .button.button-positive.button-outline {
+        background: transparent none repeat scroll 0 0 !important;
+        border-color: #dfdfdf;
+        color: #387ef5 !important;
+      }
+    </style>
+    <div class="list card form-Card">
+      <div class="item" style="text-align: center;">
+        <img align="center" class="instituteLogo" src="http://images.clipartpanda.com/modern-american-history-collage-Austin_College_Logo.png">
+      </div>
+      <div class="item item-input item-floating-label labeltest" style="margin-top:-10px" >
+        <span class="input-label">Email / Phone</span>
+        <input class="floatinput" type="text" placeholder="Email or Phone" highlight-color="balanced">
+      </div>
+      <div class="item item-input FloatLabel item-floating-label labeltest item-icon-right" >
+        <i class="icon ion-ios-eye passwordicons" ng-click="showpass()" ng-if=notactiveicons></i>
+        <i class="icon ion-ios-eye passwordicons icon-color" ng-click="hidepass()" ng-if=activeicons></i>
+        <span class="input-label ">Password</span>
+        <input class="floatinput" type="{{inputType}}" placeholder="Password">
+      </div>
+      <p style="float: right; margin-top: 5px;font-size: 11px;color:#1e88e5;margin-right: 4px ">Forgot Password ?</p>
+      <br>
+      <button ui-sref="app.Dashboard" class="button button-block button-small button-assertive-900 ink loginBtn" data-ink-opacity=".2" data-ink-color="#ffffff"><i class="ion-android-lock"></i> &nbsp;Login</button>
+      <br>
+      <p style="text-align: center;color: #666;font-size: 11px">or Login with</p>
+      <br>
+      <div class="button-bar">
+        <button class="button button-small button-border button-calm Socailbutton buttonAlign ink" data-ink-opacity=".2" data-ink-color="#ffffff">
+        <i class="ion-social-facebook"></i> &nbsp;Facebook</button>
+        <button class="button button-small button-border button-assertive Socailbutton ink" data-ink-opacity=".2" data-ink-color="#ffffff">
+        <i class="ion-social-google"></i> &nbsp;Google</button>
+      </div>
+      <br>
+      <button class="button button-outline button-positive button-small button-block ink" data-ink-opacity=".1" data-ink-color="#dddddd" ui-sref="AdmissionRegister">Create New Account</button>
     </div>
   </ion-content>
 </ion-view>

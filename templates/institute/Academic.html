@@ -22,76 +22,69 @@
         color: #666;
         text-align: justify;
       }
-      .QuickMenuTD-Top {
-        border-right: 1px solid rgba(0, 0, 0, 0.12);
-        border-top: 1px solid rgba(0, 0, 0, 0.12);
-        padding-bottom: 0px;
-        padding-top: 10px;
-        text-align: center;
-        width: 33%;
-        opacity: 1 ;
-      }
-/*      .inst-CustomContentHeight{
-        height: 750px ;
-      }*/
       .main-bg-color{
         background-color: #DFDFDF;
       }
+      /*css*/
+      /*.list .item.item-accordion {
+        line-height: 38px;
+        padding-left: 40px;
+        padding-top: 0;
+        padding-bottom: 0;
+        transition: 0.09s all linear;
+      }
+
+      .list .item.item-accordion.ng-hide {
+        line-height: 0px;
+      }
+
+      .list .item.item-accordion.ng-hide-add,
+      .list .item.item-accordion.ng-hide-remove {
+        display: block !important;
+      }*/
+      .sub-item {
+        padding-left: 20px;
+      }
+      .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
+        background-color: rgba(0, 0, 0, 0.09);
+      }
       .btnStyle{
         font-size: 12px;
-        margin-right: -9px; 
-      }
-      .GalleryImg{
-        width: 100%;
-        height: 100%;
-        box-shadow: none !important;
+        margin-right: -9px;
+        letter-spacing: 0.3px;
       }
     </style>
+    <div class="card">
+      <ion-list>
+        <div class="item item-avatar">
+          <img src="http://www.gobaker.com/Websites/gobaker/images/Icons/Icon-Education.png" style="box-shadow: none;">
+          <h2 class="inst-Title">Courses</h2>
+        </div>
+        <div ng-repeat="group in groups">
+          <ion-item class="item-avatar item-icon-right" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+            <img ng-src="{{group.iconURL}}">
+            <div class="item-text-center item-text-wrap">{{group.Deptname}}</div>
+            <i class="icon" ng-class="isGroupShown(group) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
+          </ion-item>
+          <ion-item class="item-accordion" ng-repeat="item in group.items" ng-click="toggleSubGroup(item)" ng-show="isGroupShown(group)">
+            <div class="item-text-center item-text-wrap">{{item.courseName}}</div>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
     <div class="list card">
       <div class="item item-avatar">
-        <img src="img/icons/Aboutus.svg" style="box-shadow: none;">
-        <h2 class="inst-Title">ABOUT US</h2>
+        <img src="http://pace.uum.edu.my/images/Icons/smart-applications-icon-1.png" style="box-shadow: none;">
+        <h2 class="inst-Title">Admission</h2>
       </div>
       <div class="inst-ContentImg">
         <p class="p-text">
-          Ruby Campus was established with the aim of providing quality higher education  on par with international standards. It persistently seeks and adopts innovative
+          A student should register in rubycampus , student will be short listed depending on the Percentage , acitivits and etc..
         </p>
       </div>
       <div class="">
-        <button class="button button-small icon-right flat  icon ion-ios-arrow-forward pull-right text-white"> More</button>
+        <button class="button button-small button-balanced button-clear  icon-right flat  icon ion-ios-arrow-forward pull-right text-white btnStyle" ui-sref="AdmissionLogin"> Apply Now</button>
       </div>
-      <!-- <div class="item item-divider">
-        <button ui-sref="app.Profile.About" class="button Cardlink button-clear button-dark">More <i class="ion-ios-arrow-forward"></i> </button>
-      </div> -->
-    </div>
-    <div class="list card">
-      <div class="item DividerBorder">
-        <h3>Quick Menus</h3>
-      </div>
-      <table class="tab" style="width:100%">
-        <tbody>
-          <tr>
-            <td class="QuickMenuTD-Top Table-TD tab-item">
-              <center><img src="img/icons/Coures.svg" width="40px" height="38px" 
-              style="box-shadow: none;">
-              <p>Coures</p>
-              </center>
-            </td>
-            <td class="QuickMenuTD-Top Table-TD tab-item">
-              <center><img src='img/icons/Admission.svg' width="35px" height="35px" 
-              style="box-shadow: none;">
-              <p>Admission</p>
-              </center>
-            </td>
-            <td class="QuickMenuTD-Top Table-TD tab-item">
-              <center><img src='img/icons/Career.svg' width="40px" height="40px" 
-              style="box-shadow: none;">
-              <p>Career</p>
-              </center>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </ion-content>
 </ion-view>

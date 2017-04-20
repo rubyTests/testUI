@@ -66,6 +66,9 @@ angular.module('starter.controllers', [])
   $scope.WindowBack=function(){
     window.location.href="../www/index.html#/institute/about";
   }
+  $scope.HistoryBack=function(){
+   window.history.back(); 
+  }
   $scope.loading = function() {
     $ionicLoading.show({
       template: '<div class="loader"><svg class="circular"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
@@ -116,6 +119,51 @@ angular.module('starter.controllers', [])
         });
       }
     });
+  }
+  /*Course detail array*/
+  $scope.groups = [
+  { Deptname: 'Mechanical Engineering',iconURL: "http://ionicframework.com/img/docs/venkman.jpg",items: [{ courseName: 'Mechanical Engineering'},{courseName: 'Automobile Engineering'},{courseName:'Aerospace Engineering'},{courseName:'Mechatronics'}]},
+    { Deptname: 'Electrical and Electronics Engineering',iconURL: "http://ionicframework.com/img/docs/venkman.jpg",items: [{ courseName: 'Electronics & Communication Engineering'},{ courseName: 'Telecommunication Engineering'},{ courseName: 'Electrical and Electronics Engineering'},{ courseName: 'Electronics & Instrumentation Engineering'},{courseName:'Instrumentation & Control Engineering'}]},
+    {Deptname: 'Computing Engineering',iconURL: "http://ionicframework.com/img/docs/venkman.jpg",items: [{ courseName: 'Computer Science Engineering'},{ courseName: 'Information Technology'},{ courseName: 'Software Engineering'}]},
+    {Deptname: 'Basic Sciences',iconURL: "http://ionicframework.com/img/docs/venkman.jpg",items: [{ courseName: 'Mathematics'},{ courseName: 'Physics'},{ courseName: 'Chemistry'}]},
+    {Deptname: 'Bio - Engineering',iconURL: "http://ionicframework.com/img/docs/venkman.jpg",items: [{ courseName: 'Chemical Engineering'},{ courseName: 'Biotechnology'},{ courseName: 'Biomedical Engineering'},{courseName:'Genetic Engineering'},{courseName:'Food Process Engineering'}]}
+  ];
+  $scope.Career=[
+    {jobTitle:'Project Officer',workst:'Infotech',salary:'Rs. 20,000/- Rs. 40,000/'},
+    {jobTitle:'Junior Research Fellow',workst:'CTS',salary:'Rs. 35,000/- Rs. 70,000/'},
+    {jobTitle:'Junior Research Fellow',workst:'TCS, Vellore .',salary:'Rs. 40,000/- Rs. 80,000/'},
+    {jobTitle:'Asst Manager',workst:'wipro,',salary:'Rs. 40,000/- Rs. 80,000/'}
+  ];
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+    // $ionicScrollDelegate.resize();
+  }
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  }
+  /*login page*/
+  $scope.inputType="password";
+  $scope.activeicons=false;
+  $scope.notactiveicons=true;
+  $scope.showpass=function(){
+    $scope.inputType="text";
+    $scope.activeicons=true;
+    $scope.notactiveicons=false;
+  }
+  $scope.hidepass=function(){
+    $scope.inputType="password";
+    $scope.activeicons=false;
+    $scope.notactiveicons=true;
+  }
+  /*register page*/
+  /*email and phone validation*/
+  $scope.test={};
+  $scope.checktext=function(){
+    console.log(typeof($scope.test.EmailorPhone),'$scope.EmailorPhone');
   }
 }])
 
@@ -169,7 +217,7 @@ angular.module('starter.controllers', [])
   }
 })
 // Gnanamani created @ 21.03.2017
- .controller('CalendarDemoCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$filter',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$filter){
+.controller('CalendarDemoCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$filter',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$filter){
   $timeout(function(){
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.ripple();
@@ -215,8 +263,8 @@ angular.module('starter.controllers', [])
   $scope.saveEvent = function (){
     var events = [];
     var date = new Date();
-     $scope.startTime = $filter('date')(new Date(), 'hh:mm a');
-     console.log($scope.startTime,"timeeee");
+    $scope.startTime = $filter('date')(new Date(), 'hh:mm a');
+    console.log($scope.startTime,"timeeee");
     var eventType = Math.floor(Math.random() * 2);
     var startDay = Math.floor(Math.random() * 90) - 45;
     var endDay = Math.floor(Math.random() * 2) + startDay;
