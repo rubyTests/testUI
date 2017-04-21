@@ -1,0 +1,97 @@
+<ion-view>
+    <ion-header-bar side="secondary" class="bar-assertive-900" align-title="left">
+        <div class="buttons buttons-left header-item" ng-click="goback();" >
+            <span class="left-buttons">
+                <button menu-toggle="left" class="button button-icon button-clear ion-android-arrow-back">
+                </button>
+            </span>
+        </div>
+        <h1 class="title head">Courses</h1>
+            <div class="buttons buttons-right">
+                <a class="icon ion-ios-search-strong" ng-click="showFilterBar()">
+                </a>
+            </div>
+    </ion-header-bar>
+    <style>
+        .bar .title.head {
+        margin: 0 16px !important;
+        }
+        .ion.ion-arrow-left-c.back-icon{
+            padding-top: 11px;
+            padding-left: 15px;
+            font-size: 22px;
+        }
+        .clearcls{
+            margin-left: 15px !important;
+        }
+        .icon.ion-ios-search-strong.placeholder-icon{
+            padding: 10px;
+        }
+        .icon.ion-ios-search-strong {
+            font-size: 21px;
+            padding: 12px 13px 0 0;
+        }
+        .filter-bar .filter-bar-wrapper .item-input-inset .item-input-wrapper .filter-bar-clear::before {
+            color: #444;
+            font-size: 18px;
+        }
+        .filter-bar .filter-bar-wrapper .item-input-inset .icon.placeholder-icon::before {
+            color: #aaaaaa;
+            font-size: 16px;
+            padding-top: 7px;
+        }
+        .hrcls{
+            white-space: normal;
+            margin: 9px 0 0 !important;
+            padding-left: 20px;
+        }
+        h1{
+            color: #FFF;
+        }
+        .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
+            min-height: 64px;
+        }
+        .ion.ion-arrow-left-c.back-icon{
+            padding-top: 11px;
+            padding-left: 15px;
+        }
+        .item{
+            border-color: #f4f4f4;
+        }
+        ion-item {
+            height: 66px;
+        }
+        
+
+        .filter-bar-cancel.button-icon.icon{
+            margin-left:15px !important;
+        }
+        .item .item-content.activated, .item .item-content.active, .item-complex.activated .item-content, .item-complex.active .item-content, .item.activated, .item.active {
+            background-color: #ddd;
+        }
+    </style>
+   <ion-content >
+      
+         <!--    <label class="item item-radio" ng-repeat="course in courses | filter:data.filterText" ng-click="selectCourse(course)" menu-close ui-sref="selectBatchView">
+                <input type="radio" name="group">
+                <div  class="item item-avatar">
+                    <img style="top: 10px!important;" src="{{course.img}}">
+                    <h2 class="hrcls">{{course.c_name}}</h2>
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+            </label> -->
+              
+            <ion-item class="item item-radio" ng-repeat="course in courses | filter:data.filterText" ng-click="selectCourse(course)" ui-sref="selectBatchMarklist">
+                <div style="float:left;padding-right: 10px;">
+                    <ionic-letter-avatar data="{{course.c_name}}" shape="round"></ionic-letter-avatar>
+                </div>
+                <div>
+                    <h2 class="hrcls">{{course.c_name}}</h2>
+                    <!-- <p>Duration: {{course.duration}}</p> -->
+                </div>
+           </ion-item>
+
+        <div ng-if="courses !== undefined && !courses.length" class="no-results">
+          <p>No Results</p>
+        </div>
+</ion-view>

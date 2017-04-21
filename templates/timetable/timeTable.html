@@ -1,0 +1,427 @@
+<ion-view view-title="Dashboard" style="background-color: white">
+  <!-- <ion-content> -->
+    <style type="text/css">
+      .bar {
+        box-shadow: none !important;
+        font-size: 1.3em;
+        width: 100%;
+      }
+      
+    .slidingTabs ul li.tab-active {
+      color: rgba(0, 0, 0, 0.8);
+    }
+    .slidingTabs ul li {
+      color: rgba(0, 0, 0, 0.6);
+      float: left;
+      font-size: 16px;
+      height: 45px;
+      line-height: 48px;
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+      position: relative;
+      text-align: left;
+      text-transform: none;
+      transition: color 0.25s ease-in-out 0s;
+      /* width: 40px !important;*/
+    }
+   
+   /* .textcls{
+      color: rgba(0, 0, 0, 0.6);
+     
+    }*/
+    ion-slide {
+      background-color: #fff;
+    }
+    .list .item {
+      border-bottom: 1px solid #f4f4f4;
+      height: 56px;
+      padding-left: 39px;
+    }
+    .item .badge {
+      top: 16px;
+    }
+    .item{
+      padding: 8px 0 0 21px;
+    }
+  /*  .slidingTabs ul {
+        background-color: #f1f1f1;
+        border-top: medium none;
+        height: 48px;
+       /* opacity: 0.54;*/
+  /*  }*/
+    /*.slidingTabs {
+      padding-left: 19px;
+    }*/
+    </style>
+       <ion-header-bar  class="bar-assertive-900" align-title="center">
+          <div class="buttons buttons-left header-item" ng-click="goback();" >
+              <span class="left-buttons">
+                  <button menu-toggle="left" class="button button-icon button-clear ion-android-arrow-back">
+                  </button>
+              </span>
+          </div>
+          <h1 class="title light headlist"> Time Table </h1>
+      </ion-header-bar>
+  <!-- </ion-content> -->
+  <ion-content scroll="false" overflow-scroll='true' custom-drag>
+    <ion-slide-box slide-tabs-scrollable="false" show-pager="false" ion-slide-tabs on-slide-changed="slideChanged(index)" active-slide="activeSlide">
+      <ion-slide ion-slide-tab-label="<center >Mon</center>" edge-drag-threshold="true" on-drag-left="enableSlide()" on-drag-right="RightenableSlide()">
+        <div class="list">
+          <div class="item ">
+            <h2>Cycle Test</h2>
+            <p>Mr.Rajesh</p>
+            <span class="badge badge-balanced">09:00 Am-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Maths</h2>
+            <p>Mr.john</p>
+            <span class="badge badge-balanced">09:00 Am-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Break</h2>
+            <p>xxxx</p>
+            <span class="badge badge-balanced">10:00 Am-10:15 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Hindi</h2>
+            <p>Mr.Faizer</p>
+            <span class="badge badge-balanced">10:15 Am-11:00 Am</span>
+          </div>
+          <div class="item">
+            <h2>English</h2>
+            <p>Ms.Subasree</p>
+            <span class="badge badge-balanced">11:00 Am-12:00 Pm</span>
+          </div>
+          <div class="item ">
+            <h2>Lunch</h2>
+            <p>xxxxx</p>
+            <span class="badge badge-balanced">12:00 Pm-01:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Computer Lab</h2>
+            <p>Mr.Arunkumar</p>
+            <span class="badge badge-balanced">01:00 Pm-02:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Science</h2>
+            <p>Ms.Priyanka</p>
+            <span class="badge badge-balanced">02:00 Pm-03:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>PET</h2>
+            <p>Mr.Kirushna</p>
+            <span class="badge badge-balanced">03:00-04:00 Pm</span>
+          </div>
+
+        </div>
+            
+      </ion-slide>
+      <ion-slide ion-slide-tab-label="<center class='textcls'>Tus</center>" edge-drag-threshold="true" on-drag-left="enableSlide()" on-drag-right="RightenableSlide()">
+          <div class="list">
+          <div class="item ">
+            <h2>Assembly</h2>
+            <p>Mr.Agnel</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Maths</h2>
+            <p>Mr.john</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Break</h2>
+            <p>xxxx</p>
+            <span class="badge badge-balanced">10:00-10:15 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Hindi</h2>
+            <p>Mr.Faizer</p>
+            <span class="badge badge-balanced">10:15-11:00 Am</span>
+          </div>
+          <div class="item">
+            <h2>English</h2>
+            <p>Ms.Subasree</p>
+            <span class="badge badge-balanced">11:00-12:00 Pm</span>
+          </div>
+          <div class="item ">
+            <h2>Lunch</h2>
+            <p>xxxxx</p>
+            <span class="badge badge-balanced">12:00-01:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Computer Lab</h2>
+            <p>Mr.Arunkumar</p>
+            <span class="badge badge-balanced">01:00-02:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Science</h2>
+            <p>Ms.Priyanka</p>
+            <span class="badge badge-balanced">02:00-03:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>PET</h2>
+            <p>Mr.Kirushna</p>
+            <span class="badge badge-balanced">03:00-04:00 Pm</span>
+          </div>
+
+        </div>
+      </ion-slide>
+      <ion-slide ion-slide-tab-label="<center class='textcls '>Wed</center>" edge-drag-threshold="true" on-drag-left="enableSlide()" on-drag-right="RightenableSlide()">
+          <div class="list">
+          <div class="item ">
+            <h2>Activities</h2>
+            <p>Ms.Keerthy</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Maths</h2>
+            <p>Mr.john</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Break</h2>
+            <p>xxxx</p>
+            <span class="badge badge-balanced">10:00-10:15 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Hindi</h2>
+            <p>Mr.Faizer</p>
+            <span class="badge badge-balanced">10:15-11:00 Am</span>
+          </div>
+          <div class="item">
+            <h2>English</h2>
+            <p>Ms.Subasree</p>
+            <span class="badge badge-balanced">11:00-12:00 Pm</span>
+          </div>
+          <div class="item ">
+            <h2>Lunch</h2>
+            <p>xxxxx</p>
+            <span class="badge badge-balanced">12:00-01:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Computer Lab</h2>
+            <p>Mr.Arunkumar</p>
+            <span class="badge badge-balanced">01:00-02:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Science</h2>
+            <p>Ms.Priyanka</p>
+            <span class="badge badge-balanced">02:00-03:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>PET</h2>
+            <p>Mr.Kirushna</p>
+            <span class="badge badge-balanced">03:00-04:00 Pm</span>
+          </div>
+
+        </div>
+      </ion-slide>
+      <ion-slide ion-slide-tab-label="<center class='textcls'>Thu</center>" edge-drag-threshold="true" on-drag-left="enableSlide()" on-drag-right="RightenableSlide()">
+          <div class="list">
+          <div class="item ">
+            <h2>History</h2>
+            <p>Mr.Magesh</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Maths</h2>
+            <p>Mr.john</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Break</h2>
+            <p>xxxx</p>
+            <span class="badge badge-balanced">10:00-10:15 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Hindi</h2>
+            <p>Mr.Faizer</p>
+            <span class="badge badge-balanced">10:15-11:00 Am</span>
+          </div>
+          <div class="item">
+            <h2>English</h2>
+            <p>Ms.Subasree</p>
+            <span class="badge badge-balanced">11:00-12:00 Pm</span>
+          </div>
+          <div class="item ">
+            <h2>Lunch</h2>
+            <p>xxxxx</p>
+            <span class="badge badge-balanced">12:00-01:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Computer Lab</h2>
+            <p>Mr.Arunkumar</p>
+            <span class="badge badge-balanced">01:00-02:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Science</h2>
+            <p>Ms.Priyanka</p>
+            <span class="badge badge-balanced">02:00-03:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>PET</h2>
+            <p>Mr.Kirushna</p>
+            <span class="badge badge-balanced">03:00-04:00 Pm</span>
+          </div>
+
+        </div>
+      </ion-slide>
+      <ion-slide ion-slide-tab-label="<center class='textcls'>Fri</center>" edge-drag-threshold="true" on-drag-left="enableSlide()" on-drag-right="RightenableSlide()">
+          <div class="list">
+          <div class="item ">
+            <h2>Music Class</h2>
+            <p>Mr.Hariharan</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Maths</h2>
+            <p>Mr.john</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Break</h2>
+            <p>xxxx</p>
+            <span class="badge badge-balanced">10:00-10:15 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Hindi</h2>
+            <p>Mr.Faizer</p>
+            <span class="badge badge-balanced">10:15-11:00 Am</span>
+          </div>
+          <div class="item">
+            <h2>English</h2>
+            <p>Ms.Subasree</p>
+            <span class="badge badge-balanced">11:00-12:00 Pm</span>
+          </div>
+          <div class="item ">
+            <h2>Lunch</h2>
+            <p>xxxxx</p>
+            <span class="badge badge-balanced">12:00-01:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Computer Lab</h2>
+            <p>Mr.Arunkumar</p>
+            <span class="badge badge-balanced">01:00-02:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Science</h2>
+            <p>Ms.Priyanka</p>
+            <span class="badge badge-balanced">02:00-03:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>PET</h2>
+            <p>Mr.Kirushna</p>
+            <span class="badge badge-balanced">03:00-04:00 Pm</span>
+          </div>
+
+        </div>
+      </ion-slide>
+      <ion-slide ion-slide-tab-label="<center class='textcls'>Sat</center>" edge-drag-threshold="true" on-drag-left="enableSlide()" on-drag-right="RightenableSlide()">
+          <div class="list">
+          <div class="item ">
+            <h2>Technical Works</h2>
+            <p>Mr.Rajesh</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Maths</h2>
+            <p>Mr.john</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Break</h2>
+            <p>xxxx</p>
+            <span class="badge badge-balanced">10:00-10:15 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Hindi</h2>
+            <p>Mr.Faizer</p>
+            <span class="badge badge-balanced">10:15-11:00 Am</span>
+          </div>
+          <div class="item">
+            <h2>English</h2>
+            <p>Ms.Subasree</p>
+            <span class="badge badge-balanced">11:00-12:00 Pm</span>
+          </div>
+          <div class="item ">
+            <h2>Lunch</h2>
+            <p>xxxxx</p>
+            <span class="badge badge-balanced">12:00-01:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Computer Lab</h2>
+            <p>Mr.Arunkumar</p>
+            <span class="badge badge-balanced">01:00-02:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Science</h2>
+            <p>Ms.Priyanka</p>
+            <span class="badge badge-balanced">02:00-03:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>PET</h2>
+            <p>Mr.Kirushna</p>
+            <span class="badge badge-balanced">03:00-04:00 Pm</span>
+          </div>
+
+        </div>
+      </ion-slide>
+       <ion-slide ion-slide-tab-label="<center class='textcls '>Sun</center>" edge-drag-threshold="true" on-drag-left="enableSlide()" on-drag-right="RightenableSlide()">
+          <div class="list">
+          <div class="item ">
+            <h2>Cycle Test</h2>
+            <p>Mr.Rajesh</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Maths</h2>
+            <p>Mr.john</p>
+            <span class="badge badge-balanced">09:00-10:00 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Break</h2>
+            <p>xxxx</p>
+            <span class="badge badge-balanced">10:00-10:15 Am</span>
+          </div>
+          <div class="item ">
+            <h2>Hindi</h2>
+            <p>Mr.Faizer</p>
+            <span class="badge badge-balanced">10:15-11:00 Am</span>
+          </div>
+          <div class="item">
+            <h2>English</h2>
+            <p>Ms.Subasree</p>
+            <span class="badge badge-balanced">11:00-12:00 Pm</span>
+          </div>
+          <div class="item ">
+            <h2>Lunch</h2>
+            <p>xxxxx</p>
+            <span class="badge badge-balanced">12:00-01:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Computer Lab</h2>
+            <p>Mr.Arunkumar</p>
+            <span class="badge badge-balanced">01:00-02:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>Science</h2>
+            <p>Ms.Priyanka</p>
+            <span class="badge badge-balanced">02:00-03:00 Pm</span>
+          </div>
+          <div class="item">
+            <h2>PET</h2>
+            <p>Mr.Kirushna</p>
+            <span class="badge badge-balanced">03:00-04:00 Pm</span>
+          </div>
+
+        </div>
+      </ion-slide>
+     
+     <!--  <ion-slide ion-slide-tab-label="<i class='icon ion-email'></i>" on-drag-right="enableSlide()" on-drag-left="RightenableSlide()">
+        <div ng-include="'templates/student/Message.html'"></div>
+      </ion-slide> -->
+    </ion-slide-box>
+
+  </ion-content>
+</ion-view>
