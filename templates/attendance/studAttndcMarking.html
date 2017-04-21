@@ -1,4 +1,4 @@
-<!-- <link href="css/checkbox.css" rel="stylesheet"> -->
+
 <ion-view>
 	<style>
 	    .icon.ion-ios-search-strong.placeholder-icon{
@@ -136,10 +136,7 @@
         h1{
             color: #FFF;
         }
-      /*  .item-avatar, .item-avatar .item-content, .item-avatar-left, .item-avatar-left .item-content {
-            min-height: 64px;
-            border-top-width: 1px solid #f4f4f4;
-        }*/
+     
         .item-avatar .item-content {
 		    border-radius: 50%;
 		    box-shadow: none !important;
@@ -173,8 +170,8 @@
 			padding-left: 15px;
 			font-size: 22px;
 		}
-		.bar .title.head {
-        	margin: 0 39px;
+		.bar .title.heads {
+        	margin: 0 17px !important;
         }
         .slide-in-up.ng-enter-active, .slide-in-up > .ng-enter-active {
 		    opacity: 0.89;
@@ -187,10 +184,13 @@
 
 	</style>
      <ion-header-bar side="secondary" class="bar-assertive-900" align-title="left">
-       <div ng-click="goback();" class="IconDiv">
-		    <i class="ion ion-arrow-left-c back-icon " ></i>
-		</div>
-		<h1 class="title head">Students</h1>
+        <div class="buttons buttons-left header-item" ng-click="goback();" >
+			<span class="left-buttons">
+		        <button menu-toggle="left" class="button button-icon button-clear ion-android-arrow-back">
+		        </button>
+		    </span>
+      	</div>
+		<h1 class="title heads">Students</h1>
 	   	 	<!-- <button class="buttonhr button-icon ion ion-android-send button pull-right"></button>
 	        <button class="buttonhr button-icon icon ion-ios-search-strong " ng-click="showFilterBar()">
 	        </button> -->
@@ -247,15 +247,12 @@
 			    <div class="ion-modal-content-custom">
 			      <ion-content class="padding " >
 			      		<table style="width: 100%;">
-							
 							  <tr>
 							     <td style="text-align: center; vertical-align: middle;padding-top: 220px;">
-							        <img  alt="Logo" src="img/checkicon.png" height=45 width=45>
+							        <img  alt="Logo" src="img/checkicon.png" height=60 width=60>
 							        <p><b style="font-size: 18px;">SUCCESS</b><br>
 							        	<span>Student attendance marked successfully</span>
 							        </p>
-							        
-							          
 							     </td>
 							  </tr>
 						</table>

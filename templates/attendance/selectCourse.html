@@ -1,7 +1,10 @@
 <ion-view>
     <ion-header-bar side="secondary" class="bar-assertive-900" align-title="left">
-        <div ng-click="goback();" class="IconDiv">
-            <i class="ion ion-arrow-left-c back-icon " ></i>
+        <div class="buttons buttons-left header-item" ng-click="goback();" >
+            <span class="left-buttons">
+                <button menu-toggle="left" class="button button-icon button-clear ion-android-arrow-back">
+                </button>
+            </span>
         </div>
         <h1 class="title head">Courses</h1>
             <div class="buttons buttons-right">
@@ -11,7 +14,7 @@
     </ion-header-bar>
     <style>
         .bar .title.head {
-        margin: 0 39px;
+            margin: 0 16px !important;
         }
         .ion.ion-arrow-left-c.back-icon{
             padding-top: 11px;

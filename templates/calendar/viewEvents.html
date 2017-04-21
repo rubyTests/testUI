@@ -1,12 +1,14 @@
 <ion-view>
-    <ion-header-bar class="bar-assertive-900" align-title="center">
-	   <div class="home-head2" ng-click="goback();">
-			<i class="ion ion-arrow-left-c back-icon"></i>
-	    </div>
+    <ion-header-bar class="bar-assertive-900 bar bar-header" align-title="left">
+	    <div class="buttons buttons-left header-item" ng-click="goback();" >
+			<span class="left-buttons">
+		        <button menu-toggle="left" class="button button-icon button-clear ion-android-arrow-back">
+		        </button>
+		    </span>
+      	</div>
 		<h1 class="title">Event Details</h1>
+
 		<div class="buttons buttons-right">
-            <!-- <a class="icon ion-android-share-alt" >
-            </a> -->
             <srf-social-share data-config="linkShareCtrl.share"></srf-social-share>
         </div>
     </ion-header-bar>
@@ -37,11 +39,11 @@
 		h1{
 			color: #fff;
 		}
-		.ion.ion-arrow-left-c.back-icon{
+		/*.ion.ion-arrow-left-c.back-icon{
 			padding-top: 11px;
 			padding-left: 15px;
 			font-size: 22px;
-		}
+		}*/
 		.listcls{
 		 	margin-top: 19px;
 		 	} 
@@ -77,7 +79,7 @@
 		    height: 44px;
 		}
     </style>
-    <ion-content class="" scroll="false">
+    <ion-content  scroll="false">
    	
     	
     	<div class="list listcls">
@@ -100,7 +102,7 @@
 		    <p style="white-space: normal; margin: 0 !important;">Environment day is celebrated with a special message and theme to keep the environment clean and green.</p>
 		  </div>
 		</div>
-		<div class="bar bar-footer1" style="background-color: white !important;">
+		<!-- <div class="bar bar-footer1" style="background-color: white !important;">
 	    	<div class="title">
 			    <a  menu-close ui-sref="AddEventEdit"  class="buttons buttons-right">
 					<button class="button button-assertive-900 button-fab" ng-click="editEvent();" style="float:right;margin-top:-26px;margin-right: 5px;">
@@ -108,21 +110,10 @@
 	                </button>
 				</a>
 			</div>
-	    </div>
+	    </div> -->
     </ion-content>
-   
-    <!-- <div class="bar bar-footer1">
-        <div class="title">
-        	<div class="buttons buttons-right">
-                <button class="button button-assertive-900 button-fab" menu-close ui-sref="AddEventEdit" ng-click="editEvent();" style="float:right;margin-top:-26px;margin-right: 7px;">
-                    <i class="icon ion-edit"></i>
-                </button>
-            </div>
-        </div>
-        
-    </div> -->
-
-
-		    
+        <button class="button button-assertive-900 button-fab button-fab-bottom-right" id="fab"  menu-close ui-sref="AddEventEdit">
+            <i class="icon ion-edit"></i>
+        </button>
 	
 </ion-view>

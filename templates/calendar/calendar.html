@@ -1,15 +1,19 @@
 <ion-view>
 	<ion-header-bar class="bar-assertive-900 bar bar-header" align-title="left">
-				<div class="" ng-click="goback();">
-					<i class="ion ion-arrow-left-c back-icon " ></i>
-			    </div>
+		<div class="buttons buttons-left header-item" ng-click="goback();" >
+			<span class="left-buttons">
+		        <button menu-toggle="left" class="button button-icon button-clear ion-android-arrow-back">
+		        </button>
+		    </span>
+      	</div>
+				
 			    <h1 class="title titlecls">{{viewTitle}}</h1>
 			    <div class="buttons buttons-right header-item">
 				   	<span class="right-buttons">
 						<button ng-click="today()" ng-disabled="isToday()" class="buttonhr" disabled="disabled">Today</button>&nbsp;&nbsp;
-						<button ng-click="changeMode('month')" class="buttonhr">M</button>&nbsp;&nbsp;
-						<button ng-click="changeMode('week')" class="buttonhr">W</button>&nbsp;&nbsp;
-						<button ng-click="changeMode('day')" class="buttonhr">D</button>
+						<button ng-click="changeMode('month')" class="buttonhr" ng-disabled="calendar.mode=='month'" ng-class="{active :calendar.mode}">M</button>&nbsp;&nbsp;
+						<button ng-click="changeMode('week')" class="buttonhr" ng-disabled="calendar.mode=='week'">W</button>&nbsp;&nbsp;
+						<button ng-click="changeMode('day')" class="buttonhr" ng-disabled="calendar.mode=='day'">D</button>
 						<!-- <button ng-click="loadEvents()" class="button">Load Events</button> -->
 					</span>
 			    </div>
@@ -56,13 +60,10 @@
 		h1{
 			color:#fff;
 		}
-		.ion.ion-arrow-left-c.back-icon{
-			padding-top: 11px;
-			padding-left: 15px;
-			font-size: 22px;
-		}
+		
 		h1.titlecls {
 		    font-size: 15px !important;
+		    left: 47px !important;
 		}
 		.buttonhr.disabled, .buttonhr[disabled] {
 		    cursor: default !important;
@@ -106,24 +107,30 @@
 		    margin-bottom: 0 !important;
 		    border-bottom: 1px solid #f4f4f4;
 		}
-		/*.list{
-			border-bottom: 1px solid #f4f4f4;
-		}*/
+		.monthview-slide {
+		    height: 260px;
+		}
     </style>
     <ion-content scroll="false" class="main-content" ng-init="init()">
+    	
 		<calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
-		  range-changed="reloadSource(startTime, endTime)"
-		  event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)"
-		  time-selected="onTimeSelected(selectedTime, events, disabled)" step="30">
+		  event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title)">
 	    </calendar>
-		<ion-list >
-			<div class="">
-			    <a  menu-close ui-sref="AddEvent">
-					<button class="button button-fab button-assertive-900 icon ion-plus" style="float:right;margin-right: 0px;margin-right: 15px;margin-top: -70px;">
-					</button>
-				</a>
-			</div>
-		</ion-list>	  
+			   <!--  <div class="list listclass" ng-repeat="event in calendar.eventSource" ui-sref="ViewEvents" ng-if="event.title">
+			    	
+					<a class="item item-avatar">
+						<img src="{{event.img}}">
+						<h2 class="contnt">{{event.title}} </h2>
+						<p>  {{event.startTime| date: 'hh:mm a'}} - {{event.endTime|date: 'hh:mm a'}}</p>
+					</a>
+			    </div>
+		        <div ng-if="!calendar.eventSource">
+		            <h3 >Nooo</h3>
+		        </div> -->
+
     </ion-content>
+        <button class="button button-assertive-900 button-fab button-fab-bottom-right" id="fab"  menu-close ui-sref="AddEvent">
+            <i class="icon ion-plus"></i>
+        </button>
     
 </ion-view>

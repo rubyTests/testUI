@@ -12,14 +12,14 @@
 	    padding: 4px 7px 2px 5px;
 	    width: 12%;
 	}
-	.bar .button {
+	/*.bar .button {
 	    max-width: 48px;
 	    min-height: 32px;
 	    min-width: 40px;
 	    width: 41px;
 	    font-size: 14px;
-	}
-	.bar .button, .bar .button.button-flat, .bar .button.button-large, .button, .button.button-flat, .button.button-large {
+	}*/
+	/*.bar .button, .bar .button.button-flat, .bar .button.button-large, .button, .button.button-flat, .button.button-large {
 	    background-clip: padding-box;
 	    border: medium none;
 	    border-radius: 2px;
@@ -29,14 +29,14 @@
 	    outline: 0 none;
 	    padding: 0 0rem;
 	    text-transform: none;
-	}
+	}*/
 	.dateTimecls{
 		font-size:12px !important;
 		margin-left:12px;
 	}
-	.item.item-input.floatlabel > span {
+	/*.item.item-input.floatlabel > span {
 	    padding-left: 5px;
-	}
+	}*/
 	.ion-compose{
 		font-size: 18px;
 	}
@@ -50,11 +50,11 @@
 	h1{
 		color:#fff;
 	}
-	.ion.ion-arrow-left-c.back-icon{
+	/*.ion.ion-arrow-left-c.back-icon{
 		padding-top: 11px;
 		padding-left: 15px;
 		font-size: 22px;
-	}
+	}*/
 	.item-md-label {
 	    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
 	    box-shadow: none;
@@ -134,10 +134,13 @@
 	    padding: 8px;
 	}
 </style>
-    <ion-header-bar class="bar-assertive-900 bar bar-header" align-title="center">
-	    <div class="" ng-click="goback();">
-			<i class="ion ion-arrow-left-c back-icon " ></i>
-	    </div>
+    <ion-header-bar class="bar-assertive-900 " align-title="center">
+	    <div class="buttons buttons-left header-item" ng-click="goback();" >
+			<span class="left-buttons">
+		        <button menu-toggle="left" class="button button-icon button-clear ion-android-arrow-back">
+		        </button>
+		    </span>
+      	</div>
 		<h1 class="title"> Events</h1>
 		<div class="buttons buttons-right">
             <button class="buttonhr button-assertive-900" style="padding: 5px 14px 0 0;" ui-sref="Calendar">Save
