@@ -227,7 +227,11 @@ angular.module('starter.controllers', [])
   $scope.calendar = {};
   $scope.init = function () {
     $scope.calendar.eventSource =  $scope.saveEvent();
+    //console.log($scope.calendar.eventSource,"eventSource");
   }
+
+
+
   $scope.goback=function(){
     window.history.back();
   }
@@ -376,7 +380,12 @@ angular.module('starter.controllers', [])
       return events;
     }
   }])
-.controller('DatepickerCtrl', function ($scope,$filter) {
+  .controller('DatepickerCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$filter',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$filter){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+// .controller('DatepickerCtrl', function ($scope,$filter) {
   $scope.goback=function(){
     window.history.back();
   }
@@ -387,8 +396,13 @@ angular.module('starter.controllers', [])
     $scope.timeValue1 = $filter('date')(new Date(), 'hh:mm a');
     $scope.demoValue ='Environment Day';
     $scope.demoDesc ='Environment day is celebrated with a special message and theme to keep the environment clean and green.';
-})
-.controller('StdAttndCtrl', function($scope,$ionicScrollDelegate) {
+}])
+  .controller('StdAttndCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicScrollDelegate',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$filter,$ionicScrollDelegate){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+// .controller('StdAttndCtrl', function($scope,$ionicScrollDelegate) {
   $scope.goback=function(){
     window.history.back();
   }
@@ -424,7 +438,7 @@ angular.module('starter.controllers', [])
         }
     });
   }
-})
+}])
 .controller('EmpAttndCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicScrollDelegate',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$ionicScrollDelegate){
   $timeout(function(){
     ionicMaterialInk.displayEffect();
@@ -468,7 +482,12 @@ angular.module('starter.controllers', [])
     });
   }
 }])
-.controller('MainController', function($scope,$state, $timeout,$http ,$ionicFilterBar,$ionicPopup,$ionicLoading,$ionicModal) {
+ .controller('MainController',['$scope','ionicMaterialInk','ionicMaterialMotion','$state','$timeout','$http','$ionicFilterBar','$ionicPopup','$ionicLoading','$ionicModal',function($scope,ionicMaterialInk,ionicMaterialMotion,$state, $timeout,$http ,$ionicFilterBar,$ionicPopup,$ionicLoading,$ionicModal){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+// .controller('MainController', function($scope,$state, $timeout,$http ,$ionicFilterBar,$ionicPopup,$ionicLoading,$ionicModal) {
   $scope.goback=function(){
     window.history.back();
   }
@@ -551,7 +570,7 @@ angular.module('starter.controllers', [])
       {
       
         $state.go("app.Dashboard");
-      },300);
+      },600);
     });
   };
   $scope.closeModal = function() {
@@ -569,8 +588,14 @@ angular.module('starter.controllers', [])
   $scope.$on('modal.removed', function() {
     // Execute action
   });
-})
-.controller('selectCourseCtrl',function($scope,$http,$state,$ionicFilterBar,$location){
+}])
+
+ .controller('selectCourseCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$state','$timeout','$http','$ionicFilterBar',function($scope,ionicMaterialInk,ionicMaterialMotion,$state, $timeout,$http ,$ionicFilterBar){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+// .controller('selectCourseCtrl',function($scope,$http,$state,$ionicFilterBar,$location){
   $scope.goback=function(){
     window.history.back();
   }
@@ -592,8 +617,13 @@ angular.module('starter.controllers', [])
     $scope.courses=data;
   }).error(function(err){
   });
-})
-.controller('selectBatchCtrl',function($scope,$http,$state,$ionicFilterBar,$location){
+}])
+ .controller('selectBatchCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$state','$timeout','$http','$ionicFilterBar','$location',function($scope,ionicMaterialInk,ionicMaterialMotion,$state, $timeout,$http ,$ionicFilterBar,$location){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+// .controller('selectBatchCtrl',function($scope,$http,$state,$ionicFilterBar,$location){
   $scope.goback=function(){
     window.history.back();
     //$location.path('selectCourseView');
@@ -616,17 +646,24 @@ angular.module('starter.controllers', [])
     $scope.batches=data;
   }).error(function(err){
   });
-})
-.controller('LinkShareController', 
-    function ($scope) {
+}])
+ .controller('LinkShareController',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout',function($scope,ionicMaterialInk,ionicMaterialMotion, $timeout){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+// .controller('LinkShareController', 
+//     function ($scope) {
       'use strict';
 
       var vm = this;
 
       vm.share = {
         'networks': ['anywhere'],
-        'message':  'Custom share message',
-        'subject':  'Custom share subject',
+        'message':  'Environment day'+
+                    '<br>'+
+                    '5:00pm - 6:00pm',
+        'subject':  'Environment',
         'file':   '',
         'link':   'http://surfit.mobi',
         'toArr':  ['info@surfit.mobi'],
@@ -637,5 +674,97 @@ angular.module('starter.controllers', [])
        $scope.goback=function(){
       window.history.back();
     }
+}])
+ .controller('LoginCtrl', function($scope,$cordovaOauth,$http) {
+ 
+ $scope.flogin = function() {
+           $cordovaOauth.facebook("431062713751366", ["email", "read_stream", "user_website", "user_location", "user_relationships"]).then(function(result) {
+              localStorage.setItem("accessToken",result.access_token);
+              if(result.access_token) {
+                
+                    $http.get("https://graph.facebook.com/v2.2/me", { params: { access_token: result.access_token, fields: "id,name,gender,email,location,website,picture,relationship_status", format: "json" }}).then(function(result) {
+                          alert(JSON.stringify(result.data));
+                    }, function(error) {
+                        alert("There was a problem getting your profile.  Check the logs for details.");
+                        console.log(error);
+                    });
+              }else{
+                  alert("Not signed in");
+              }
+
+            }, function(error) {
+                alert("There was a problem signing in!  See the console for logs");
+                alert(error);
+                console.log(error);
+            });
+    };
+    $scope.Glogin = function() {
+      
+        $cordovaOauth.google("214375389987-57sm2h297h1m0seagaq8m3hsdlbi193i.apps.googleusercontent.com", ["https://www.googleapis.com/auth/urlshortener", "https://www.googleapis.com/auth/userinfo.email"]).then(function(result) {
+         alert(JSON.stringify(result));
+        var data=null;
+          $http.get("https://www.googleapis.com/oauth2/v1/userinfo", { params: { access_token: result.access_token, fields: data, format: "json" }})
+          .then(function(result) {
+                alert(JSON.stringify(result.data));
+          }, function(error) {
+            alert("There was a problem getting your profile.  Check the logs for details.");
+          });
+        }, function(error) {
+            console.log(error);
+        });
+    };
+    $scope.twitterLogin = function() {  
+      $cordovaOauth.twitter("N9YLXisEtuO6rtpPMwwigpUZ5", "N9YLXisEtuO6rtpPMwwigpUZ5").then(function(result) {
+          alert('ok111');
+          alert(JSON.stringify(result));
+      }, function(error) {
+          alert(JSON.stringify(error));
+      });
+    }
+ 
 })
+ .controller('marklistCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$state','$timeout',function($scope,ionicMaterialInk,ionicMaterialMotion,$state, $timeout){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+  $scope.goback=function(){
+    window.history.back();
+  }
+  $scope.marklist =function(){
+    $state.go("MarkList");
+  }
+  // var c3chart_donut_id = 'c3_chart_donut_exam';
+  //   if ( $('#'+c3chart_donut_id).length ) {
+  //     var c3chart_donut = c3.generate({
+  //       bindto: '#'+c3chart_donut_id,
+  //       data: {
+  //           columns: [
+  //               ['ME',80 ],
+  //               [20 ],
+  //           ],
+  //           type : 'donut',
+  //       },
+        
+       
+  //       donut: {
+  //           title: "80 %",
+  //           width: 16,
+  //           label: {
+  //              show: false
+  //              },
+  //       },
+  //       size: {
+  //           height: 210,
+  //           width:  200
+  //           },
+  //       interaction: {
+  //           enabled: false
+  //       },
+  //       color: {
+  //           pattern: ['#886AEA']
+  //       }
+  //   });
+  // }
+}])
 ;

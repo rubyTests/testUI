@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'ionMdInput' ,'ngCordova','ion-gallery','ui.rCalendar','jett.ionic.filter.bar','ionic-letter-avatar','ion-datetime-picker','srfSocialSharing'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'ionMdInput' ,'ngCordova','ion-gallery','ui.rCalendar','jett.ionic.filter.bar','ionic-letter-avatar','ion-datetime-picker','srfSocialSharing','easypiechart'])
 
 .run(function($ionicPlatform) {
 	$ionicPlatform.ready(function() {
@@ -189,6 +189,39 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
     cache:false,
     templateUrl: "templates/attendance/selectBatch.html",
     controller: 'selectBatchCtrl'
+  })
+  .state('ExamView',{
+    url:'/ExamView',
+    cache:false,
+    templateUrl: "templates/marklist/examView.html",
+    controller: 'marklistCtrl'
+  })
+  .state('MarkList',{
+    url:'/MarkList',
+    templateUrl: "templates/marklist/markList.html",
+    controller: 'marklistCtrl'
+  })
+  .state('selectCourseMarklist',{
+    cache:false,
+    url:'/selectCourseMarklist',
+    templateUrl: "templates/marklist/courseMarkList.html",
+    controller: 'selectCourseCtrl'
+  })
+  .state('selectBatchMarklist',{
+    url:'/selectBatchMarklist',
+    cache:false,
+    templateUrl: "templates/marklist/batchMarkList.html",
+    controller: 'selectBatchCtrl'
+  })
+   .state('SelectStudentMarklist',{
+    url:'/SelectStudentMarklist',
+    templateUrl: "templates/marklist/studentMarkList.html",
+    controller: 'MainController'
+  })
+   .state('TimeTable',{
+    url:'/TimeTable',
+    templateUrl: "templates/timetable/timeTable.html",
+    controller: 'MainController'
   })
 	;
 	// if none of the above states are matched, use this as the fallback
