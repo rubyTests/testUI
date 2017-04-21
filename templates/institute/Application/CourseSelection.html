@@ -1,0 +1,138 @@
+<ion-view class="">
+  <div class="bar bar-header bar-assertive-900 CustomHederBar">
+    <div class="buttons buttons-left">
+      <span class="left-buttons">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="HistoryBack()"></button>
+      </span>    
+    </div>
+    <div class="h1 title light title-left customheader">Course Selection</div>
+    <!-- <div class="buttons buttons-right">
+      <span class="right-buttons">
+        <button class="button button-fab CustombuttonFab"><i class="ion-university icon-size"></i></button>
+      </span>    
+    </div> -->
+  </div>
+  <ion-content class="has-header content">
+    <style type="text/css">
+      /*header bar*/
+      .CustomHederBar{
+        height: 140px!important;
+      }
+      .icon-size{
+        color: white !important;
+        font-size:  29px !important;
+      }
+      .content{
+        margin-top: 95px;
+      }
+      .customheader{
+        margin-top: 97px !important;
+        margin-left: -32px !important;
+      }
+      .bar-purple{
+        background-color: #3E50b4 !important;
+      }
+      .CustombuttonFab{
+        background-color: #81d4fa !important;
+        margin-top: 91px;
+      }
+      .form-Card{
+        margin-left : 18px;
+        margin-right: 18px;
+        box-shadow: none;
+      }
+      .item-floating-label{
+        padding-left: 0px !important;
+        border: none !important;
+      }
+      .labeltest{
+        border: none !important;
+      }
+      .SelectpickerLabel{
+        border-bottom: none !important;
+        padding-left: 0px;
+      }
+      .input-label{
+        color:#1e88e5;
+        font-size: 16px;
+      }
+      input.floatinput {
+        border-bottom: 1px solid #dfdfdf !important;
+        font-size: 16px !important;
+      }
+      input.floatinput:focus {
+        border-bottom: 2px solid #1e88e5 !important;
+      }
+
+      .item.item-avatar {
+        box-shadow: none !important;
+        min-height: 62px !important;
+        padding-left: 65px !important;
+      }
+      /*form btn*/
+      .Nextbtn{
+        width: 80px;
+      }
+      .icon-next{
+        font-size: 16px !important;
+      }
+      .barbtn{
+        min-width: 90px !important;
+        font-size: 18px !important;
+        text-transform: capitalize!important;
+      }
+      .bar-title{
+        font-size: 17px !important;
+        font-weight: 300 !important;
+      }
+      .selectPicker{
+        min-width: 100% !important;
+        padding-left: 0px !important;
+        padding-right: 29px !important;
+        direction: ltr !important;
+        height: 48px;
+        border-bottom: 1px solid #dfdfdf !important;
+      }
+      .selectPicker:focus{
+       border-bottom: 2px solid #1e88e5 !important; 
+      }
+    </style>
+    <br>
+    <div class="list card form-Card">
+      <h4>Select your preferred courses</h4>
+      <br>
+      <div class="item item-input item-select item-floating-label">
+        <span class="input-label">First Name</span>
+        <select class="selectPicker">
+            <option selected="" disabled="">Course Preference 1</option>
+            <option value="ECE">Electronics and Communication Engneering</option>
+            <option value="EEE">Electrical and Electronics Engneering</option>
+            <option value="CSE">Computer Science Engneering</option>
+            <option value="IT">Information Technology Engineering</option>
+            <option value="MECH">Mechnical Engneering</option>
+        </select>
+      </div>
+      <br>
+      <div class="item item-input item-select item-floating-label">
+        <div class="input-label">Course Prefernce 2</div>
+        <select class="selectPicker">
+            <option selected="">Course Preference 2</option>
+            <option value="ECE">Electronics and Communication Engneering</option>
+            <option >Electrical and Electronics Engneering</option>
+            <option value="CSE">Computer Science Engneering</option>
+            <option value="IT">Information Technology Engineering</option>
+            <option value="MECH">Mechnical Engneering</option>
+        </select>
+      </div>
+      <p></p>
+    </div>
+  </ion-content>
+  <div class="bar bar-footer bar-dark">
+    <div class="h1 title bar-title">1 of 5</div>
+    <div class="buttons buttons-right footer-item">
+      <span class="right-buttons Nextbtn">
+        <button class="button button-clear barbtn" ui-sref="PersonalDetail">Next &nbsp; <i class="ion-chevron-right icon-next"></i> &nbsp;&nbsp;</button>
+      </span>
+    </div>
+  </div>
+</ion-view>
