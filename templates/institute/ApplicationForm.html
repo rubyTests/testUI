@@ -1,5 +1,5 @@
 <ion-view class="">
-  <div class="bar header-bar bar-assertive-900">
+  <div class="bar bar-header bar-assertive-900">
     <div class="buttons-left">
       <span class="left-buttons">
         <button class="button button-icon button-clear ion-android-arrow-back" ng-click="HistoryBack()"></button>
@@ -20,6 +20,14 @@
       .labeltest{
         border: none !important;
       }
+      .SelectpickerLabel{
+        border-bottom: 1px solid #dfdfdf !important;
+        padding-left: 0px;
+      }
+      .select-label{
+        color: #D1D1D1 !important;
+        font-size: 15px !important;
+      }
       input.floatinput {
         border-bottom: 1px solid #dfdfdf !important;
       }
@@ -30,15 +38,58 @@
       input.floatinput:focus {
         border-bottom: 2px solid #1e88e5 !important;
       }
+
+      .item.item-avatar {
+        box-shadow: none !important;
+        min-height: 62px !important;
+        padding-left: 65px !important;
+      }
+      /*form btn*/
+      .Nextbtn{
+        width: 75px;
+      }
+      .barbtn{
+        min-width: 75px !important;
+        text-transform: capitalize!important;
+      }
     </style>
-    <div class="list card form-Card">
-      <br>
-      <div class="item item-input item-floating-label labeltest" style="margin-top:-10px" >
-        <span class="input-label">Enter Your OTP</span>
-        <input class="floatinput" type="text" placeholder="Enter Your OTP">
+    <div class="list">
+      <div class="item item-avatar">
+      <!-- <img src="">
+      <h2>Course selection</h2> -->
       </div>
-      <br><br>
-      <button class="button button-block button-small button-assertive-900 ink loginBtn" data-ink-opacity=".2" data-ink-color="#ffffff"><i class="ion-android-lock"></i> &nbsp;Verify</button>
+    </div>
+    <div class="list card form-Card">
+      <div class="item item-input item-select SelectpickerLabel">
+        <div class="input-label select-label">Course Prefernce 1</div>
+        <select>
+            <option value="ECE">Electronics and Communication Engneering</option>
+            <option selected="" value="EEE">Electrical and Electronics Engneering</option>
+            <option value="CSE">Computer Science Engneering</option>
+            <option value="IT">Information Technology Engineering</option>
+            <option value="MECH">Mechnical Engneering</option>
+        </select>
+      </div>
+      <br>
+      <div class="item item-input item-select SelectpickerLabel">
+        <div class="input-label select-label">Course Prefernce 2</div>
+        <select>
+            <option value="ECE">Electronics and Communication Engneering</option>
+            <option selected="" value="EEE">Electrical and Electronics Engneering</option>
+            <option value="CSE">Computer Science Engneering</option>
+            <option value="IT">Information Technology Engineering</option>
+            <option value="MECH">Mechnical Engneering</option>
+        </select>
+      </div>
+      <p></p>
     </div>
   </ion-content>
+  <div class="bar bar-footer bar-dark">
+    <div class="h1 title">1 of 5</div>
+    <div class="buttons buttons-right header-item">
+      <span class="right-buttons Nextbtn">
+        <button class="button button-clear barbtn">Next <i class="ion-chevron-right"></i></button>
+      </span>
+    </div>
+  </div>
 </ion-view>

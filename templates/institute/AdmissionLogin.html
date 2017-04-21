@@ -22,10 +22,11 @@
       }
       input.floatinput {
         border-bottom: 1px solid #dfdfdf !important;
+        font-size: 16px !important;
       }
       .input-label{
         color:#1e88e5;
-        font-size: 14px;
+        font-size: 16px;
       }
       input.floatinput:focus {
         border-bottom: 2px solid #1e88e5 !important;
@@ -39,11 +40,19 @@
       .instituteLogo{
         width: 85px;height: 85px;margin:auto;display: block;box-shadow: none !important;
       }
+      .ForgotPass{
+        float: right; margin-top: 5px;font-size: 13px;color:#1e88e5;margin-right: 4px 
+      }
+      .loginwith{
+        text-align: center;color: #666;font-size: 13px;
+      }
       .Socailbutton{
         height: 40px;
+        font-size: 16px;
       }
       .loginBtn{
         height: 40px;
+        font-size: 16px;
       }
       .buttonAlign{
         margin-right: 18px;
@@ -81,11 +90,12 @@
         <span class="input-label ">Password</span>
         <input class="floatinput" type="{{inputType}}" placeholder="Password">
       </div>
-      <p style="float: right; margin-top: 5px;font-size: 11px;color:#1e88e5;margin-right: 4px ">Forgot Password ?</p>
+      <p class="ForgotPass">Forgot Password ?</p>
       <br>
-      <button ui-sref="ApplicationForm" class="button button-block button-small button-assertive-900 ink loginBtn" data-ink-opacity=".2" data-ink-color="#ffffff"><i class="ion-android-lock"></i> &nbsp;Login</button>
       <br>
-      <p style="text-align: center;color: #666;font-size: 11px">or Login with</p>
+      <button ui-sref="CourseSelection" class="button button-block button-small button-assertive-900 ink loginBtn" data-ink-opacity=".2" data-ink-color="#ffffff"><i class="ion-android-lock"></i> &nbsp;Login</button>
+      <br>
+      <p class="loginwith">Or Login with</p>
       <br>
       <div class="button-bar">
         <button class="button button-small button-border button-calm Socailbutton buttonAlign ink" data-ink-opacity=".2" data-ink-color="#ffffff">
@@ -94,7 +104,7 @@
         <i class="ion-social-google"></i> &nbsp;Google</button>
       </div>
       <br>
-      <button class="button button-outline button-positive button-small button-block ink" data-ink-opacity=".1" data-ink-color="#dddddd" ui-sref="AdmissionRegister">Create New Account</button>
+      <button class="button button-outline button-positive button-small button-block ink loginBtn" data-ink-opacity=".1" data-ink-color="#dddddd" ui-sref="AdmissionRegister">Create New Account</button>
     </div>
   </ion-content>
 </ion-view>
