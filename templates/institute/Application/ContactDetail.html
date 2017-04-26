@@ -30,6 +30,7 @@
       input.floatinput {
         border-bottom: 1px solid #dfdfdf !important;
         font-size: 16px !important;
+        padding-right: 0px !important;
       }
       input.floatinput:focus {
         border-bottom: 2px solid #1e88e5 !important;
@@ -67,6 +68,7 @@
         min-width: 100% !important;
         padding-left: 0px !important;
         padding-right: 29px !important;
+        padding-bottom: 10px !important;
         direction: ltr !important;
         height: 48px;
         border-bottom: 1px solid #dfdfdf !important;
@@ -78,11 +80,11 @@
     <div class="list card form-Card">
       <div class="item item-input item-floating-label labeltest">
         <span class="input-label">Email</span>
-        <input class="floatinput" type="text" placeholder="Email">
+        <input class="floatinput" type="email" placeholder="Email">
       </div>
       <div class="item item-input item-floating-label labeltest">
         <span class="input-label">Phone</span>
-        <input class="floatinput" type="text" placeholder="Phone">
+        <input class="floatinput" type="number" placeholder="Phone">
       </div>
       <div class="item item-input item-floating-label labeltest">
         <span class="input-label">Address</span>
@@ -93,16 +95,20 @@
         <input class="floatinput" type="text" placeholder="City">
       </div>
       <div class="item item-input item-floating-label labeltest">
+        <span class="input-label">State</span>
+        <input class="floatinput" type="text" placeholder="State">
+      </div>
+      <div class="item item-input item-floating-label labeltest">
         <span class="input-label">Pincode</span>
-        <input class="floatinput" type="text" placeholder="Pincode">
+        <input class="floatinput" type="number" placeholder="Pincode">
       </div>
       <br>
       <div class="item item-input item-select SelectpickerLabel">
         <div class="input-label select-label">Country</div>
         <select class="selectPicker">
-            <option value="" selected="" disabled="">Select</option>
-            <option value="indian">Indian</option>
-            <option value="others">Others</option>
+          <option value="" selected="" disabled="">Select</option>
+          <option value="indian">Indian</option>
+          <option value="others">Others</option>
         </select>
       </div>
       <br>

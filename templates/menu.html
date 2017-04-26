@@ -1,6 +1,6 @@
 <ion-side-menus enable-menu-with-back-views="true">
   <ion-side-menu-content edge-drag-threshold="true">
-    <ion-nav-bar class="bar-assertive-900">
+<!--     <ion-nav-bar class="bar-assertive-900">
       <ion-nav-back-button class="no-text">
       </ion-nav-back-button>
       <ion-nav-buttons side="left">
@@ -11,7 +11,20 @@
         <button class="button button-icon button-clear ion-android-more-vertical" id="menu-popover" ng-click="popover.show($event)">
         </button>
       </ion-nav-buttons>
-    </ion-nav-bar>
+    </ion-nav-bar> -->
+    <ion-header-bar class="bar-header bar-assertive-900 HeaderBar">
+      <div class="buttons buttons-left">
+        <span class="left-buttons">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+        </span>
+      </div>
+      <div class="h1 title title-center light">Home</div>
+      <div class="buttons buttons-right">
+        <span class="right-buttons">
+          <button class="button button-icon button-clear ion-android-more-vertical" id="menu-popover" ng-click="popover.show($event)"></button>
+        </span>
+      </div>
+    </ion-header-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
   <ion-side-menu side="left">
@@ -27,26 +40,17 @@
         <a class="item " menu-close ui-sref="app.Dashboard" >
           <i class="ion-home icon-size"></i>&nbsp;&nbsp; Home
         </a>
-        <a class="item" menu-close ui-sref="app.Profile">
-          <i class="ion-android-contact icon-size"></i>&nbsp;&nbsp; Profile
-        </a>
-        <a class="item" menu-close ui-sref="app.Profile.Additional">
+        <a class="item" menu-close>
           <i class="ion-ios-people icon-size"></i>&nbsp;&nbsp; People
         </a>
         <a class="item" menu-close ui-sref="Calendar">
           <i class="ion-android-calendar icon-size"></i>&nbsp;&nbsp; News & Events
         </a>
         <a class="item">
-          <i class="ion-email icon-size"></i>&nbsp;&nbsp; Messages
-        </a>
-        <a class="item">
           <i class="ion-social-usd icon-size"></i>&nbsp;&nbsp; Payments
         </a>
         <a class="item" menu-close ui-sref="selectCourseView">
           <i class="ion-calendar icon-size"></i>&nbsp;&nbsp; Attendance
-        </a>
-        <a class="item" menu-close ui-sref="empAttndPertgView">
-          <i class="ion-calendar icon-size"></i>&nbsp;&nbsp; Attendance Percentage
         </a>
         <a class="item" menu-close ui-sref="TimeTable">
           <i class="ion-ios-grid-view icon-size"></i>&nbsp;&nbsp; Timetable
@@ -62,9 +66,6 @@
         </a>
         <a class="item">
           <i class="ion-ios-home icon-size"></i>&nbsp;&nbsp; Institution
-        </a>
-        <a class="item">
-          <i class="ion-android-notifications icon-size"></i>&nbsp;&nbsp; Notifications
         </a>
         <a class="item">
           <i class="ion-gear-b icon-size"></i>&nbsp;&nbsp; Settings

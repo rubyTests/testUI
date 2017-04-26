@@ -59,6 +59,7 @@
       input.floatinput {
         border-bottom: 1px solid #dfdfdf !important;
         font-size: 16px !important;
+        padding-right: 0px !important;
       }
       input.floatinput:focus {
         border-bottom: 2px solid #1e88e5 !important;
@@ -89,6 +90,7 @@
         min-width: 100% !important;
         padding-left: 0px !important;
         padding-right: 29px !important;
+        padding-bottom: 10px !important;
         direction: ltr !important;
         height: 48px;
         border-bottom: 1px solid #dfdfdf !important;
@@ -96,13 +98,14 @@
       .selectPicker:focus{
        border-bottom: 2px solid #1e88e5 !important; 
       }
+      
     </style>
     <br>
     <div class="list card form-Card">
-      <h4>Select your preferred courses</h4>
+      <h4 class="headtitle">Select your preferred courses</h4>
       <br>
       <div class="item item-input item-select item-floating-label">
-        <span class="input-label">First Name</span>
+        <span class="input-label">First Name *</span>
         <select class="selectPicker">
             <option selected="" disabled="">Course Preference 1</option>
             <option value="ECE">Electronics and Communication Engneering</option>

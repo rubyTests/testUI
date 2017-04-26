@@ -1,0 +1,39 @@
+<ion-view>
+  <div class="bar header-bar bar-assertive-900">
+    <div class="buttons-left buttons">
+      <span class="left-buttons">
+        <button class="button button-icon ion-android-arrow-back button-clear" ng-click="HistoryBack()"></button>
+      </span>
+    </div>
+    <div class="h1 title light">Course</div>
+  </div>
+  <ion-content class="has-header">
+    <style type="text/css">
+      .sub-item {
+        padding-left: 20px;
+      }
+      .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
+        background-color: rgba(0, 0, 0, 0.09);
+      }
+      .item.item-avatar {
+        box-shadow: none !important;
+        min-height: 62px !important;
+        padding-left: 65px !important;
+      }
+    </style>
+    <!-- <div class="card"> -->
+      <ion-list>
+        <div ng-repeat="group in groups">
+          <ion-item class="item-avatar item-icon-right" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+            <img ng-src="{{group.iconURL}}">
+            <div class="item-text-center item-text-wrap">{{group.Deptname}}</div>
+            <i class="icon" ng-class="isGroupShown(group) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
+          </ion-item>
+          <ion-item class="item-accordion" ng-repeat="item in group.items" ng-click="toggleSubGroup(item)" ng-show="isGroupShown(group)">
+            <div class="item-text-center item-text-wrap">{{item.courseName}}</div>
+          </ion-item>
+        </div>
+      </ion-list>
+    <!-- </div> -->
+  </ion-content>
+</ion-view>

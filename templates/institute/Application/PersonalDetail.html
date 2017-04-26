@@ -30,6 +30,7 @@
       input.floatinput {
         border-bottom: 1px solid #dfdfdf !important;
         font-size: 16px !important;
+        padding-right: 0px !important;
       }      
       input.floatinput:focus {
         border-bottom: 2px solid #1e88e5 !important;
@@ -60,6 +61,7 @@
         min-width: 100% !important;
         padding-left: 0px !important;
         padding-right: 29px !important;
+        padding-bottom: 10px !important;
         direction: ltr !important;
         height: 48px;
         border-bottom: 1px solid #dfdfdf !important;
@@ -67,26 +69,25 @@
       .selectPicker:focus{
        border-bottom: 2px solid #1e88e5 !important; 
       }
-
     </style>
     <div class="list card form-Card">
       <div class="item item-input item-floating-label labeltest">
-        <span class="input-label">First Name</span>
+        <span class="input-label">First Name </span>
         <input class="floatinput" type="text" placeholder="First Name">
       </div>
       <div class="item item-input item-floating-label labeltest">
-        <span class="input-label">Last Name</span>
+        <span class="input-label">Last Name </span>
         <input class="floatinput" type="text" placeholder="Last Name">
       </div>
-      <div class="item item-input item-floating-label labeltest">
-        <span class="input-label">Date of Birth</span>
-        <input class="floatinput" type="text" ng-model="dateValue" date="" ion-datetime-picker="" placeholder="Date of Birth">
+      <div class="item item-input item-floating-label labeltest" ng-model="Personal.dateValue" ng-change="getDob()" ion-datetime-picker date>
+        <span class="input-label">Date of Birth </span>
+        <input class="floatinput" type="text" ng-model="dateofbirth" placeholder="Date of Birth">
       </div>
       <br>
       <div class="item item-input item-select SelectpickerLabel">
-        <div class="input-label select-label">Gender</div>
+        <div class="input-label select-label">Gender </div>
         <select class="selectPicker">
-            <option value="" selected="" disabled="">Select</option>
+            <option value="" selected="" disabled="">Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="others">Others</option>
@@ -94,9 +95,9 @@
       </div>
       <br>
       <div class="item item-input item-select SelectpickerLabel">
-        <div class="input-label select-label">Nationality</div>
+        <div class="input-label select-label">Nationality </div>
         <select class="selectPicker">
-            <option value="" selected="" disabled="">Select</option>
+            <option value="" selected="" disabled="">Nationality</option>
             <option value="indian">Indian</option>
             <option value="others">Others</option>
         </select>

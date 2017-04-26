@@ -1,0 +1,99 @@
+<ion-view class="Bgcolor">
+  <div class="bar header-bar bar-assertive-900">
+    <div class="buttons-left buttons">
+      <span class="left-buttons">
+        <button class="button button-icon ion-android-arrow-back button-clear" ng-click="HistoryBack()"></button>
+      </span>
+    </div>
+    <div class="h1 title light">Career</div>
+  </div>
+  <ion-content class="has-header" scroll="true" on-drag="onDrag()">
+    <style type="text/css">
+      .Bgcolor{
+        background-color: #DFDFDF;
+      }
+      .inst-ContentImg{
+        overflow: visible;
+        white-space: normal;
+        padding: 0px 20px 0px 20px;
+      }
+      .inst-Title{
+        padding-top: 6px ;
+      }
+      .p-text{
+        color: #666;
+        text-align: justify;
+      }
+      .btnStyle{
+        font-size: 12px;
+        margin-right: -9px; 
+      }
+      .item.item-avatar {
+        box-shadow: none !important;
+        min-height: 62px !important;
+        padding-left: 65px !important;
+      }
+      .item.active, .item.activated, .item-complex.active .item-content, .item-complex.activated .item-content, .item .item-content.active, .item .item-content.activated {
+        background-color: rgba(0, 0, 0, 0.09);
+      }
+      .sub-item {
+        padding-left: 20px;
+      }
+    </style>
+    <img src="http://empressaa.com/images/career_banner.jpg" style="width: 100%;min-height: 120px">
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/icons/Aboutus.svg" style="box-shadow: none;">
+        <h2 class="inst-Title">Career</h2>
+      </div>
+      <div class="inst-ContentImg">
+        <p class="p-text">
+          In our work environment, all employees are valued and respected and have opportunities to develop their full potential and pursue a career path of their choice.
+        </p>
+      </div>
+      <button class="button button-small button-clear button-dark icon-right flat  icon ion-ios-arrow-forward pull-right text-white btnStyle"> More</button>
+    </div>
+    <div class="card">
+      <div class="item item-avatar">
+        <img src="img/icons/Aboutus.svg" style="box-shadow: none;">
+        <h2 class="inst-Title">Job Vacancy</h2>
+      </div>
+      <ion-list>
+        <div ng-repeat="group in Career">
+          <ion-item class="item-icon-right" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+            <div class="item-text-center item-text-wrap">{{group.jobTitle}}</div>
+            <i class="icon" ng-class="isGroupShown(group) ? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'"></i>
+          </ion-item>
+          <ion-item class="item-accordion" ng-show="isGroupShown(group)">
+            <div class="item-text-wrap p-text">
+              <p><b>Work Station :</b> {{group.workst}}, </p>
+              <p><b>Salary :  </b> {{group.salary}},</p>
+              <p><b>Job Summary :</b></p>
+              <p>The Project Officer will be responsible for overseeing field work in the impact communities. He will be responsible for assuring the high quality of project adhering to save the policies and procedures. This person will be responsible for maintaining collaborative working relationships with all parties involved in the implementation including local authorities, parents, children and community leaders and ensure coordination of project’s interventions in partnership with all program stakeholders.</p>
+              <br>
+              <p><b> Key Responsibilities: </b></p>
+              <p> > work closely with regional and community municipalities, local stakeholders to mobilize resources, coordinate activities and ensure active participation of beneficiaries, local authorities and stakeholders;</p>
+              <p> > Organize project activities in target communities, negotiate with service providers and ensure timely and quality provision of services.</p>
+              <p> > Organize community events and trainings and capacity building activities. Conduct community meetings, develop action plans and work with the action groups formed throughout the project; </p>
+              <p> > Develop schedules for project implementation, including the breakdown of activities by weeks. When necessary ensure timely provision of qualified technical expertise;  </p>
+              <p> > Assist the Advocacy, Communication and Media Coordinator in preparation of press releases and other information materials. </p>
+              <p> > Provide evidence from the field and ensure good coverage of the program activities .</p>
+              <br>
+              <p><b>Requirements / Qualifications:</b></p>
+              <p> > Master of Social Work (MSW) degree from a recognized institution or related field</p>
+              <p> > Proven record of at least 5-year working experience in the area of community development and mobilization in the country; </p>
+              <p> > Successful candidate should have field experience including resource mobilization and management of community development; </p>
+              <p> > Excellent organizational skills; ability to effectively plan operations and manage tight budgets; high level of maturity, responsibility and accountability; sound judgment and attention to details; </p>
+              <p> > Excellent interpersonal skills, including patience, diplomacy, willingness to listen and respect for stakeholders; capability of creating strong partnerships between all program stakeholders;</p>
+              <p>Ability to work effectively in a fast-paced, stressful environment; flexible and willing person to work irregular hours;
+              Fluency in written and spoken English language is a plus; excellent computer skills in MS Word and Excel. </p>
+              <p></p>
+              <p>Eligible candidates are requested to send their updated CV by mentioning the Designation in the subject line to hr@vit.ac.in on or before 21.04.2017.</p>
+              <button class="button button-block  button-clear button-balanced">Apply Now</button>
+            </div>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
+  </ion-content>
+</ion-view>

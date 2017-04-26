@@ -35,6 +35,7 @@
       input.floatinput {
         border-bottom: 1px solid #dfdfdf !important;
         font-size: 16px !important;
+        padding-right: 0px !important;
       }
       input.floatinput:focus {
         border-bottom: 2px solid #1e88e5 !important;
@@ -46,8 +47,8 @@
         padding-left: 65px !important;
       }
       .uploadImage{
-        width: 70px;
-        height: 70px;
+        width: 40%;
+        height: 40%;
         box-shadow: none !important;
         margin: auto;
         display: block;
@@ -77,11 +78,11 @@
       </div>
       <div class="item item-input item-floating-label labeltest">
         <span class="input-label">Course Name</span>
-        <input class="floatinput" type="text" placeholder="Course Name">
+        <input class="floatinput"  type="text" placeholder="Course Name">
       </div>
-      <div class="item item-input item-floating-label labeltest">
+      <div class="item item-input item-floating-label labeltest" ion-datetime-picker date ng-model="Education.dateValue" ng-change="getYOC()">
         <span class="input-label">Year of Completion</span>
-        <input class="floatinput" type="text" placeholder="Year of Completion">
+        <input class="floatinput" type="text" ng-model="YearofComp" placeholder="Year of Completion">
       </div>
       <div class="item item-input item-floating-label labeltest">
         <span class="input-label">Total mark</span>
@@ -90,7 +91,7 @@
       <br>
       <p class="label-text">Upload Photocopy of TC and Marksheets</p>
       <p></p>
-      <img ng-click="Upload()" src="{{pickimage}}" class="uploadImage">
+      <img ng-click="Upload()" src="{{Pickimage}}" class="uploadImage">
     </div>
   </ion-content>
   <div class="bar bar-footer bar-dark">

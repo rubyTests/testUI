@@ -23,6 +23,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 	$ionicConfigProvider.views.transition('none');
 	// Turn off caching for demo simplicity's sake
 	$ionicConfigProvider.views.maxCache(0);
+	$ionicConfigProvider.tabs.position('bottom');
 
 	//$ionicConfigProvider.scrolling.jsScrolling(false);
 	/* for image gallery*/
@@ -114,12 +115,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
 		controller :'InstituteCtrl'
 	})
 
-	.state('ApplicationForm',{
-		url:'application-form',
-		templateUrl:'templates/institute/ApplicationForm.html',
+	.state('CourseSelection',{
+		url:'/course-selection',
+		templateUrl:'templates/institute/Application/CourseSelection.html',
 		controller:'InstituteCtrl'
 	})
 
+	.state('PersonalDetail',{
+		url:'/personal-detail',
+		templateUrl:'templates/institute/Application/PersonalDetail.html',
+		controller:'InstituteCtrl'
+	})
+
+	.state('ContactDetail',{
+		url:'/contact-detail',
+		templateUrl:'templates/institute/Application/ContactDetail.html',
+		controller :'InstituteCtrl'
+	})
+
+	.state('EducationDetail',{
+		url:'/education-detail',
+		templateUrl:'templates/institute/Application/EducationDetail.html',
+		controller:'InstituteCtrl'
+	})
+
+	.state('ParentDetail',{
+		url:'/parent-detail',
+		templateUrl:'templates/institute/Application/ParentsDetail.html',
+		controller:'InstituteCtrl'
+	})
+	
 	.state('Coures',{
 		url:'/coures',
 		templateUrl:'templates/institute/Coures.html',
@@ -141,17 +166,107 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
       }
     }
   })
+  .state('app.Dashboard.Home', {
+    url: '/Home',
+    views: {
+      'Home': {
+        templateUrl: 'templates/student/Home.html',
+        controller: 'CampusCtrl'
+      }
+    }
+  })
+  .state('app.Dashboard.Notification', {
+    url: '/Notification',
+    views: {
+      'Notification': {
+        templateUrl: 'templates/student/Notification.html',
+        controller: 'CampusCtrl'
+      }
+    }
+  })
+  .state('app.Dashboard.Message', {
+    url: '/Message',
+    views: {
+      'Message': {
+        templateUrl: 'templates/student/Message.html',
+        controller: 'CampusCtrl'
+      }
+    }
+  })
+
+  .state('Profile',{
+  	url:'/Profile',
+  	templateUrl:'templates/student/Profile.html',
+  	controller:'CampusCtrl'
+  })
+  .state('Profile.About',{
+  	url:'/About',
+  	views:{
+  		'AboutDetail':{
+  			templateUrl:'templates/student/about.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Parents',{
+  	url:'/Parents',
+  	views:{
+  		'ParentsDetail':{
+  			templateUrl:'templates/student/Parents.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Parents.Father',{
+  	url:'/Father',
+  	views:{
+  		'Father-Detail':{
+  			templateUrl:'templates/student/FatherDetail.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Parents.Mother',{
+  	url:'/Mother',
+  	views:{
+  		'Mother-Detail':{
+  			templateUrl:'templates/student/MotherDetail.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Parents.Guardian',{
+  	url:'/Guardian',
+  	views:{
+  		'Guardian-Detail':{
+  			templateUrl:'templates/student/GuardianDetail.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Additional',{
+  	url:'/Additional',
+  	views:{
+  		'AdditionalDetail':{
+  			templateUrl:'templates/student/Additional.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+
 	/// Added by gnbanamani
   .state('Calendar',{
 	    url:'/Calendar',
 	    templateUrl: "templates/calendar/calendar.html",
 	    controller: 'CalendarDemoCtrl'
 	  })
+
    .state('AddEvent',{
     url:'/AddEvent',
     templateUrl: "templates/calendar/addEvent.html",
     controller: 'DatepickerCtrl'
   })
+
   .state('ViewEvents',{
     url:'/ViewEvents',
     templateUrl: "templates/calendar/viewEvents.html",

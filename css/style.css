@@ -152,11 +152,11 @@ ion-slide {
 }
 
 .QuickMenuTD-Top{
-  text-align: center;padding-top: 10px;padding-bottom: 10px;border-right: 1px solid rgba(0, 0, 0, 0.12);width: 33%;
+  text-align: center;padding-top: 10px;padding-bottom: 10px;border-right: 1px solid rgba(0, 0, 0, 0.12);width: 33%;color: #666 !important;
 }
 
 .QuickMenuTD-Botm{  
-  text-align: center;padding-top: 10px;padding-bottom: 10px;border-right: 1px solid rgba(0, 0, 0, 0.12);border-top: 1px solid rgba(0, 0, 0, 0.12);width:33%;
+  text-align: center;padding-top: 10px;padding-bottom: 10px;border-right: 1px solid rgba(0, 0, 0, 0.12);border-top: 1px solid rgba(0, 0, 0, 0.12);width:33%;color: #666 !important;
 }
 
 .tab-item{

@@ -36,11 +36,12 @@ angular.module('starter.controllers', [])
     ionicMaterialInk.displayEffect();
 })
 
-.controller('InstituteCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicLoading','$cordovaCamera','$cordovaDialogs',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$ionicLoading,$cordovaCamera,$cordovaDialogs){
+.controller('InstituteCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicLoading','$cordovaCamera','$cordovaDialogs','$filter',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$ionicLoading,$cordovaCamera,$cordovaDialogs,$filter){
   $timeout(function(){
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.ripple();
   });
+
   $scope.items = [
   {
     src:'img/Gallery/1.jpg',
@@ -75,6 +76,7 @@ angular.module('starter.controllers', [])
     });
   };
   /*File Upload via camera and gallery*/
+  $scope.Pickimage="https://cdn1.iconfinder.com/data/icons/smallicons-controls/32/614322-up-512.png";
   $scope.Upload=function(){
     $cordovaDialogs.confirm('Choose your option', 'Upload Receipt', ['Camera','Gallery'])
     .then(function(Selectoption) {
@@ -82,29 +84,29 @@ angular.module('starter.controllers', [])
       /*Camera upload*/
         var options = {
           quality: 100,
-          destinationType: Camera.DestinationType.DATA_URL,
+          // for base64
+          // destinationType: Camera.DestinationType.DATA_URL,
+          //normal
+          destinationType: Camera.DestinationType.FILE_URL,
           sourceType: Camera.PictureSourceType.CAMERA,
-          allowEdit: true,
-          // encodingType: Camera.EncodingType.JPEG,
-          targetWidth: 100,
-          targetHeight: 100,
+          targetWidth: 1024,
+          targetHeight: 1024,
           popoverOptions: CameraPopoverOptions,
           saveToPhotoAlbum: false,
           correctOrientation:true
+          // allowEdit: true,
+          // encodingType: Camera.EncodingType.JPEG,
         };
         $cordovaCamera.getPicture(options).then(function(imageData) {
-          var image = document.getElementById('myImage');
-          image.src = "data:image/jpeg;base64," + imageData;
+          $scope.Pickimage=imageData;
+          // $scope.Pickimage="data:image/jpeg;base64," + imageData;
         }, function(err) {
-          // error
         });
       }else if(Selectoption==2){
         var options = {
           quality: 100,
-          destinationType: Camera.DestinationType.DATA_URL,
+          destinationType: Camera.DestinationType.FILE_URL,
           sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
-          allowEdit: true,
-          // encodingType: Camera.EncodingType.JPEG,
           targetWidth: 1024,
           targetHeight: 1024,
           popoverOptions: CameraPopoverOptions,
@@ -112,8 +114,8 @@ angular.module('starter.controllers', [])
           correctOrientation:true
         };
         $cordovaCamera.getPicture(options).then(function(imageData) {
-          var image = document.getElementById('myImage');
-          image.src = "data:image/jpeg;base64," + imageData;
+          // $scope.Pickimage="data:image/jpeg;base64," + imageData;
+          $scope.Pickimage=imageData;
         }, function(err) {
           // error
         });
@@ -161,45 +163,138 @@ angular.module('starter.controllers', [])
   }
   /*register page*/
   /*email and phone validation*/
-  $scope.test={};
-  $scope.checktext=function(){
-    console.log(typeof($scope.test.EmailorPhone),'$scope.EmailorPhone');
+  // var date = new Date();
+  // $scope.dateofbirth = $filter('date')(new Date(), 'dd/MM/yyyy');
+  $scope.Personal={};
+  $scope.getDob=function(){
+    $scope.dateofbirth = $filter('date')($scope.Personal.dateValue,'dd/MM/yyyy');
+  }
+
+  $scope.Education={};
+  $scope.getYOC=function() {
+   $scope.YearofComp=$filter('date')($scope.Education.dateValue,'dd/MM/yyyy'); 
+  }
+  // prevent effect while scroll
+  $scope.onDrag=function(){
+    var data=document.querySelector('.ink-ripple');
+    console.log(data === null);
+    if (data!==null) {
+      data.className="ink-ripple:not"
+      console.log(data,"data");
+    }
+  }
+  // $scope.activetab=1;
+  //   $scope.changeTab=function(tabid) {
+  //   $scope.activetab=tabid;
+  // }
+  // $scope.viewtabcontent=function(tabindex){
+  //   console.log(tabindex,'tabindex');
+  //   if ($scope.activetab==tabindex) {
+  //     return true;
+  //   }else{
+  //     return false;
+  //   }
+  // };
+
+  $scope.onDrag=function(){
+    var data=document.querySelector('.ink-ripple');
+    console.log(data === null);
+    if (data!==null) {
+      data.className="ink-ripple:not"
+      console.log(data,"data");
+    }
   }
 }])
 
 .controller('CampusCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicTabsDelegate', 
-  '$ionicSlideBoxDelegate','$ionicSideMenuDelegate','$ionicScrollDelegate', function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$ionicTabsDelegate,$ionicSlideBoxDelegate,$ionicSideMenuDelegate,$ionicScrollDelegate) {
+  '$ionicSlideBoxDelegate','$ionicSideMenuDelegate','$ionicScrollDelegate','$ionicLoading', function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$ionicTabsDelegate,$ionicSlideBoxDelegate,$ionicSideMenuDelegate,$ionicScrollDelegate,$ionicLoading) {
   $timeout(function(){
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.ripple();
   });
-  $scope.bgClass='';
-  $scope.activeSlide=0;
-  $scope.slideChanged=function(index){
-    if(index==0){
-      var data=document.querySelector('.slider');
-      data.className="slider firstSilde";
-      $scope.bgClass="BgSilde1";
-    }
-    else if(index==1){
-      var data=document.querySelector('.slider');
-      data.className="slider secondSilde";
-      $scope.bgClass="BgSilde2";
-    }else if(index==2){
-      var data=document.querySelector('.slider');
-      data.className="slider thirdSilde";
-      $scope.bgClass="BgSilde2";
+  $scope.onSwipeLeft=function(){
+    var currentTabIndex=$ionicTabsDelegate.selectedIndex();
+    if(currentTabIndex >= 0){
+      $ionicTabsDelegate.select(currentTabIndex+1);
     }
   }
-  $scope.slideChanged($scope.activeSlide);
-  $scope.enableSlide = function() {   
-    $ionicSlideBoxDelegate.enableSlide(true);
+  $scope.onSwipeRight=function(){    
+   var currentTabIndex=$ionicTabsDelegate.selectedIndex();
+    if(currentTabIndex >= 0){
+      $ionicTabsDelegate.select(currentTabIndex-1);
+    }
   }
-  $scope.toggleScroll=true;
-  $scope.RightenableSlide = function() {   
-    $ionicSlideBoxDelegate.enableSlide(false);
-    $scope.toggleScroll=false;
-  }  
+  $scope.activeSlide = 0;
+
+  $scope.slideChanged = function(index) {
+    console.log(index,'slideChanged');
+    $ionicTabsDelegate.select(index);
+  };
+
+  $scope.setSlide = function(index) {
+    $ionicSlideBoxDelegate.slide(index);
+  };
+  $scope.GoBack=function(){
+   window.history.back(); 
+  }
+    $scope.onDrag=function(){
+    var data=document.querySelector('.ink-ripple');
+    console.log(data === null);
+    if (data!==null) {
+      data.className="ink-ripple:not"
+      console.log(data,"data");
+    }
+  }
+  $scope.loading = function() {
+    $ionicLoading.show({
+      template: '<div class="loader"><svg class="circular"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
+    });
+  };
+  // $scope.hidetab=true;
+  // $scope.addclass=false;
+  // $scope.hideTabbar=function () {
+  //   var myEl = angular.element( document.querySelectorAll( '.tabs' ) );
+  //   myEl.addClass('alpha');
+  //   var daaa=document.querySelectorAll('.alpha');
+  //   daaa[1].style.top='0px';
+  //   $scope.hidetab=false;
+  //   $scope.addclass=true;
+  // }
+  // $scope.showTabbar=function(){
+  //   var myEl = angular.element( document.querySelectorAll( '.tabs' ) );
+  //   myEl.addClass('alpha');
+  //   var daaa=document.querySelectorAll('.alpha');
+  //   daaa[1].style.top='44px';
+  //  $scope.hidetab=true; 
+  //  $scope.addclass=false;
+  // }
+  // $scope.bgClass='';
+  // $scope.activeSlide=0;
+  // $scope.slideChanged=function(index){
+  //   if(index==0){
+  //     var data=document.querySelector('.slider');
+  //     data.className="slider firstSilde";
+  //     $scope.bgClass="BgSilde1";
+  //   }
+  //   else if(index==1){
+  //     var data=document.querySelector('.slider');
+  //     data.className="slider secondSilde";
+  //     $scope.bgClass="BgSilde2";
+  //   }else if(index==2){
+  //     var data=document.querySelector('.slider');
+  //     data.className="slider thirdSilde";
+  //     $scope.bgClass="BgSilde2";
+  //   }
+  // }
+  // $scope.slideChanged($scope.activeSlide);
+  // $scope.enableSlide = function() {   
+  //   $ionicSlideBoxDelegate.enableSlide(true);
+  // }
+  // $scope.toggleScroll=true;
+  // $scope.RightenableSlide = function() {   
+  //   $ionicSlideBoxDelegate.enableSlide(false);
+  //   $scope.toggleScroll=false;
+  // }  
 }])
 
 // directive for prevent effect while scroll
@@ -389,7 +484,7 @@ angular.module('starter.controllers', [])
   $scope.goback=function(){
     window.history.back();
   }
-  var date = new Date();
+    var date = new Date();
     $scope.dateValue = $filter('date')(new Date(), 'dd/MM/yyyy');
     $scope.timeValue = $filter('date')(new Date(), 'hh:mm a');
     $scope.dateValue1 = $filter('date')(new Date(), 'dd/MM/yyyy');

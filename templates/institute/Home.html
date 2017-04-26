@@ -8,8 +8,11 @@
       </span>
     </div>
   </div>
-  <ion-content class="has-header" customDrag>
+  <ion-content class="has-header" on-drag="onDrag()">
     <style type="text/css">
+      .scroll-content{
+        margin-top: -45px;
+      }
       @media screen and (min-width: 320px) and (max-width:599px) {
         .inst-BgImg{
           background-image: url('img/login.jpg'); margin-top: 44px;
@@ -83,10 +86,17 @@
         box-shadow:none;
         width: 100%;
       }
+      .instituteLogo{
+        width: 75px;
+        height: 75px;
+        margin: auto;
+        display: block;
+      }
     </style>
     <div class="hero inst-BgImg">
       <!-- Institute Name -->
       <div class="content inst-Name">
+        <!-- <img src="http://images.clipartpanda.com/modern-american-history-collage-Austin_College_Logo.png" class="instituteLogo"> -->
         <h3><a class="light">RubyCampus</a></h3>
         <h4>Arts & Science College</h4>
         <a href="https://www.facebook.com/rubycampussoftware" class="button button-medium button-clear flat  text-white waves-effect waves-button waves-light inst-FbBtn" ng-click="loading()"><img src="img/icons/facebook.ico" class="SocailIcons" ></a>
@@ -98,8 +108,8 @@
         <a href="mailto:rubycampus@gmail.com" class="button button-large button-clear button-light flat icon ion-email  pull-right text-white waves-effect waves-button waves-light inst-Btnicon"></a>
       </div>
     </div> -->
-    <!-- ionic Tabs --> 
-    <ion-pane class="inst-CustomContentHeight" scroll="true">    
+    <!-- ionic Tabs -->
+    <ion-pane class="inst-CustomContentHeight" scroll="true">  
       <ion-tabs class="tabs-dark tabs-top tabs-icon-bottom">
         <ion-tab title="About" icon-on="ion-home" icon-off="ion-home" ui-sref="institute.about">
           <ion-nav-view name="about"></ion-nav-view>

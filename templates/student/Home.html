@@ -1,66 +1,63 @@
-<ion-view>
-  <ion-content  overflow-scroll="true" edge-drag-threshold="true">
-    <div style="margin-left: -7px;">
-      <div class="list card">
-        <div class="item item-avatar">
-          <img src="img/arya.jpg">
-          <h2>Ruby</h2>
-          <p>B.Tech Information Technology</p>
-        </div>
-        <div class="item item-divider">
-          <button class="button  Cardlink button-clear button-dark" ui-sref="app.Profile.About">Proflie1</button>
-        </div>
+<ion-view  style="background-color: #DFDFDF">
+  <ion-content on-swipe-left="onSwipeLeft()">
+    <div class="list card">
+      <div class="item item-avatar">
+        <img src="img/arya.jpg">
+        <h2>Ruby</h2>
+        <p>B.Tech Information Technology</p>
       </div>
-      <div class="list card">
-        <div class="item DividerBorder">
-          <h3>Quick Menus</h3>
-        </div>
-        <table style="width:100%" class="tab">
-          <tr>
-            <td class="QuickMenuTD-Top Table-TD tab-item">
-              <i class="icon ion-calendar"></i> <br>Timetable
-            </td>
-            <td class="QuickMenuTD-Top Table-TD tab-item">
-              <i class="icon ion-compose"></i> <br> Attendance  
-            </td>
-            <td class="QuickMenuTD-Top Table-TD tab-item">
-              <i class="icon ion-clipboard"></i> <br> Exam Report
-            </td>
-          </tr>
-          <tr>
-            <td class="QuickMenuTD-Botm Table-TD tab-item">
-              <i class="icon ion-ios-bookmarks-outline"></i> <br> Assignment
-            </td>
-            <td class="QuickMenuTD-Botm Table-TD tab-item">
-              <i class="icon ion-ios-book-outline"></i> <br> Reporsitroy
-            </td>
-            <td class="QuickMenuTD-Botm Table-TD tab-item">
-              <i class="icon ion-social-usd"></i> <br> Fee Details
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="list card">
-        <div class="item item-avatar item-text-wrap">
-          <img src="img/arya.jpg">
-          <h2>Events & News</h2>
-          <p>Latest Events and upcoming Events Details</p>
-        </div>
-        <div class="item item-divider">
-          <button class="button  Cardlink button-clear button-dark">Proflie</button>
-        </div>
-      </div>
-      <div class="list card">
-        <div class="item item-avatar item-text-wrap">
-          <img src="img/arya.jpg">
-          <h2>Attendance</h2>
-          <p>Attendance Details of acdamic year </p>
-        </div>
-        <div class="item item-divider">
-          <button class="button  Cardlink button-clear button-dark">Proflie</button>
-        </div>
+      <div class="item item-divider">
+        <button class="button  Cardlink button-clear button-dark" ui-sref="Profile">Proflie</button>
       </div>
     </div>
-    <p><br></p>
+    <div class="list card">
+      <div class="item DividerBorder">
+        <h3>Quick Menus</h3>
+      </div>
+      <table style="width:100%" class="tab">
+        <tr>
+          <td class="QuickMenuTD-Top Table-TD tab-item">
+            <i class="icon ion-calendar"></i> <br>Timetable
+          </td>
+          <td class="QuickMenuTD-Top Table-TD tab-item">
+            <i class="icon ion-compose"></i> <br> Attendance  
+          </td>
+          <td class="QuickMenuTD-Top Table-TD tab-item">
+            <i class="icon ion-clipboard"></i> <br> Exam Report
+          </td>
+        </tr>
+        <tr>
+          <td class="QuickMenuTD-Botm Table-TD tab-item">
+            <i class="icon ion-ios-bookmarks-outline"></i> <br> Assignment
+          </td>
+          <td class="QuickMenuTD-Botm Table-TD tab-item">
+            <i class="icon ion-ios-book-outline"></i> <br> Reporsitroy
+          </td>
+          <td class="QuickMenuTD-Botm Table-TD tab-item">
+            <i class="icon ion-social-usd"></i> <br> Fee Details
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar item-text-wrap">
+        <img src="img/arya.jpg">
+        <h2>Events & News</h2>
+        <p>Latest Events and upcoming Events Details</p>
+      </div>
+      <div class="item item-divider">
+        <button class="button  Cardlink button-clear button-dark">Proflie</button>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar item-text-wrap">
+        <img src="img/arya.jpg">
+        <h2>Attendance</h2>
+        <p>Attendance Details of acdamic year </p>
+      </div>
+      <div class="item item-divider">
+        <button class="button  Cardlink button-clear button-dark">Proflie</button>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
