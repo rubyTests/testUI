@@ -1,0 +1,182 @@
+
+<ion-view view-title="Messages" style="background-color: #F5F5F5">
+	<style>
+		.btnstyle{
+			border-radius: 30px;
+			height: 43px;
+			width: 45px;
+		}
+		.type{
+			border-width: 0px;
+			width: 352px;
+		}
+		.ion.ion-android-send{
+	    	padding: 12px 23px 0 0;
+	    }
+	    .item.item-avatar {
+		    border: medium none;
+		    box-shadow: none !important;
+		    min-height: 70px !important;
+		    padding-left: 70px !important;
+		}
+		i{
+			font-size: 24px;
+			color: green;
+		}
+		.item-md-label {
+		    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+		    box-shadow: none;
+		    display: block;
+		    margin-left: 0;
+		    margin-right: 12px;
+		    padding: 30px 0 0;
+		}
+		.item-md-label input {
+		    background-color: #ffffff;
+		    bottom: 0;
+		    color: green;
+		    letter-spacing: 0rem;
+		    padding: 20px 10px;
+		    position: relative;
+		    z-index: 1;
+		    border-bottom: 1px solid #cccccc;
+		}
+		.item-md-label .input-label {
+			letter-spacing: 0rem;
+		    padding-left: 22px;
+		}
+		.item-md-label .input-label {
+		    color: #797c80;
+		    opacity: 0.5;
+		    position: absolute;
+		    transform: translate3d(0px, -30px, 0px) scale(1);
+		    transform-origin: 0 50% 0;
+		    transition: all 0.2s ease 0s;
+		    z-index: 2;
+		}
+		.item-md-label input.used ~ .input-label, .item-md-label input:focus ~ .input-label {
+		    font-weight: lighter;
+		    opacity: 0.7;
+		    padding-left: 22px;
+		    text-transform: capitalize;
+		    transform: translate3d(0px, -60px, 0px) scale(0.9);
+		}
+		.item-md-label .highlight-calm {
+		    background: #50b948 none repeat scroll 0 0;
+
+		}
+		.item-md-label input {
+		    background-color: rgb(245, 245, 245);
+		    border-bottom: 1px solid #ddd;
+		}
+		textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+		    color: #111;
+		    display: block;
+		    font-size: 14px;
+		    height: 39px;
+		    line-height: 16px;
+		    padding-left: 22px;
+		    padding-top: 2px;
+		    vertical-align: middle;
+		}
+		.item-md-label .highlight {
+		    height: 1px;
+		}
+		.list.item{
+			border-top-width: 0;
+		}
+		.uploadImage{
+	        width: 40%;
+	        height: 40%;
+	        box-shadow: none !important;
+	        margin: auto;
+	        display: block;
+	    }
+	    p{
+	    	text-align: center;
+	       /* Larger than a phone */
+	    }
+		/*@media (min-width: 567px) {
+		  tr, td[p] {
+		    width: 95%;
+		    height: 780px;
+		  }
+		}
+		@media (min-width: 630px) {
+		  tr, td[p] {
+		    width: 95%;
+		    height: 870px;
+		  }
+		}
+
+		@media (max-width: 567px) {
+		  tr, td[p] {
+		    width: 90%;
+		    height: 625px;
+		  }
+		}
+		@media (max-width: 480px) {
+		  tr, td[p] {
+		    width: 90%;
+		    height: 425px;
+		  }
+		}
+		@media (max-width: 567px) {
+		  tr, td[p] {
+		    width: 90%;
+		    height: 625px;
+		  }
+		}
+*/		 
+		
+
+
+	</style>
+	<ion-header-bar class="bar-assertive-900" align-title="left">
+		<div class="buttons buttons-left header-item" ng-click="goback();" >
+          <span class="left-buttons">
+              <button menu-toggle="left" class="button button-icon button-clear ion-android-arrow-back">
+              </button>
+          </span>
+      </div>
+	<h1 class="title light">New Post</h1>
+	    <div class="buttons buttons-right">
+        	<a class="ion ion-android-send" ng-click="save()"></a>
+        </div>
+    </ion-header-bar>
+   <ion-content>
+   	<div class="item item-avatar">
+		<img src="img/tyrion.jpg">
+		<h2 style="padding-top: 10px;padding-left: 10px;">Faizer</h2>
+	</div>
+	<div class="list">
+		<ion-md-input placeholder="Title" type="text"></ion-md-input>
+		<ion-md-input placeholder="Description" type="text"></ion-md-input>
+	</div>
+	<div class="list item">
+		<p class="label-text">Upload Photos & videos</p>
+		
+		<img ng-click="upload()" src="{{Pickimage}}" class="uploadImage">
+	</div>
+	
+   </ion-content>
+    <script id="my-modal.html" type="text/ng-template">
+			  <ion-modal-view style="opacity: 0.91 !important; bottom: 0;left: 0;min-height: 0;overflow: visible;right: 0;top: 0;width: 100%;">
+			    <div class="ion-modal-content-custom">
+			      <ion-content class="padding " >
+			      		<table style="width: 100%;">
+							  <tr>
+							     <td style="text-align: center; vertical-align: middle;padding-top: 240px !important;">
+							        <img  alt="Logo" src="img/checkicon.png" height=60 width=60>
+							        <p><b style="font-size: 18px;">SUCCESS</b><br>
+							        	<span>Student attendance marked successfully</span>
+							        </p>
+							     </td>
+							  </tr>
+						</table>
+			      </ion-content>
+			    </div>
+			  </ion-modal-view>
+			</script>
+  
+</ion-view>
