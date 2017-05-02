@@ -193,73 +193,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
       }
     }
   })
-
-  .state('Profile',{
-  	url:'/Profile',
-  	templateUrl:'templates/student/Profile.html',
-  	controller:'CampusCtrl'
-  })
-  .state('Profile.About',{
-  	url:'/About',
-  	views:{
-  		'AboutDetail':{
-  			templateUrl:'templates/student/about.html',
-  			controller:'CampusCtrl'
-  		}
-  	}
-  })
-  .state('Profile.Parents',{
-  	url:'/Parents',
-  	views:{
-  		'ParentsDetail':{
-  			templateUrl:'templates/student/Parents.html',
-  			controller:'CampusCtrl'
-  		}
-  	}
-  })
-  .state('Profile.Parents.Father',{
-  	url:'/Father',
-  	views:{
-  		'Father-Detail':{
-  			templateUrl:'templates/student/FatherDetail.html',
-  			controller:'CampusCtrl'
-  		}
-  	}
-  })
-  .state('Profile.Parents.Mother',{
-  	url:'/Mother',
-  	views:{
-  		'Mother-Detail':{
-  			templateUrl:'templates/student/MotherDetail.html',
-  			controller:'CampusCtrl'
-  		}
-  	}
-  })
-  .state('Profile.Parents.Guardian',{
-  	url:'/Guardian',
-  	views:{
-  		'Guardian-Detail':{
-  			templateUrl:'templates/student/GuardianDetail.html',
-  			controller:'CampusCtrl'
-  		}
-  	}
-  })
-  .state('Profile.Additional',{
-  	url:'/Additional',
-  	views:{
-  		'AdditionalDetail':{
-  			templateUrl:'templates/student/Additional.html',
-  			controller:'CampusCtrl'
-  		}
-  	}
-  })
-
-	/// Added by gnbanamani
+  /// Added by gnbanamani
   .state('Calendar',{
-	    url:'/Calendar',
-	    templateUrl: "templates/calendar/calendar.html",
-	    controller: 'CalendarDemoCtrl'
-	  })
+      url:'/Calendar',
+      templateUrl: "templates/calendar/calendar.html",
+      controller: 'CalendarDemoCtrl'
+    })
 
    .state('AddEvent',{
     url:'/AddEvent',
@@ -348,6 +287,68 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
     templateUrl: "templates/repository/addPost.html",
     controller: 'repositoryCtrl'
   })
+
+  .state('Profile',{
+  	url:'/Profile',
+  	templateUrl:'templates/student/Profile.html',
+  	controller:'CampusCtrl'
+  })
+  .state('Profile.About',{
+  	url:'/About',
+  	views:{
+  		'AboutDetail':{
+  			templateUrl:'templates/student/about.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Parents',{
+  	url:'/Parents',
+  	views:{
+  		'ParentsDetail':{
+  			templateUrl:'templates/student/Parents.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Parents.Father',{
+  	url:'/Father',
+  	views:{
+  		'Father-Detail':{
+  			templateUrl:'templates/student/FatherDetail.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Parents.Mother',{
+  	url:'/Mother',
+  	views:{
+  		'Mother-Detail':{
+  			templateUrl:'templates/student/MotherDetail.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Parents.Guardian',{
+  	url:'/Guardian',
+  	views:{
+  		'Guardian-Detail':{
+  			templateUrl:'templates/student/GuardianDetail.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+  .state('Profile.Additional',{
+  	url:'/Additional',
+  	views:{
+  		'AdditionalDetail':{
+  			templateUrl:'templates/student/Additional.html',
+  			controller:'CampusCtrl'
+  		}
+  	}
+  })
+
+	
 	;
 	// if none of the above states are matched, use this as the fallback
 	$urlRouterProvider.otherwise('/institute/about');
