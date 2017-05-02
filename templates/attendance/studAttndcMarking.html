@@ -180,6 +180,39 @@
 		.item .item-content.activated, .item .item-content.active, .item-complex.activated .item-content, .item-complex.active .item-content, .item.activated, .item.active {
             background-color: #ddd;
         }
+        /* Larger than a phone */
+	/*	@media (min-width: 567px) {
+		  tr, td[p] {
+		    width: 95%;
+		    height: 780px;
+		  }
+		}
+		@media (min-width: 630px) {
+		  tr, td[p] {
+		    width: 95%;
+		    height: 870px;
+		  }
+		}
+
+		@media (max-width: 567px) {
+		  tr, td[p] {
+		    width: 90%;
+		    height: 625px;
+		  }
+		}
+		@media (max-width: 480px) {
+		  tr, td[p] {
+		    width: 90%;
+		    height: 425px;
+		  }
+		}
+		@media (max-width: 567px) {
+		  tr, td[p] {
+		    width: 90%;
+		    height: 625px;
+		  }
+		}
+*/
 
 
 	</style>
@@ -216,52 +249,20 @@
     </div>
 
 </ion-content>
-           <!--  <script id="image-modal.html" type="text/ng-template">
-              	<div class="modal image-modal transparent" ng-click="closeModal()">
-                    <ion-pane class="transparent">
-                   	
-						<section class = "home-container">
-						    <div class="row row-center" >
-						        <div class="col text-center" >
-						            <! <img alt="Logo" height="100" src="img/logo.png" > -->
-						          <!--   <img ng-src="{{img}}" class="fullscreen-image"/>
-						            <p style="font-size: 18px;margin-top: 30px;">{{status}}</p>
-						        </div>
-						    </div>
-						</section>
-                  	</ion-pane>
-              	</div>
-            </script> -->
-            <!-- <table style="width: 100%;">
-							
-							  <tr>
-							     <td style="text-align: center; vertical-align: middle;">
-							        <img ng-src="{{status}}" class="fullscreen-image"/ >
-							        <p style="font-size: 20px;">Saved Successfully</p>
-							          
-							     </td>
-							  </tr>
-						</table> -->
             <script id="my-modal.html" type="text/ng-template">
 			  <ion-modal-view style="opacity: 0.91 !important; bottom: 0;left: 0;min-height: 0;overflow: visible;right: 0;top: 0;width: 100%;">
 			    <div class="ion-modal-content-custom">
 			      <ion-content class="padding " >
 			      		<table style="width: 100%;">
 							  <tr>
-							     <td style="text-align: center; vertical-align: middle;padding-top: 220px;">
-							        <img  alt="Logo" src="img/checkicon.png" height=60 width=60>
+							     <td style="text-align: center; vertical-align: middle;">
+							        <img  alt="Logo" src="img/checkicon.png" height=60 width=60 style="margin-top: 50%">
 							        <p><b style="font-size: 18px;">SUCCESS</b><br>
 							        	<span>Student attendance marked successfully</span>
 							        </p>
 							     </td>
 							  </tr>
 						</table>
-			      
-							<!-- <img  alt="Logo" src="img/Checkmark-26.png" >
-			        		<p style="font-size: 18px;margin-top: 10px;">Saved Successfully</p> -->
-						
-			      <!-- 	<img style="margin-top: 160px;margin-left: 136px;" alt="Logo" src="img/Checkmark-26.png" >
-			        <p style="font-size: 18px;margin-top: 10px;margin-left: 73px;">Saved Successfully</p> -->
 			      </ion-content>
 			    </div>
 			  </ion-modal-view>
