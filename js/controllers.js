@@ -311,8 +311,273 @@ angular.module('starter.controllers', [])
     });
   }
 })
-// Gnanamani created @ 21.03.2017
+
+
+
+
+
+.controller('CalendarDemoCtrl1', function ($scope) {
+        'use strict';
+        $scope.calendar = {};
+          $scope.init = function () {
+             $scope.calendar.eventSource = createRandomEvents();
+            //console.log($scope.calendar.eventSource,"eventSource");
+          }
+        $scope.changeMode = function (mode) {
+            $scope.calendar.mode = mode;
+        };
+
+        // $scope.loadEvents = function () {
+        //     $scope.calendar.eventSource = createRandomEvents();
+        // };
+
+        $scope.onEventSelected = function (event) {
+            console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
+        };
+
+        $scope.onViewTitleChanged = function (title) {
+            $scope.viewTitle = title;
+        };
+
+        $scope.today = function () {
+            $scope.calendar.currentDate = new Date();
+        };
+
+        $scope.isToday = function () {
+            var today = new Date(),
+                currentCalendarDate = new Date($scope.calendar.currentDate);
+
+            today.setHours(0, 0, 0, 0);
+            currentCalendarDate.setHours(0, 0, 0, 0);
+            return today.getTime() === currentCalendarDate.getTime();
+        };
+
+        $scope.onTimeSelected = function (selectedTime, events, disabled) {
+            console.log('Selected time: ' + selectedTime + ', hasEvents: ' + (events !== undefined && events.length !== 0) + ', disabled: ' + disabled);
+        };
+
+        function createRandomEvents() {
+            var events = [];
+            for (var i = 0; i < 50; i += 1) {
+                var date = new Date();
+                var eventType = Math.floor(Math.random() * 2);
+                var startDay = Math.floor(Math.random() * 90) - 45;
+                var endDay = Math.floor(Math.random() * 2) + startDay;
+                var startTime;
+                var endTime;
+                if (eventType === 0) {
+                    startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
+                    if (endDay === startDay) {
+                        endDay += 1;
+                    }
+                    endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
+                    events.push({
+                        title: 'All Day - ' + i,
+                        startTime: startTime,
+                        endTime: endTime,
+                        allDay: true
+                    });
+                } else {
+                    var startMinute = Math.floor(Math.random() * 24 * 60);
+                    var endMinute = Math.floor(Math.random() * 180) + startMinute;
+                    startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
+                    endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
+                    events.push({
+                        
+                         
+      title: 'Environment day'  + i,
+      description:'Environment day is celebrated with a special message.',
+      img:'img/material1.jpg',
+      startTime: date,
+      endTime:  date,
+      allDay: false
+    
+                    });
+                }
+            }
+            return events;
+        }
+})
 .controller('CalendarDemoCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$filter',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$filter){
+  'use strict';
+  $scope.calendar = {};
+  $scope.init = function () {
+     $scope.calendar.eventSource = createRandomEvents();
+    //console.log($scope.calendar.eventSource,"eventSource");
+  }
+  $scope.goback=function(){
+    window.history.back();
+  }
+  $scope.changeMode = function (mode) {
+    $scope.calendar.mode = mode;
+  };
+  $scope.onEventSelected = function (event) {
+    console.log('Event selected:' + event.startTime + '-' + event.endTime + ',' + event.title);
+  };
+
+  $scope.onViewTitleChanged = function (title) {
+    console.log(title,"title");
+    $scope.viewTitle = title;      
+  };
+
+  $scope.today = function () {
+    $scope.calendar.currentDate = new Date();
+  };
+
+  $scope.isToday = function () {
+    var today = new Date(),
+      currentCalendarDate = new Date($scope.calendar.currentDate);
+      today.setHours(0, 0, 0, 0);
+      currentCalendarDate.setHours(0, 0, 0, 0);
+      return today.getTime() === currentCalendarDate.getTime();
+  };
+  $scope.listEvents=true;
+  $scope.onTimeSelected = function (selectedTime, events, disabled) {
+    // alert((events !== undefined && events.length !== 0),"events")
+    $scope.listEvents=events !== undefined && events.length !== 0;
+    // alert($scope.listEvents);
+    // console.log('Selected time: ' + selectedTime + ', hasEvents: ' + (events !== undefined && events.length !== 0) + ', disabled: ' + disabled);
+  };
+function createRandomEvents() {
+            var events = [];
+            // for (var i = 0; i < 50; i += 1) {
+                var date = new Date();
+                var eventType = Math.floor(Math.random() * 2);
+                var startDay = Math.floor(Math.random() * 90) - 45;
+                var endDay = Math.floor(Math.random() * 2) + startDay;
+                var startTime;
+                var endTime;
+                // if (eventType === 0) {
+                //     startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
+                //     if (endDay === startDay) {
+                //         endDay += 1;
+                //     }
+                //     endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
+                //     events.push({
+                //         title: 'Sports Day',
+                //         description:'Sports Day where students participate in various races and events..',
+                //         img:'img/material3.jpg',
+                //         startTime: date,
+                //         endTime: date,
+                //         allDay: true
+                //     });
+                // } else {
+                    var startMinute = Math.floor(Math.random() * 24 * 60);
+                    var endMinute = Math.floor(Math.random() * 180) + startMinute;
+                    startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
+                    endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
+                    events.push({
+                      title: 'Environment day'  ,
+                      description:'Environment day is celebrated with a special message.',
+                      img:'img/material1.jpg',
+                      startTime: date,
+                      endTime:  date,
+                      allDay: false
+                    },
+                    {
+                    title: 'Science exhibition',
+                    description:'Science exhbition and SUPW exhibition are held every year..',
+                    img:'img/material2.jpg',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  },
+                  {
+                    title: 'Sports Day',
+                    description:'Sports Day where students participate in various races and events..',
+                    img:'img/material3.jpg',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  }
+                  ,{
+                    title: 'Childrens Day',
+                    description:'Investiture Day ceremony where newly elected student leaders ',
+                    img:'img/material4.jpg',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  },
+                  {
+                    title: 'Appreciation Day',
+                    description:'These are days we appreciate our students in the field of sports',
+                    img:'img/material5.jpg',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  },
+                   {
+                    title: 'Convocation Day',
+                    description:'Graduation is getting a diploma or academic degree or the ceremony that is sometimes associated with it, in which students become graduates.',
+                    img:'img/material2.jpg',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  },
+                   {
+                    title: 'Annual Day',
+                    description:'Annual Day forms an integral part of our school activities.  It is an occasion of celebration, felicitation, feast and festivity when students present not only their wonderful performances but also receive honours for their curricular and co-curricular achievements. ',
+                    img:'img/material5.jpg',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  },
+                   {
+                    title: 'Environment day',
+                    description:'Environment day is celebrated with a special message.',
+                    img:'img/run-fun-walk.png',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  },
+                  {
+                    title: 'Science exhibition',
+                    description:'Science exhbition and SUPW exhibition are held every year..',
+                    img:'img/20717.png',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  },
+                  {
+                    title: 'Sports Day',
+                    description:'Sports Day where students participate in various races and events..',
+                    img:'img/Womens-Day-Logo.png',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  }
+                  ,{
+                    title: 'Childrens Day',
+                    description:'Investiture Day ceremony where newly elected student leaders ',
+                    img:'img/boy_girl_logo.gif',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  },
+                  {
+                    title: 'Appreciation Days',
+                    description:'These are days we appreciate our students in the field of sports',
+                    img:'img/logoapp.png',
+                    startTime: date,
+                    endTime: date,
+                    allDay: false
+                  }
+                    );
+                // }
+            
+            return events;
+        }
+}])
+// Gnanamani created @ 21.03.2017
+.controller('CalendarDemoCtrl2',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$filter',function($scope,ionicMaterialInk,ionicMaterialMotion,$timeout,$filter){
+  $scope.getCurrent=function(){
+    if ($scope.calendar.mode=='month') {
+      return false;  
+    }else{
+      return true;  
+    }
+    
+  }
   $timeout(function(){
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.ripple();
@@ -341,6 +606,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.onViewTitleChanged = function (title) {
+    console.log(title,"title");
     $scope.viewTitle = title;      
   };
 
@@ -355,9 +621,12 @@ angular.module('starter.controllers', [])
       currentCalendarDate.setHours(0, 0, 0, 0);
       return today.getTime() === currentCalendarDate.getTime();
   };
-
+  $scope.listEvents=true;
   $scope.onTimeSelected = function (selectedTime, events, disabled) {
-    console.log('Selected time: ' + selectedTime + ', hasEvents: ' + (events !== undefined && events.length !== 0) + ', disabled: ' + disabled);
+    // alert((events !== undefined && events.length !== 0),"events")
+    $scope.listEvents=events !== undefined && events.length !== 0;
+    // alert($scope.listEvents);
+    // console.log('Selected time: ' + selectedTime + ', hasEvents: ' + (events !== undefined && events.length !== 0) + ', disabled: ' + disabled);
   };
   $scope.saveEvent = function (){
     var events = [];
@@ -659,13 +928,12 @@ angular.module('starter.controllers', [])
        setTimeout(function()
       {
         $scope.modal.hide();
-      },100);
+      },700);
    
       setTimeout(function()
       {
-      
         $state.go("app.Dashboard");
-      },600);
+      },700);
     });
   };
   $scope.closeModal = function() {
@@ -829,37 +1097,123 @@ angular.module('starter.controllers', [])
   $scope.marklist =function(){
     $state.go("MarkList");
   }
-  // var c3chart_donut_id = 'c3_chart_donut_exam';
-  //   if ( $('#'+c3chart_donut_id).length ) {
-  //     var c3chart_donut = c3.generate({
-  //       bindto: '#'+c3chart_donut_id,
-  //       data: {
-  //           columns: [
-  //               ['ME',80 ],
-  //               [20 ],
-  //           ],
-  //           type : 'donut',
-  //       },
-        
-       
-  //       donut: {
-  //           title: "80 %",
-  //           width: 16,
-  //           label: {
-  //              show: false
-  //              },
-  //       },
-  //       size: {
-  //           height: 210,
-  //           width:  200
-  //           },
-  //       interaction: {
-  //           enabled: false
-  //       },
-  //       color: {
-  //           pattern: ['#886AEA']
-  //       }
-  //   });
-  // }
+  
 }])
+  .controller('repositoryCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicActionSheet','$cordovaFileTransfer','$ionicLoading','$ionicModal','$state',function($scope,ionicMaterialInk,ionicMaterialMotion, $timeout,$ionicActionSheet,$cordovaFileTransfer,$ionicLoading,$ionicModal,$state){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+  $scope.goback=function(){
+    window.history.back();
+  }
+  $scope.actionSheet = function() {
+    
+    $ionicActionSheet.show({
+      // titleText: 'Action Sheet',
+      buttons: [
+        { text: '<i class="icon ion-android-share"></i> Share' },
+        { text: '<i class="icon ion-arrow-move"></i> Move' },
+      ],
+      destructiveText: '<i class="icon ion-trash-a"></i> Delete',
+      // cancelText: 'Cancel',
+      cancel: function() {
+        console.log('CANCELLED');
+      },
+      buttonClicked: function(index) {
+        console.log('BUTTON CLICKED', index);
+        return true;
+      },
+      destructiveButtonClicked: function(value,event) {
+        $scope.IsVisible = true;
+        return true;
+      }
+    });
+  };
+      
+
+  $scope.Pickimage="img/32.png";
+  $scope.upload = function(){
+          fileChooser.open(function(uri) {
+      // alert(uri);
+        var options = {
+                     fileKey: "file",
+                      //fileName: "tesat.pdf",
+                     fileName: uri.substr(uri.lastIndexOf('/') + 1),
+                     chunkedMode: false,
+                     mimeType: "text/plain"
+   };
+      
+     $cordovaFileTransfer.upload( "http://campusenter.com/Android/fileUpload/upload.php",uri,options).then(function(result) {
+       alert('d-'+JSON.stringify(result));
+       alert("SUCCESS: " + result.response);
+       // $scope.Pickimage= result;
+       // alert($scope.Pickimage);
+        }, function(err) {
+            alert("ERROR: " + JSON.stringify(err));
+        }, function (progress) {
+           // constant progress updates
+      })
+   
+   });     
+    
+   }
+  // $scope.upload = function(){
+  //     alert("in")
+  //     var success = function(data) {
+  //       alert(data);
+  //       window.FilePath.resolveNativePath(data, successCallback, errorCallback);
+  //       // do something
+  //     };
+   
+  //     var error = function(msg) {
+  //         alert(msg);
+  //         //do something
+  //     };
+  //     function successCallback(uri){
+  //       alert(uri+"<--uri");
+  //     }
+  //     function errorCallback(error){
+  //       alert(error+"<--error");
+  //     }
+  //     filechooser.open({"mime": "image/png"}, success, error);      
+  //  }
+   $scope.save = function(animation){
+    
+   
+    // Setup the loader
+    $ionicLoading.show({
+      content: 'Loading',
+      animation: 'fade-in',
+      showBackdrop: true,
+      maxWidth: 200,
+      showDelay: 0
+      // template: '<p>Add post...</p><ion-spinner></ion-spinner>'
+    });
+      $ionicModal.fromTemplateUrl('my-modal.html', {
+        scope: $scope,
+        animation: animation
+      }).then(function(modal) {
+        $scope.modal = modal;
+          $timeout(function () {
+            $ionicLoading.hide();
+          }, 900);
+          setTimeout(function()
+          {
+            $scope.modal.show();
+          },1000);
+         
+          $timeout(function () {
+            $scope.modal.hide();
+          }, 1900);
+          setTimeout(function()
+          {
+            $state.go("Repository");
+          },1900);
+        
+      });
+
+    }
+}])
+
 ;

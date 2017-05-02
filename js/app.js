@@ -338,6 +338,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
     templateUrl: "templates/timetable/timeTable.html",
     controller: 'MainController'
   })
+   .state('Repository',{
+    url:'/Repository',
+    templateUrl: "templates/repository/repositoryView.html"
+    // controller: 'repositoryCtrl'
+  })
+   .state('AddPost',{
+    url:'/AddPost',
+    templateUrl: "templates/repository/addPost.html",
+    controller: 'repositoryCtrl'
+  })
 	;
 	// if none of the above states are matched, use this as the fallback
 	$urlRouterProvider.otherwise('/institute/about');
