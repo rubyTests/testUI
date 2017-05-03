@@ -86,8 +86,8 @@
 			border-top-width: 0;
 		}
 		.uploadImage{
-	        width: 40%;
-	        height: 40%;
+	        width: 60%;
+	        height: 60%;
 	        box-shadow: none !important;
 	        margin: auto;
 	        display: block;
@@ -96,39 +96,10 @@
 	    	text-align: center;
 	       /* Larger than a phone */
 	    }
-		/*@media (min-width: 567px) {
-		  tr, td[p] {
-		    width: 95%;
-		    height: 780px;
-		  }
-		}
-		@media (min-width: 630px) {
-		  tr, td[p] {
-		    width: 95%;
-		    height: 870px;
-		  }
-		}
-
-		@media (max-width: 567px) {
-		  tr, td[p] {
-		    width: 90%;
-		    height: 625px;
-		  }
-		}
-		@media (max-width: 480px) {
-		  tr, td[p] {
-		    width: 90%;
-		    height: 425px;
-		  }
-		}
-		@media (max-width: 567px) {
-		  tr, td[p] {
-		    width: 90%;
-		    height: 625px;
-		  }
-		}
-*/		 
-		
+		.scroll-container {
+     overflow: scroll;
+     -webkit-overflow-scrolling: touch;
+    }
 
 
 	</style>
@@ -139,7 +110,7 @@
               </button>
           </span>
       </div>
-	<h1 class="title light">New Post</h1>
+	<h1 class="title light">Add New Post</h1>
 	    <div class="buttons buttons-right">
         	<a class="ion ion-android-send" ng-click="save()"></a>
         </div>
@@ -154,10 +125,27 @@
 		<ion-md-input placeholder="Description" type="text"></ion-md-input>
 	</div>
 	<div class="list item">
-		<p class="label-text">Upload Photos & videos</p>
+		<p class="label-text">Upload Photos & videos</p><br>
+		<div ng-show="uploading">
+			<img type="file" src="{{Pickimage}}" class="uploadImage" ng-model="files" ngf-multiple="true" ngf-select="upload($files)">
+		</div>
+
+		<!-- <pre>{{files}}</pre> -->
 		
-		<img ng-click="upload()" src="{{Pickimage}}" class="uploadImage">
-	</div>
+			<img type="file" ng-show="fileType=='application/pdf'" src="{{PickimagePdf}}" class="uploadImage" ng-model="files" ngf-multiple="true" ngf-select="upload($files)">
+		
+	        <img type="file" ngf-src="!files[0].$error && files[0]" class="uploadImage" ng-model="files" ngf-multiple="true" ngf-select="upload($files)">
+	        <audio type="file" controls="" ngf-src="!files[0].$error && files[0]" class="uploadImage" ng-model="files" ngf-multiple="true" ngf-select="upload($files)"></audio>
+	        <video type="file" controls="" ngf-src="!files[0].$error && files[0]" class="uploadImage" ng-model="files" ngf-multiple="true" ngf-select="upload($files)"></video><br>
+       <!--  
+        <iframe controls="" ngf-src="!files[0].$error && files[0]" class="uploadImage" ng-model="files" ngf-multiple="true" ngf-select="upload($files)"></iframe><br> -->
+        <p>{{fileDetails}}</p>
+
+    </div>
+    
+
+
+
 	
    </ion-content>
     <script id="my-modal.html" type="text/ng-template">
@@ -166,8 +154,8 @@
 			      <ion-content class="padding " >
 			      		<table style="width: 100%;">
 							  <tr>
-							     <td style="text-align: center; vertical-align: middle;padding-top: 240px !important;">
-							        <img  alt="Logo" src="img/checkicon.png" height=60 width=60>
+							     <td style="text-align: center; vertical-align: middle;">
+							        <img  alt="Logo" src="img/checkicon.png" height=60 width=60 style="margin-top: 50%">
 							        <p><b style="font-size: 18px;">SUCCESS</b><br>
 							        	<span>Student attendance marked successfully</span>
 							        </p>
