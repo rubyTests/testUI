@@ -1029,11 +1029,12 @@ function createRandomEvents() {
   }
   
 }])
-  .controller('repositoryCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicActionSheet','$cordovaFileTransfer','$ionicLoading','$ionicModal','$state',function($scope,ionicMaterialInk,ionicMaterialMotion, $timeout,$ionicActionSheet,$cordovaFileTransfer,$ionicLoading,$ionicModal,$state){
+  .controller('repositoryCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$timeout','$ionicActionSheet','$cordovaFileTransfer','$ionicLoading','$ionicModal','$state','Upload',function($scope,ionicMaterialInk,ionicMaterialMotion, $timeout,$ionicActionSheet,$cordovaFileTransfer,$ionicLoading,$ionicModal,$state,Upload){
   $timeout(function(){
     ionicMaterialInk.displayEffect();
     ionicMaterialMotion.ripple();
   });
+  $scope.uploading = true;
   $scope.goback=function(){
     window.history.back();
   }
@@ -1063,31 +1064,51 @@ function createRandomEvents() {
       
 
   $scope.Pickimage="img/32.png";
-  $scope.upload = function(){
-          fileChooser.open(function(uri) {
-      // alert(uri);
-        var options = {
-                     fileKey: "file",
-                      //fileName: "tesat.pdf",
-                     fileName: uri.substr(uri.lastIndexOf('/') + 1),
-                     chunkedMode: false,
-                     mimeType: "text/plain"
-   };
+  $scope.PickimagePdf="img/adobe-pdf-icon-logo-vector-01.png";
+  // $scope.upload = function(){
+  //         fileChooser.open(function(uri) {
+  //     // alert(uri);
+  //       var options = {
+  //                    fileKey: "file",
+  //                     //fileName: "tesat.pdf",
+  //                    fileName: uri.substr(uri.lastIndexOf('/') + 1),
+  //                    chunkedMode: false,
+  //                    mimeType: "text/plain"
+  //  };
       
-     $cordovaFileTransfer.upload( "http://campusenter.com/Android/fileUpload/upload.php",uri,options).then(function(result) {
-       alert('d-'+JSON.stringify(result));
-       alert("SUCCESS: " + result.response);
-       // $scope.Pickimage= result;
-       // alert($scope.Pickimage);
-        }, function(err) {
-            alert("ERROR: " + JSON.stringify(err));
-        }, function (progress) {
-           // constant progress updates
-      })
+  //    $cordovaFileTransfer.upload( "http://campusenter.com/Android/fileUpload/upload.php",uri,options).then(function(result) {
+  //      alert('d-'+JSON.stringify(result));
+  //      alert("SUCCESS: " + result.response);
+  //      // $scope.Pickimage= result;
+  //      // alert($scope.Pickimage);
+  //       }, function(err) {
+  //           alert("ERROR: " + JSON.stringify(err));
+  //       }, function (progress) {
+  //          // constant progress updates
+  //     })
    
-   });     
+  //  });     
     
-   }
+  //  }
+    // upload on file select or drop
+    $scope.upload = function (file) {
+      // $scope.Pickimage=file[0].$ngfBlobUrl;
+      $scope.fileType=file[0].type;
+       $scope.fileDetails=file[0].name;
+      console.log(file[0].type,"typee");
+      $scope.uploading = false;
+        Upload.upload({
+            url: 'upload',
+            data: {file: file, 'username': $scope.username}
+        }).then(function (resp) {
+            console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+        }, function (resp) {
+            console.log('Error status: ' + resp);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+        });
+    };
   // $scope.upload = function(){
   //     alert("in")
   //     var success = function(data) {
