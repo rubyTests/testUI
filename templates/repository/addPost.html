@@ -86,8 +86,8 @@
 			border-top-width: 0;
 		}
 		.uploadImage{
-	        width: 60%;
-	        height: 60%;
+	        width: 37%;
+	        height: 37%;
 	        box-shadow: none !important;
 	        margin: auto;
 	        display: block;
@@ -125,7 +125,7 @@
 		<ion-md-input placeholder="Description" type="text"></ion-md-input>
 	</div>
 	<div class="list item">
-		<p class="label-text">Upload Photos & videos</p><br>
+		
 		<div ng-show="uploading">
 			<img type="file" src="{{Pickimage}}" class="uploadImage" ng-model="files" ngf-multiple="true" ngf-select="upload($files)">
 		</div>
@@ -140,6 +140,7 @@
        <!--  
         <iframe controls="" ngf-src="!files[0].$error && files[0]" class="uploadImage" ng-model="files" ngf-multiple="true" ngf-select="upload($files)"></iframe><br> -->
         <p>{{fileDetails}}</p>
+        <p class="label-text">Upload Photos & videos</p><br>
 
     </div>
     

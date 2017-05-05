@@ -1063,33 +1063,9 @@ function createRandomEvents() {
   };
       
 
-  $scope.Pickimage="img/32.png";
+  $scope.Pickimage="file:///C:/Users/Appnlogic/Downloads/noun_670576_cc.svg";
   $scope.PickimagePdf="img/adobe-pdf-icon-logo-vector-01.png";
-  // $scope.upload = function(){
-  //         fileChooser.open(function(uri) {
-  //     // alert(uri);
-  //       var options = {
-  //                    fileKey: "file",
-  //                     //fileName: "tesat.pdf",
-  //                    fileName: uri.substr(uri.lastIndexOf('/') + 1),
-  //                    chunkedMode: false,
-  //                    mimeType: "text/plain"
-  //  };
-      
-  //    $cordovaFileTransfer.upload( "http://campusenter.com/Android/fileUpload/upload.php",uri,options).then(function(result) {
-  //      alert('d-'+JSON.stringify(result));
-  //      alert("SUCCESS: " + result.response);
-  //      // $scope.Pickimage= result;
-  //      // alert($scope.Pickimage);
-  //       }, function(err) {
-  //           alert("ERROR: " + JSON.stringify(err));
-  //       }, function (progress) {
-  //          // constant progress updates
-  //     })
-   
-  //  });     
-    
-  //  }
+ 
     // upload on file select or drop
     $scope.upload = function (file) {
       // $scope.Pickimage=file[0].$ngfBlobUrl;
@@ -1109,26 +1085,7 @@ function createRandomEvents() {
             console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
         });
     };
-  // $scope.upload = function(){
-  //     alert("in")
-  //     var success = function(data) {
-  //       alert(data);
-  //       window.FilePath.resolveNativePath(data, successCallback, errorCallback);
-  //       // do something
-  //     };
-   
-  //     var error = function(msg) {
-  //         alert(msg);
-  //         //do something
-  //     };
-  //     function successCallback(uri){
-  //       alert(uri+"<--uri");
-  //     }
-  //     function errorCallback(error){
-  //       alert(error+"<--error");
-  //     }
-  //     filechooser.open({"mime": "image/png"}, success, error);      
-  //  }
+  
    $scope.save = function(animation){
     
    
@@ -1165,6 +1122,59 @@ function createRandomEvents() {
       });
 
     }
+}])
+
+.controller('assignmentCourseCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$state','$timeout','$http','$ionicFilterBar',function($scope,ionicMaterialInk,ionicMaterialMotion,$state, $timeout,$http ,$ionicFilterBar){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+  $scope.goback=function(){
+    window.history.back();
+  }
+  var filterBarInstance;
+   $scope.showFilterBar = function () {
+    filterBarInstance = $ionicFilterBar.show({
+      items: $scope.courses,
+      filterProperties: ['c_name'],
+      update: function (filteredItems, filterText) {
+        $scope.courses = filteredItems;
+      }
+    });
+  };
+  $scope.courses = [];
+  $http.get('templates/json/course.json')
+  .success(function(data){
+    $scope.courses=data;
+  }).error(function(err){
+  });
+}])
+.controller('assignmentBatchCtrl',['$scope','ionicMaterialInk','ionicMaterialMotion','$state','$timeout','$http','$ionicFilterBar','$location',function($scope,ionicMaterialInk,ionicMaterialMotion,$state, $timeout,$http ,$ionicFilterBar,$location){
+  $timeout(function(){
+    ionicMaterialInk.displayEffect();
+    ionicMaterialMotion.ripple();
+  });
+  $scope.goback=function(){
+    window.history.back();
+  }
+  $scope.selectbatch =function(){
+  }
+   var filterBarInstance;
+   $scope.showFilterBar = function () {
+    filterBarInstance = $ionicFilterBar.show({
+      items: $scope.batches,
+      filterProperties: ['b_name'],
+      update: function (filteredItems, filterText) {
+        $scope.batches = filteredItems;
+      }
+    });
+  };
+  $scope.batches = [];
+  $http.get('templates/json/batch.json')
+  .success(function(data){
+    $scope.batches=data;
+  }).error(function(err){
+  });
 }])
 
 ;

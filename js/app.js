@@ -282,10 +282,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
     templateUrl: "templates/repository/repositoryView.html"
     // controller: 'repositoryCtrl'
   })
-   .state('AddPost',{
+  .state('AddPost',{
     url:'/AddPost',
     templateUrl: "templates/repository/addPost.html",
     controller: 'repositoryCtrl'
+  })
+  .state('AssignmentCourse',{
+    url:'/AssignmentCourse',
+    templateUrl: "templates/assignment/addAssignment.html",
+    controller: 'assignmentCourseCtrl'
+  })
+  .state('AssignmentBatch',{
+    url:'/AssignmentBatch',
+    templateUrl: "templates/assignment/assignmentBatch.html",
+    controller: 'assignmentBatchCtrl'
+  })
+  .state('AssignmentSubjects',{
+    url:'/AssignmentSubjects',
+    templateUrl: "templates/assignment/assignmentSubjects.html",
+    controller: 'assignmentBatchCtrl'
   })
 
   .state('Profile',{
@@ -347,6 +362,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ionic-material', 'io
   		}
   	}
   })
+
+  
 
 	
 	;
